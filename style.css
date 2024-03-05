@@ -2,65 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.header__menu-item, footer .custom-head-link {
-  font-family: "FiraGO";
-  font-weight: 500;
-}
-
-.case-on{
-  font-feature-settings: "case" on;
-  text-transform: uppercase;
-}
-
-body,
-p,
-span,
-b,
-div,
-i,
-strong,
-em,
-li,
-ul,
-a {
-  font-family: "FiraGO";
-  font-weight: 400;
-}
-
 [type='reset'],
 [type='submit']{
   background-color: black;
 }
 
-.embla {
-  overflow: hidden;
+svg.icon-cart-empty.icon{
+  width: 2.2rem;
+  height: 2.2rem;
 }
 
-.embla__container {
-  display: flex;
+.header__icon{
+  background-color: #f4f4f4;
+  border-radius: 50%;
 }
 
-.embla__dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  column-gap: 12px;
-  width: fit-content;
+.header__icons{
+  gap: 12px;
 }
-.embla__dots .embla__dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 20px;
-  transition: width 0.3s ease-in-out;
+
+@media screen and (min-width: 990px){
+  .header__inline-menu{
+    margin: 0 100px !important;
+  }
+  .header .list-menu{
+    gap: 22px;
+  }
 }
-.embla__dots .embla__dot.is-selected {
-  width: 16px;
-  height: 6px;
-  background-color: #f2c00c !important;
+
+@media screen and (max-width: 990px){
+  .header__icon, .header__icon--cart .icon{
+    height: 4rem;
+    width: 4rem;
+    min-width: 4rem;
+  }
+
+  .header__icons{
+    justify-content: space-around;
+  }
+
+  .header__icon--menu{
+    background-color: transparent;
+  }
+}
+
+.header__menu-item{
+  color: #000;
+}
+
+form.search div::after{
+  display: none !important;
+}
+
+.header__icons{
+  width: 100%;
+}
+
+.desktop-localization-wrapper{
+  display: none !important;
+}
+
+.search .field__label{
+  left: calc(var(--inputs-border-width) + 5rem);
+}
+
+.search .field__input:focus ~ .field__label, .search .field__input:not(:placeholder-shown) ~ .field__label{
+  display: none !important;
+}
+
+.predictive-search--header{
+  padding-top: 1rem;
+}
+
+#icon-search{
+  width: 2rem;
+  height: 2rem;
+}
+
+#MainContent{
+  height: 45vh;
 }

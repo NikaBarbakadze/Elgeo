@@ -1654,7 +1654,7 @@ details[open] > .share-button__fallback {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width))
     rgba(var(--color-foreground), var(--inputs-border-opacity));
   outline: 0;
-  border-radius: var(--inputs-radius);
+  border-radius: 6px;
 }
 
 .field__input:focus-visible,
@@ -1664,7 +1664,7 @@ details[open] > .share-button__fallback {
 .localization-form__select:focus-visible.localization-form__select:after {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
   outline: 0;
-  border-radius: var(--inputs-radius);
+  border-radius: 6px;
 }
 
 .field__input:focus,
@@ -1674,7 +1674,7 @@ details[open] > .share-button__fallback {
 .localization-form__select:focus.localization-form__select:after {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
   outline: 0;
-  border-radius: var(--inputs-radius);
+  border-radius: 6px;
 }
 
 .localization-form__select:focus {
@@ -1739,7 +1739,7 @@ details[open] > .share-button__fallback {
 .customer .field label {
   font-size: 1.6rem;
   left: calc(var(--inputs-border-width) + 2rem);
-  top: calc(1rem + var(--inputs-border-width));
+  top: calc(1.3rem + var(--inputs-border-width));
   margin-bottom: 0;
   pointer-events: none;
   position: absolute;
@@ -1767,8 +1767,9 @@ details[open] > .share-button__fallback {
 .customer .field input:focus,
 .customer .field input:not(:placeholder-shown),
 .customer .field input:-webkit-autofill {
-  padding: 2.2rem 1.5rem 0.8rem 2rem;
+  padding: 1.5rem 1.5rem 1.5rem 4.5rem;
   margin: var(--inputs-border-width);
+  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
 }
 
 .field__input::-webkit-search-cancel-button,
@@ -2379,15 +2380,17 @@ product-info .loading__spinner:not(.hidden) ~ *,
   background-color: rgb(var(--color-background));
 }
 
-.header-wrapper--border-bottom {
+/* .header-wrapper--border-bottom {
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
-}
+} */
 
 .header {
   display: grid;
-  grid-template-areas: 'left-icons heading icons';
+  grid-template-areas: 'left-icons heading icons'
+  'search search search';
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
+  row-gap: 10px;
 }
 
 @media screen and (max-width: 749px) {
@@ -2417,7 +2420,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
   }
 
   .header--middle-left {
-    grid-template-areas: 'heading navigation icons';
+    grid-template-areas: 'heading navigation search icons';
     grid-template-columns: auto auto 1fr;
     column-gap: 2rem;
   }
@@ -2469,7 +2472,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .header__heading-link {
   display: inline-block;
-  padding: 0.75rem;
+  /* padding: 0.75rem; */
   text-decoration: none;
   word-break: break-word;
 }
@@ -2514,7 +2517,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 @media screen and (min-width: 990px) {
   .header--middle-left .header__heading-link,
   .header--top-left .header__heading-link {
-    margin-left: -0.75rem;
+    /* margin-left: -0.75rem; */
   }
 
   .header__heading,
@@ -2540,7 +2543,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
   display: flex;
   grid-area: icons;
   justify-self: end;
-  padding-right: 0.8rem;
+  /* padding-right: 0.8rem; */
 }
 
 .header__icons .shopify-app-block {
@@ -2574,8 +2577,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
 }
 
 .header__icon .icon {
-  height: 2rem;
-  width: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
   fill: none;
   vertical-align: middle;
 }
@@ -2584,12 +2587,12 @@ product-info .loading__spinner:not(.hidden) ~ *,
 .header__icon--cart .icon {
   height: 4.4rem;
   width: 4.4rem;
-  padding: 0;
+  min-width: 4.4rem;
 }
 
 .header__icon--cart {
   position: relative;
-  margin-right: -1.2rem;
+  /* margin-right: -1.2rem; */
 }
 
 .header__icon--menu[aria-expanded='true']::before {
@@ -2846,8 +2849,8 @@ details[open] > .header__menu-item .icon-caret {
 .header__active-menu-item {
   transition: text-decoration-thickness var(--duration-short) ease;
   color: rgb(var(--color-foreground));
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  /* text-decoration: underline;
+  text-underline-offset: 0.3rem; */
 }
 
 .header__menu-item:hover .header__active-menu-item {
