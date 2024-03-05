@@ -96,14 +96,14 @@
       }
 
       :root {
-        --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+        --font-body-family: 'Satoshi', {{ settings.type_body_font.fallback_families }};
         --font-body-style: {{ settings.type_body_font.style }};
-        --font-body-weight: {{ settings.type_body_font.weight }};
+        --font-body-weight: 500;
         --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
 
-        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        --font-heading-family: 'Satoshi', {{ settings.type_header_font.fallback_families }};
         --font-heading-style: {{ settings.type_header_font.style }};
-        --font-heading-weight: {{ settings.type_header_font.weight }};
+        --font-heading-weight: 700;
 
         --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
@@ -218,6 +218,105 @@
         --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
       }
 
+      @font-face {
+        font-family: 'Satoshi';
+        src: url({{ 'Satoshi-Light.woff2' | asset_url }}) format('woff2'),
+            url({{ 'Satoshi-Light.woff' | asset_url }}) format('woff');
+            font-weight: 300;
+            font-display: swap;
+            font-style: normal;
+      }
+
+
+      @font-face {
+        font-family: 'Satoshi';
+        src: url({{ 'Satoshi-LightItalic.woff2' | asset_url }}) format('woff2'),
+            url({{ 'Satoshi-LightItalic.woff' | asset_url }}) format('woff');
+            font-weight: 300;
+            font-display: swap;
+            font-style: italic;
+      }
+
+
+      @font-face {
+        font-family: 'Satoshi';
+        src: url({{ 'Satoshi-Regular.woff2' | asset_url }}) format('woff2'),
+            url({{ 'Satoshi-Regular.woff' | asset_url }}) format('woff');
+            font-weight: 400;
+            font-display: swap;
+            font-style: normal;
+      }
+
+
+      @font-face {
+        font-family: 'Satoshi';
+        src: url({{ 'Satoshi-Italic.woff2' | asset_url }}) format('woff2'),
+            url({{ 'Satoshi-Italic.woff' | asset_url }}) format('woff');
+            font-weight: 400;
+            font-display: swap;
+            font-style: italic;
+      }
+
+
+      @font-face {
+        font-family: 'Satoshi';
+        src: url({{ 'Satoshi-Medium.woff2' | asset_url }}) format('woff2'),
+            url({{ 'Satoshi-Medium.woff' | asset_url }}) format('woff');
+            font-weight: 500;
+            font-display: swap;
+            font-style: normal;
+      }
+
+
+      @font-face {
+        font-family: 'Satoshi';
+        src: url({{ 'Satoshi-MediumItalic.woff2' | asset_url }}) format('woff2'),
+            url({{ 'Satoshi-MediumItalic.woff' | asset_url }}) format('woff');
+            font-weight: 500;
+            font-display: swap;
+            font-style: italic;
+      }
+
+
+      @font-face {
+        font-family: 'Satoshi';
+        src: url({{ 'Satoshi-Bold.woff2' | asset_url }}) format('woff2'),
+            url({{ 'Satoshi-Bold.woff' | asset_url }}) format('woff');
+            font-weight: 700;
+            font-display: swap;
+            font-style: normal;
+      }
+
+
+      @font-face {
+        font-family: 'Satoshi';
+        src: url({{ 'Satoshi-BoldItalic.woff2' | asset_url }}) format('woff2'),
+            url({{ 'Satoshi-BoldItalic.woff' | asset_url }}) format('woff');
+            font-weight: 700;
+            font-display: swap;
+            font-style: italic;
+      }
+
+
+      @font-face {
+        font-family: 'Satoshi';
+        src: url({{ 'Satoshi-Black.woff2' | asset_url }}) format('woff2'),
+            url({{ 'Satoshi-Black.woff' | asset_url }}) format('woff');
+            font-weight: 900;
+            font-display: swap;
+            font-style: normal;
+      }
+
+
+      @font-face {
+        font-family: 'Satoshi';
+        src: url({{ 'Satoshi-BlackItalic.woff2' | asset_url }}) format('woff2'),
+            url({{ 'Satoshi-BlackItalic.woff' | asset_url }}) format('woff');
+            font-weight: 900;
+            font-display: swap;
+            font-style: italic;
+      }
+
       *,
       *::before,
       *::after {
@@ -237,11 +336,31 @@
         min-height: 100%;
         margin: 0;
         font-size: 1.5rem;
-        letter-spacing: 0.06rem;
         line-height: calc(1 + 0.8 / var(--font-body-scale));
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
         font-weight: var(--font-body-weight);
+      }
+
+      body,
+      input,
+      textarea,
+      button,
+      select {
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        text-rendering: optimizeSpeed;
+      }
+
+      .embla {
+        overflow: hidden;
+      }
+      .embla__container {
+        display: flex;
+      }
+      .embla__slide {
+        flex: 0 0 100%;
+        min-width: 0;
       }
 
       @media screen and (min-width: 750px) {
@@ -252,6 +371,8 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    {{ 'custom-styles.css' | asset_url | stylesheet_tag }}
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -280,6 +401,10 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
+
+    <script src="{{ 'emblaHelpers.js' | asset_url }}"></script>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
