@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.header__menu-item, footer .custom-head-link {
+  font-family: "FiraGO";
+  font-weight: 500;
+}
+
+.case-on{
+  font-feature-settings: "case" on;
+  text-transform: uppercase;
+}
+
+body,
+p,
+span,
+b,
+div,
+i,
+strong,
+em,
+li,
+ul,
+a {
+  font-family: "FiraGO";
+  font-weight: 400;
+}
+
+[type='reset'],
+[type='submit']{
+  background-color: black;
+}
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 12px;
+  width: fit-content;
+}
+.embla__dots .embla__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 20px;
+  transition: width 0.3s ease-in-out;
+}
+.embla__dots .embla__dot.is-selected {
+  width: 16px;
+  height: 6px;
+  background-color: #f2c00c !important;
+}
