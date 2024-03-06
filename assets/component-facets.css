@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
-  padding-top: 1rem;
+  /* padding-top: 1rem; */
 }
 
 .active-facets-mobile {
@@ -341,7 +341,7 @@
 }
 
 .facet-checkbox {
-  padding: 1rem 2rem 1rem 0;
+  padding: 0.4rem 2rem 0.4rem 0;
   flex-grow: 1;
   position: relative;
   font-size: 1.4rem;
@@ -405,7 +405,7 @@
   position: absolute;
   left: 0.3rem;
   z-index: 5;
-  top: 1.4rem;
+  top: 1rem;
 }
 
 .facet-checkbox > input[type='checkbox']:checked ~ .icon-checkmark {
@@ -1045,7 +1045,7 @@ input.mobile-facets__checkbox {
   .facets__form-vertical {
     display: flex;
     flex-direction: column;
-    width: 26rem;
+    width: 32rem;
   }
 
   .facets__disclosure-vertical {
@@ -1054,9 +1054,9 @@ input.mobile-facets__checkbox {
   }
 
   .facets-vertical .facets__summary {
-    padding-top: 1.5rem;
+    padding-top: 1.2rem;
     margin-bottom: 0;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.2rem;
   }
 
   .facets__heading--vertical {
@@ -1069,9 +1069,9 @@ input.mobile-facets__checkbox {
     font-size: 1.4rem;
   }
 
-  .facets__display-vertical {
+  /* .facets__display-vertical {
     padding-bottom: 1.5rem;
-  }
+  } */
 
   .facets-vertical .facets-wrapper {
     padding-right: 3rem;
