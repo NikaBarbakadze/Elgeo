@@ -31,6 +31,9 @@ svg.icon-cart-empty.icon{
 }
 
 @media screen and (max-width: 990px){
+  .product-media-container{
+    background-color: transparent;
+  }
   .header__icon, .header__icon--cart .icon{
     height: 4rem;
     width: 4rem;
@@ -49,6 +52,11 @@ svg.icon-cart-empty.icon{
   }
   .media > img{
     object-fit: contain;
+  }
+  .thumbnail{
+    border-radius: 6px;
+    padding: 5px !important;
+    background-color: white !important;
   }
 }
 

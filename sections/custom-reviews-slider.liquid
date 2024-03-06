@@ -1,0 +1,226 @@
+<style>
+  .custom-reviews-slider{
+    background-color: #eeeeee;
+  }
+
+  .reviews-slider-embla .embla__slide{
+    flex: 0 0 calc(40% - 20px); /* Slide covers 30% of the viewport */
+    margin-right: 20px;
+    min-width: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .custom-reviews-slider{
+      margin: 20px 0;
+    }
+    .reviews-slider-embla .embla__slide{
+      flex: 0 0 calc(90% - 20px); /* Slide covers 30% of the viewport */
+      min-width: 0;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .custom-reviews-slider{
+      margin: 20px 0;
+    }
+    .reviews-slider-embla{
+      position: relative;
+    }
+    .reviews-slider-embla::after{
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(89.43deg, rgba(238, 238, 238, 0) 3.349%,rgb(238, 238, 238) 97.514%);
+      width: 80px;
+    }
+  }
+
+  .custom-product-card{
+    background-color: #fff;
+    padding: 24px 20px;
+    border-radius: 12px;
+  }
+
+  .embla__button__svg{
+    width: 8px;
+    height: 14px;
+    fill: white !important;
+  }
+
+  .embla__button{
+    width: 36px;
+    height: 36px;
+    background: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .embla__progress{
+    width: 100%;
+    height: 5px;
+    background: black;
+    border-radius: 5px;
+  }
+</style>
+
+<div class="overflow-hidden px-0 mt-4 pb-8 pr-0 py-10 md:py-20 lg:mt-0 page-width lg:px-[5rem]">
+  <div class="grid grid-cols-1 lg:grid-cols-[0.4fr,1fr]">
+    <div class="flex flex-col justify-between items-start">
+      <h2 class="text-3xl lg:text-4xl text-black text-center lg:text-start mb-6 lg:mb-12 font-bold">iPhone 13 - 
+      Unlocked's 
+      customer reviews</h2>
+      <div class="items-center justify-center gap-x-10 mt-5 hidden lg:!flex">
+        <div class="flex items-center gap-3">
+          <!-- Buttons -->
+          <button
+            class="embla__button embla__button--prev embla__prev"
+            type="button"
+          >
+            <svg
+              class="embla__button__svg"
+              viewBox="137.718 -1.001 366.563 643.999"
+            >
+              <path
+                d="M428.36 12.5c16.67-16.67 43.76-16.67 60.42 0 16.67 16.67 16.67 43.76 0 60.42L241.7 320c148.25 148.24 230.61 230.6 247.08 247.08 16.67 16.66 16.67 43.75 0 60.42-16.67 16.66-43.76 16.67-60.42 0-27.72-27.71-249.45-249.37-277.16-277.08a42.308 42.308 0 0 1-12.48-30.34c0-11.1 4.1-22.05 12.48-30.42C206.63 234.23 400.64 40.21 428.36 12.5z"
+              ></path>
+            </svg>
+          </button>
+          <button
+            class="embla__button embla__button--next embla__next"
+            type="button"
+          >
+            <svg
+              class="embla__button__svg rotate-180"
+              viewBox="137.718 -1.001 366.563 643.999"
+            >
+              <path
+                d="M428.36 12.5c16.67-16.67 43.76-16.67 60.42 0 16.67 16.67 16.67 43.76 0 60.42L241.7 320c148.25 148.24 230.61 230.6 247.08 247.08 16.67 16.66 16.67 43.75 0 60.42-16.67 16.66-43.76 16.67-60.42 0-27.72-27.71-249.45-249.37-277.16-277.08a42.308 42.308 0 0 1-12.48-30.34c0-11.1 4.1-22.05 12.48-30.42C206.63 234.23 400.64 40.21 428.36 12.5z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-slider-embla embla">
+      <div class="embla__container">
+        {% for product in collections['automated-collection'].products %}
+          <div data-variant-id="{{ product.selected_or_first_available_variant.id }}" class="embla__slide custom-product-card flex flex-col justify-between relative {% unless forloop.last %} mr-4 lg:mr-0 {% else %} pr-4 md:pr-0 {% endunless %} {% if forloop.first %} ml-[15px] lg:ml-0 {%  endif %}">
+            <a
+              href="{{ product.url }}"
+              class="flex flex-col md:w-full"
+            >
+              <div class="relative h-fit w-full max-w-[220px] rounded-[10px]">
+                <img loading="lazy"
+                  class="w-full w-full object-contain"
+                  src="https://cdn.shopify.com/s/files/1/0859/6933/8652/files/Person_Information.png?v=1709729815"
+                >
+              </div>
+              <div>
+                {% liquid
+                
+                  if product.compare_at_price != blank and product.compare_at_price != 0 and product.compare_at_price != product.price
+                    assign sale = true
+                  else
+                    assign sale = false
+                  endif
+
+                %}
+
+                <p class="my-1 text-sm font-medium mb-8 mt-6">
+                  Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider.
+                </p>
+
+
+                <svg width="145" height="22" viewBox="0 0 145 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.95205 4.33836C9.07179 3.96984 9.59316 3.96984 9.7129 4.33836L11.3379 9.33973C11.3915 9.50454 11.5451 9.61612 11.7184 9.61612H16.9771C17.3646 9.61612 17.5257 10.112 17.2122 10.3397L12.9578 13.4307C12.8176 13.5326 12.7589 13.7131 12.8125 13.878L14.4375 18.8793C14.5573 19.2478 14.1355 19.5543 13.822 19.3265L9.56759 16.2355C9.42739 16.1337 9.23755 16.1337 9.09736 16.2355L4.84294 19.3265C4.52946 19.5543 4.10767 19.2478 4.22741 18.8793L5.85245 13.878C5.906 13.7131 5.84733 13.5326 5.70714 13.4307L1.45272 10.3397C1.13924 10.112 1.30035 9.61612 1.68784 9.61612H6.94659C7.11988 9.61612 7.27346 9.50454 7.32701 9.33973L8.95205 4.33836Z" fill="#32B26D"/>
+                  <path d="M30.9108 4.33836C31.0306 3.96984 31.5519 3.96984 31.6717 4.33836L33.2967 9.33973C33.3503 9.50454 33.5038 9.61612 33.6771 9.61612H38.9359C39.3234 9.61612 39.4845 10.112 39.171 10.3397L34.9166 13.4307C34.7764 13.5326 34.7177 13.7131 34.7713 13.878L36.3963 18.8793C36.5161 19.2478 36.0943 19.5543 35.7808 19.3265L31.5264 16.2355C31.3862 16.1337 31.1963 16.1337 31.0561 16.2355L26.8017 19.3265C26.4882 19.5543 26.0664 19.2478 26.1862 18.8793L27.8112 13.878C27.8648 13.7131 27.8061 13.5326 27.6659 13.4307L23.4115 10.3397C23.098 10.112 23.2591 9.61612 23.6466 9.61612H28.9054C29.0786 9.61612 29.2322 9.50454 29.2858 9.33973L30.9108 4.33836Z" fill="#32B26D"/>
+                  <path d="M52.8696 4.33836C52.9893 3.96984 53.5107 3.96984 53.6304 4.33836L55.2555 9.33973C55.309 9.50454 55.4626 9.61612 55.6359 9.61612H60.8946C61.2821 9.61612 61.4432 10.112 61.1298 10.3397L56.8753 13.4307C56.7351 13.5326 56.6765 13.7131 56.73 13.878L58.3551 18.8793C58.4748 19.2478 58.053 19.5543 57.7395 19.3265L53.4851 16.2355C53.3449 16.1337 53.1551 16.1337 53.0149 16.2355L48.7605 19.3265C48.447 19.5543 48.0252 19.2478 48.1449 18.8793L49.77 13.878C49.8235 13.7131 49.7649 13.5326 49.6247 13.4307L45.3702 10.3397C45.0568 10.112 45.2179 9.61612 45.6054 9.61612H50.8641C51.0374 9.61612 51.191 9.50454 51.2445 9.33973L52.8696 4.33836Z" fill="#32B26D"/>
+                  <path d="M74.8283 4.33836C74.9481 3.96984 75.4694 3.96984 75.5892 4.33836L77.2142 9.33973C77.2678 9.50454 77.4214 9.61612 77.5946 9.61612H82.8534C83.2409 9.61612 83.402 10.112 83.0885 10.3397L78.8341 13.4307C78.6939 13.5326 78.6352 13.7131 78.6888 13.878L80.3138 18.8793C80.4336 19.2478 80.0118 19.5543 79.6983 19.3265L75.4439 16.2355C75.3037 16.1337 75.1138 16.1337 74.9736 16.2355L70.7192 19.3265C70.4057 19.5543 69.9839 19.2478 70.1037 18.8793L71.7287 13.878C71.7823 13.7131 71.7236 13.5326 71.5834 13.4307L67.329 10.3397C67.0155 10.112 67.1766 9.61612 67.5641 9.61612H72.8229C72.9962 9.61612 73.1497 9.50454 73.2033 9.33973L74.8283 4.33836Z" fill="#32B26D"/>
+                  <path d="M96.7871 4.33836C96.9068 3.96984 97.4282 3.96984 97.5479 4.33836L99.173 9.33973C99.2265 9.50454 99.3801 9.61612 99.5534 9.61612H104.812C105.2 9.61612 105.361 10.112 105.047 10.3397L100.793 13.4307C100.653 13.5326 100.594 13.7131 100.648 13.878L102.273 18.8793C102.392 19.2478 101.971 19.5543 101.657 19.3265L97.4026 16.2355C97.2624 16.1337 97.0726 16.1337 96.9324 16.2355L92.678 19.3265C92.3645 19.5543 91.9427 19.2478 92.0625 18.8793L93.6875 13.878C93.7411 13.7131 93.6824 13.5326 93.5422 13.4307L89.2878 10.3397C88.9743 10.112 89.1354 9.61612 89.5229 9.61612H94.7816C94.9549 9.61612 95.1085 9.50454 95.1621 9.33973L96.7871 4.33836Z" fill="#32B26D"/>
+                  <path d="M124.22 16.192C121.772 16.192 120.156 14.624 120.156 12.256H122.188C122.188 13.584 122.972 14.368 124.268 14.368C125.644 14.368 126.524 13.472 126.524 12.048C126.524 10.688 125.708 9.76 124.3 9.76C123.404 9.76 122.588 10.208 122.172 10.816L120.364 10.432L121.804 4.304H127.9V6.192H123.276L122.652 8.624C123.212 8.256 123.916 8.048 124.716 8.048C127.052 8.048 128.604 9.632 128.604 11.936C128.604 14.464 126.828 16.192 124.22 16.192ZM131.164 16.192C130.46 16.192 129.868 15.616 129.868 14.928C129.868 14.224 130.46 13.648 131.164 13.648C131.868 13.648 132.46 14.224 132.46 14.928C132.46 15.616 131.868 16.192 131.164 16.192ZM133.61 10.176C133.61 6.544 135.562 4.08 138.554 4.08C141.546 4.08 143.514 6.544 143.514 10.176C143.514 13.792 141.658 16.208 138.554 16.208C135.45 16.208 133.61 13.792 133.61 10.176ZM135.626 10.176C135.626 12.88 136.714 14.4 138.554 14.4C140.41 14.4 141.498 12.88 141.498 10.176C141.498 7.408 140.41 5.888 138.554 5.888C136.714 5.888 135.626 7.408 135.626 10.176Z" fill="black"/>
+                </svg>                  
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const emblaNode = document.querySelector(".reviews-slider-embla.embla");
+    const prevBtn = emblaNode.querySelector(".embla__button--prev");
+    const nextBtn = emblaNode.querySelector(".embla__button--next");
+    const dotsNode = emblaNode.querySelector(".embla__dots");
+
+    const embla = EmblaCarousel(emblaNode, {
+      loop: false,
+      align: "start"
+    });
+
+    // Grab button nodes
+    const prevButtonNode = document.querySelector('.custom-reviews-slider .embla__prev');
+    const nextButtonNode = document.querySelector('.custom-reviews-slider .embla__next');
+
+    prevButtonNode.addEventListener('click', embla.scrollPrev, false)
+    nextButtonNode.addEventListener('click', embla.scrollNext, false)
+  })
+</script>
+
+{% schema %}
+{
+  "name": "Product Slider",
+  "tag": "section",
+  "class": "custom-reviews-slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "default": "ავტომობილისთვის",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "default": "ყველაფერი, რაც თქვენს ავტომობილს სჭირდება.",
+      "label": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "section_button_text",
+      "label": "Button text",
+      "default": "ყველას ნახვა"
+    },
+    {
+      "type": "text",
+      "id": "section_button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Background color",
+      "default": "#f2f2f2"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Card",
+      "type": "card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
