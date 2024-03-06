@@ -427,6 +427,10 @@
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
 
     <script src="{{ 'emblaHelpers.js' | asset_url }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css" rel="stylesheet">
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -492,6 +496,60 @@
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
     </script>
+
+    {% if template.name == "product" %}
+      <div class="lg:bg-[#fcfcfa] fixed bottom-[0px] w-full z-10 fixed-sidebar collapsed lg:border-t border-solid border-[#cfcfce]" id="fixedSidebar">
+        <div class="page-width flex items-center justify-between py-3">
+          <div class="items-center gap-3 hidden lg:!flex">
+            <figure>
+              <img class="max-w-[50px] rounded-[8px] aspect-square object-cover object-center" src="{{ product.featured_image | img_url: "200x" }}" alt="{{ product.title }}">
+            </figure>
+            <h3 class="text-lg text-[#1C1C1C] font-medium">{{ product.title }}</h3>
+          </div>
+          <div class="flex gap-6 items-center w-full lg:w-auto">
+            <div class="gap-2 hidden">
+              <div class="text-sm text-[#1C1C1C] px-4 py-2.5 rounded-full border border-solid border-[#cfcfce] custom-sticky-supply">30 days supply</div>
+              <div class="text-sm text-[#1C1C1C] px-4 py-2.5 rounded-full border border-solid border-[#cfcfce] custom-sticky-subscribe">Subscribe & Save</div>
+            </div>
+            <button class="bg-[#1C1C1C] font-bold font-['Lato'] px-8 py-4 lg:py-3 text-white rounded-full text-base w-full lg:w-auto custom-fixed-atc"><span>Add to cart</span></button>
+          </div>
+        </div>
+      </div>
+      <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+          const mainAddToCartBtn = document.querySelector('.product-form__submit');
+          const fixedSidebar = document.getElementById('fixedSidebar');
+        
+          if (!mainAddToCartBtn || !fixedSidebar) {
+            console.warn("Required DOM elements are missing!");
+            return;
+          }
+        
+          const toggleSidebarVisibility = () => {
+            const rect = mainAddToCartBtn.getBoundingClientRect();
+            const scrollPosition = window.scrollY || window.pageYOffset;
+            const endpoint = 300; // Adjust this value based on your specific endpoint
+        
+            if (rect.top < 0 && scrollPosition > endpoint) {
+              fixedSidebar.classList.remove('collapsed');
+            } else {
+              fixedSidebar.classList.add('collapsed');
+            }
+          };
+        
+          // Call the function on load to check initial state
+          toggleSidebarVisibility();
+        
+          // Attach the function to the scroll event
+          window.addEventListener("scroll", toggleSidebarVisibility);
+        
+          // Add click event listener to the custom fixed add to cart button
+          document.querySelector('.custom-fixed-atc').addEventListener('click', () => {
+            mainAddToCartBtn.click();
+          });
+        });        
+      </script>
+    {% endif %}
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>

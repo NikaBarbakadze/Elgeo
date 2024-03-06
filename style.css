@@ -44,6 +44,12 @@ svg.icon-cart-empty.icon{
   .header__icon--menu{
     background-color: transparent;
   }
+  .sale-badge-thing{
+    display: none;
+  }
+  .media > img{
+    object-fit: contain;
+  }
 }
 
 .header__menu-item{
@@ -79,6 +85,185 @@ form.search div::after{
   height: 2rem;
 }
 
-#MainContent{
-  height: 45vh;
+.shopify-section-group-header-group{
+  box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.06);
+}
+
+@media only screen and (min-width: 770px){
+  .product--thumbnail_slider .product__media-wrapper media-gallery {
+      display: flex !important;
+      flex-direction: row-reverse !important;
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      justify-content: start !important;
+      gap: 25px;
+  }
+  .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
+    width: 100% !important;
+  }
+  .slider-mobile-gutter:not(.thumbnail-slider){
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .thumbnail-slider{
+    flex-basis: 85px;
+  }
+
+  .thumbnail{
+    border-radius: 6px;
+    padding: 5px !important;
+    background-color: white !important;
+  }
+
+  main .thumbnail-slider .thumbnail-list.slider{
+    display: flex;
+    flex-direction: column;
+    max-width: 70px;
+  }
+
+  .slider-button{
+    display: none !important;
+  }
+  .product__info-container{
+    padding: 26px 34px;
+    background-color: white;
+    border-radius: 12px;
+    display: block;
+    position: relative;
+  }
+
+  .product__media-wrapper media-gallery{
+    background-color: white;
+    border-radius: 12px;
+    padding: 64px 32px 40px 32px;
+  }
+  
+  .slider-mobile-gutter{
+    max-width: 320px !important;
+  }
+  
+  .product__media.media img{
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    max-height: 320px;
+    object-fit: contain;
+  }
+  
+  .product__media-wrapper media-gallery{
+    position: relative;
+  }
+  
+  .product__media-wrapper media-gallery::before{
+    content: '';
+    top: -8px;
+    width: 150px;
+    height: 51px;
+    background: url('https://cdn.shopify.com/s/files/1/0859/6933/8652/files/Badge_1.png?v=1709681933');
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-size: cover;
+  }
+  .Color-fieldset label, .Condition-fieldset label{
+    width: 180px !important;
+  }
+
+  .product-form__input--pill input[type='radio'] + label{
+    width: 130px;
+    padding: 16px 0 !important;
+  }
+}
+
+.product__title h1{
+  font-size: 28px;
+  font-weight: bold;
+  max-width: 440px;
+}
+
+.product-form__input legend{
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+
+
+
+variant-selects{
+  margin-top: 30px !important;
+}
+
+.shopify-payment-button{
+  display: none !important
+}
+
+.product-form__submit{
+  width: 100%;
+  color: white;
+  border-radius: 12px;
+}
+
+.color-blob{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+}
+
+label:has(.color-blob){
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+
+.color-blob-space-gray{
+  background-color: #5a5a5a;
+}
+
+.color-blob-silver{
+  background-color: #d9d9d9;
+}
+
+.color-blob-gold{
+  background-color: #e3b18a;
+}
+
+.color-blob-midnight-green{
+  background-color: #004b54;
+}
+
+.sale-badge-thing{
+  position: absolute;
+  right: 40px;
+  top: -30px;
+}
+
+
+.basicLightbox{
+  justify-content: end !important;
+  background-color: rgba(31,35,35,.3) !important;
+}
+
+.btn-close {
+  background: transparent url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3E%3C/svg%3E") 50%/1em auto no-repeat!important;
+  border: 0!important;
+  border-radius: 0.25rem!important;
+  box-sizing: content-box!important;
+  color: #000!important;
+  height: 1em!important;
+  opacity: 1!important;
+  padding: 0.25em!important;
+  width: 1em!important;
+}
+
+
+.fixed-sidebar {
+  transform: translateY(0) !important;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fixed-sidebar.collapsed{
+  transform: translateY(100%) !important;
 }

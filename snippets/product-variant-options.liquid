@@ -97,6 +97,10 @@
       {% endif %}
     >
     <label for="{{ input_id }}">
+      {% if option.name == 'Color' %}
+        <div class="color-blob color-blob-{{ value | downcase | handleize }}">
+        </div>
+      {% endif %}
       {{ value -}}
       {{ label_unavailable }}
     </label>
