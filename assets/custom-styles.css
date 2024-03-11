@@ -658,6 +658,11 @@ video {
   margin-bottom: 0px !important;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .my-1 {
   margin-top: 4px;
   margin-bottom: 4px;
@@ -667,12 +672,20 @@ video {
   margin-right: 0.5rem !important;
 }
 
+.\!mt-0 {
+  margin-top: 0px !important;
+}
+
 .\!mt-8 {
   margin-top: 32px !important;
 }
 
 .mb-2 {
   margin-bottom: 8px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
 }
 
 .mb-5 {
@@ -703,6 +716,10 @@ video {
   margin-right: 24px;
 }
 
+.mt-1 {
+  margin-top: 4px;
+}
+
 .mt-2 {
   margin-top: 8px;
 }
@@ -723,20 +740,20 @@ video {
   margin-top: 24px;
 }
 
+.mt-7 {
+  margin-top: 28px;
+}
+
 .mt-\[5px\] {
   margin-top: 5px;
 }
 
-.\!mt-0 {
-  margin-top: 0px !important;
+.\!block {
+  display: block !important;
 }
 
 .block {
   display: block;
-}
-
-.\!block {
-  display: block !important;
 }
 
 .inline-block {
@@ -769,6 +786,10 @@ video {
 
 .aspect-square {
   aspect-ratio: 1 / 1;
+}
+
+.h-4 {
+  height: 16px;
 }
 
 .h-\[100lvh\] {
@@ -810,6 +831,10 @@ video {
 
 .w-3\/4 {
   width: 75%;
+}
+
+.w-4 {
+  width: 16px;
 }
 
 .w-\[500px\] {
@@ -881,6 +906,16 @@ video {
 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
 }
 
 .cursor-pointer {
@@ -955,6 +990,10 @@ video {
   gap: 16px;
 }
 
+.gap-5 {
+  gap: 20px;
+}
+
 .gap-6 {
   gap: 24px;
 }
@@ -989,6 +1028,14 @@ video {
   overflow: hidden;
 }
 
+.overflow-x-clip {
+  overflow-x: clip;
+}
+
+.overflow-y-visible {
+  overflow-y: visible;
+}
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1005,6 +1052,10 @@ video {
 
 .rounded-\[10px\] {
   border-radius: 10px;
+}
+
+.rounded-\[12px\] {
+  border-radius: 12px;
 }
 
 .rounded-\[12px_0px_12px_0px\] {
@@ -1154,6 +1205,11 @@ video {
   background-color: rgb(250 0 1 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#fff\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -1162,6 +1218,10 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.fill-gray-600 {
+  fill: #4b5563;
 }
 
 .object-contain {
@@ -1246,6 +1306,11 @@ video {
   padding-right: 0.8rem;
 }
 
+.px-\[1\.5rem\] {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .px-\[22px\] {
   padding-left: 22px;
   padding-right: 22px;
@@ -1264,6 +1329,11 @@ video {
 .py-1 {
   padding-top: 4px;
   padding-bottom: 4px;
+}
+
+.py-1\.5 {
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .py-10 {
@@ -1309,6 +1379,14 @@ video {
 .py-8 {
   padding-top: 32px;
   padding-bottom: 32px;
+}
+
+.pb-1 {
+  padding-bottom: 4px;
+}
+
+.pb-10 {
+  padding-bottom: 40px;
 }
 
 .pb-16 {
@@ -1382,6 +1460,11 @@ video {
 .\!text-xl {
   font-size: 20px !important;
   line-height: 28px !important;
+}
+
+.text-2xl {
+  font-size: 24px;
+  line-height: 32px;
 }
 
 .text-3xl {
@@ -1486,6 +1569,11 @@ video {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
 .text-gray-500 {
@@ -1595,7 +1683,7 @@ video {
   background-color: black;
 }
 
-svg.icon-cart-empty.icon{
+svg.icon-cart-empty.icon, svg.icon-cart.icon{
   width: 2.2rem;
   height: 2.2rem;
 }
@@ -2090,6 +2178,130 @@ body .product--thumbnail_slider.product--no-media .product__media-wrapper media-
     left: -15px !important;
     transform: translateX(0px);
   }
+
+  .drawer__inner{
+    max-width: 100vw !important;
+    padding: 0 1.5rem !important;
+  }
+
+  .drawer__footer {
+    padding: 1.5rem 10px !important;
+  }
+
+  .cart-drawer__form{
+    padding: 20px 12px 0px 12px !important;
+  }
+
+  .cart-drawer .cart-item{
+    grid-template: repeat(2, auto) / 70px 1fr 1fr 70px;
+  }
+
+  .cart-item__media{
+    margin-right: 1rem !important;
+  }
+
+  .cart-drawer .cart-item{
+    gap: 0.5rem 0 !important
+  }
+
+  .drawer .custom-product-card{
+    flex-basis: 60% !important;
+  }
+}
+
+body .drawer__header{
+  justify-content: center;
+}
+
+.drawer__heading{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.cart-drawer .cart-items th, .cart-drawer .cart-items thead{
+  display: none;
+}
+
+.cart-drawer .cart-item:first-child{
+  padding-top: 0 !important;
+  border-top: 0px solid #cfcfcf;
+}
+
+.cart-drawer .cart-item{
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  border-top: 1px solid #cfcfcf;
+}
+
+cart-drawer-items{
+  background-color: white;
+  border-radius: 10px 10px 0 0 ;
+}
+
+.drawer__footer{
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.cart-drawer__form{
+  padding: 24px 24px 0px 24px;
+}
+
+cart-remove-button .button{
+  border: 1px solid #f4f4f4;
+  border-radius: 50%;
+}
+
+.cart-item__media{
+  margin-right: 1.5rem;
+}
+
+/* .cart__ctas{
+  margin-top: 1rem;
+} */
+
+.loading__spinner svg .path{
+  stroke: white !important;
+}
+
+.cart-drawer .cart__checkout-button{
+  background-color: #000;
+  border-radius: 12px;
+  min-height: 56px;
+  margin-top: 22px;
+}
+
+.drawer .custom-product-card{
+  flex-basis: 40%;
+}
+
+.embla-cart{
+  position: relative;
+}
+
+.embla-cart::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -5px;
+  height: 100%;
+  background: linear-gradient(89.43deg, rgba(245, 245, 245, 0) 3.349%,rgb(245, 245, 245) 97.514%);
+  width: 80px;
+}
+
+.custom-upsells .embla__button__svg{
+  height: 14px;
+  fill: white !important;
+}
+
+.custom-upsells .embla__button{
+  width: 36px;
+  height: 36px;
+  background: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .even\:bg-\[\#F2F2F2\]:nth-child(even) {
@@ -2153,10 +2365,6 @@ body .product--thumbnail_slider.product--no-media .product__media-wrapper media-
 }
 
 @media (min-width: 1024px) {
-  .lg\:static {
-    position: static;
-  }
-
   .lg\:order-\[inherit\] {
     order: inherit;
   }
@@ -2185,10 +2393,6 @@ body .product--thumbnail_slider.product--no-media .product__media-wrapper media-
     display: block !important;
   }
 
-  .lg\:block {
-    display: block;
-  }
-
   .lg\:\!flex {
     display: flex !important;
   }
@@ -2215,6 +2419,10 @@ body .product--thumbnail_slider.product--no-media .product__media-wrapper media-
 
   .lg\:gap-0 {
     gap: 0px;
+  }
+
+  .lg\:gap-2 {
+    gap: 8px;
   }
 
   .lg\:gap-20 {

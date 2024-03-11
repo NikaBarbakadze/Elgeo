@@ -7,7 +7,7 @@
   background-color: black;
 }
 
-svg.icon-cart-empty.icon{
+svg.icon-cart-empty.icon, svg.icon-cart.icon{
   width: 2.2rem;
   height: 2.2rem;
 }
@@ -480,4 +480,119 @@ body .product--thumbnail_slider.product--no-media .product__media-wrapper media-
     left: -15px !important;
     transform: translateX(0px);
   }
+  .drawer__inner{
+    max-width: 100vw !important;
+    padding: 0 1.5rem !important;
+  }
+  .drawer__footer {
+    padding: 1.5rem 10px !important;
+  }
+  .cart-drawer__form{
+    padding: 20px 12px 0px 12px !important;
+  }
+  .cart-drawer .cart-item{
+    grid-template: repeat(2, auto) / 70px 1fr 1fr 70px;
+  }
+  .cart-item__media{
+    margin-right: 1rem !important;
+  }
+  .cart-drawer .cart-item{
+    gap: 0.5rem 0 !important
+  }
+  .drawer .custom-product-card{
+    flex-basis: 60% !important;
+  }
+}
+
+body .drawer__header{
+  justify-content: center;
+}
+
+.drawer__heading{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.cart-drawer .cart-items th, .cart-drawer .cart-items thead{
+  display: none;
+}
+
+.cart-drawer .cart-item:first-child{
+  padding-top: 0 !important;
+  border-top: 0px solid #cfcfcf;
+}
+
+.cart-drawer .cart-item{
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  border-top: 1px solid #cfcfcf;
+}
+
+cart-drawer-items{
+  background-color: white;
+  border-radius: 10px 10px 0 0 ;
+}
+
+.drawer__footer{
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+}
+.cart-drawer__form{
+  padding: 24px 24px 0px 24px;
+}
+
+cart-remove-button .button{
+  border: 1px solid #f4f4f4;
+  border-radius: 50%;
+}
+
+.cart-item__media{
+  margin-right: 1.5rem;
+}
+
+/* .cart__ctas{
+  margin-top: 1rem;
+} */
+
+.loading__spinner svg .path{
+  stroke: white !important;
+}
+
+.cart-drawer .cart__checkout-button{
+  background-color: #000;
+  border-radius: 12px;
+  min-height: 56px;
+  margin-top: 22px;
+}
+
+.drawer .custom-product-card{
+  flex-basis: 40%;
+}
+
+.embla-cart{
+  position: relative;
+}
+.embla-cart::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -5px;
+  height: 100%;
+  background: linear-gradient(89.43deg, rgba(245, 245, 245, 0) 3.349%,rgb(245, 245, 245) 97.514%);
+  width: 80px;
+}
+
+.custom-upsells .embla__button__svg{
+  height: 14px;
+  fill: white !important;
+}
+
+.custom-upsells .embla__button{
+  width: 36px;
+  height: 36px;
+  background: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

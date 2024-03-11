@@ -1,0 +1,55 @@
+<div data-variant-id="{{ product.selected_or_first_available_variant.id }}" class="embla__slide custom-product-card flex flex-col justify-between bg-white relative">
+  <a
+    href="{{ product.url }}"
+    class="flex flex-col md:w-full"
+  >
+    <div class="relative h-fit w-full bg-[#f4f4f4] py-6 rounded-[10px]">
+      <img loading="lazy"
+        class="w-full w-full rounded-[15px] object-contain max-h-[180px] mix-blend-darken"
+        src="{{ product.featured_image | img_url: 'master' }}"
+      >
+        {% if product.compare_at_price > product.price %}
+          {% assign difference = product.compare_at_price | minus: product.price %}
+          {% assign percentage = difference | times: 100 | divided_by: product.compare_at_price %}
+          <div class="custom-sale-badge absolute right-0 bottom-0 bg-[#fa0001] text-xs text-white px-2.5 py-0.5 rounded-[12px_0px_12px_0px]">
+            Save {{ percentage | round }}%
+          </div>
+        {% endif %}    
+    </div>
+    <div>
+      {% liquid
+      
+        if product.compare_at_price != blank and product.compare_at_price != 0 and product.compare_at_price != product.price
+          assign sale = true
+        else
+          assign sale = false
+        endif
+
+      %}
+
+      <h3 class="mt-2 text-sm font-bold">{{ product.title | truncate: 60 }}</h3>
+
+      <div>
+        <div class="flex items-end gap-2 pb-1">
+          <div class="text-lg font-bold {% if sale %} text-black {% else %} text-black {% endif %}">
+            {{ product.price | money }}
+          </div>
+          {% if sale %}
+          <div class="text-base text-[#8f8f8f] font-medium">
+            {{ product.compare_at_price | money }}
+          </div>
+          {% endif %}
+        </div>
+
+        <button onclick="addToCartCust(this)" class="custom-product-card-atc flex items-center gap-2 bg-[#fff] border border-[#cfcfcf] border-solid rounded-full w-full py-1.5 justify-center mb-4 mt-1">
+          <svg aria-hidden="true" class="w-4 h-4 text-gray-200 animate-spin fill-gray-600 custom-spinner hidden" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"></path>
+            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"></path>
+          </svg>
+        
+          <span class="font-bold text-sm text-black">Add</span>
+        </button>
+      </div>
+    </div>
+  </a>
+</div>
