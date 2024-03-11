@@ -727,8 +727,16 @@ video {
   margin-top: 5px;
 }
 
+.\!mt-0 {
+  margin-top: 0px !important;
+}
+
 .block {
   display: block;
+}
+
+.\!block {
+  display: block !important;
 }
 
 .inline-block {
@@ -2145,6 +2153,10 @@ body .product--thumbnail_slider.product--no-media .product__media-wrapper media-
 }
 
 @media (min-width: 1024px) {
+  .lg\:static {
+    position: static;
+  }
+
   .lg\:order-\[inherit\] {
     order: inherit;
   }
@@ -2276,6 +2288,10 @@ body .product--thumbnail_slider.product--no-media .product__media-wrapper media-
 
   .lg\:pb-8 {
     padding-bottom: 32px;
+  }
+
+  .lg\:pt-0 {
+    padding-top: 0px;
   }
 
   .lg\:text-start {

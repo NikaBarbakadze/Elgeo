@@ -1418,8 +1418,11 @@ class VariantSelects extends HTMLElement {
           window.variantStrings.soldOut
         );
 
-        document.querySelector(".sale-badge-thing").innerHTML =
-          html.querySelector(".sale-badge-thing").innerHTML;
+        document.querySelector(".sale-badge-thing-desktop").innerHTML =
+          html.querySelector(".sale-badge-thing-desktop").innerHTML;
+
+        document.querySelector(".sale-badge-thing-mobile").innerHTML =
+          html.querySelector(".sale-badge-thing-mobile").innerHTML;
 
         console.log(html.querySelector(".sale-badge-thing").innerHTML);
 

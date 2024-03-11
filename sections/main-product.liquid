@@ -66,7 +66,7 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-  <div class="page-width bg-white lg:bg-transparent pt-4 rounded-[12px_12px_0_0] relative">
+  <div class="page-width bg-white lg:bg-transparent pt-4 lg:pt-0 rounded-[12px_12px_0_0] relative">
     <div class="product__title lg:hidden" {{ block.shopify_attributes }}>
       <h1 class="!max-w-[250px] !text-xl">{{ product.title | escape }}</h1>
       <a href="{{ product.url }}" class="product__title">
@@ -75,7 +75,7 @@
         </h2>
       </a>
     </div>
-    <div class="sale-badge-thing">
+    <div class="sale-badge-thing sale-badge-thing-mobile lg:hidden">
       <div class="flex flex-col items-center max-w-[120px]">
         <div class="bg-[#FA0100] text-white text-center px-4 py-0.5 rounded-t-lg w-full">
           <span class="text-xs font-semibold">
@@ -108,7 +108,7 @@
           data-url="{{ product.url }}"
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
-          <div class="sale-badge-thing hidden lg:block">
+          <div class="sale-badge-thing sale-badge-thing-desktop hidden lg:!block">
             <div class="flex flex-col items-center max-w-[120px]">
               <div class="bg-[#FA0100] text-white text-center px-4 py-1 rounded-t-lg w-full">
                 <span class="text-sm font-semibold">
@@ -141,7 +141,7 @@
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
-                <div class="product__title hidden lg:block" {{ block.shopify_attributes }}>
+                <div class="product__title hidden lg:!block !mt-0" {{ block.shopify_attributes }}>
                   <h2>{{ product.title | escape }}</h2>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
@@ -504,7 +504,7 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                <div class="bg-white sm:block hidden lg:!block !mr-[0.5rem] !mt-8">
+                <div class="bg-white !block !mr-[0.5rem] !mt-8">
                   <div class="rounded-t-md  bg-white sm:block cursor-pointer">
                     <div id="specifications-trigger" class="rounded-t-md justify-between items-center flex border border-[#cfcfcf] bg-white py-2 px-7">
                       <p class="justify-start text-base font-medium text-[#000]">Specifications</p>
