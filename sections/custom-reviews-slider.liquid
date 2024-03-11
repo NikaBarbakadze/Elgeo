@@ -107,7 +107,7 @@
     </div>
     <div class="reviews-slider-embla embla">
       <div class="embla__container">
-        {% for product in collections['automated-collection'].products %}
+        {% for product in collections['galaxy-phone'].products %}
           <div data-variant-id="{{ product.selected_or_first_available_variant.id }}" class="embla__slide custom-product-card flex flex-col justify-between relative {% unless forloop.last %} mr-4 lg:mr-0 {% else %} pr-4 md:pr-0 {% endunless %} {% if forloop.first %} ml-[15px] lg:ml-0 {%  endif %}">
             <a
               href="{{ product.url }}"

@@ -931,6 +931,10 @@ video {
   gap: 12px;
 }
 
+.gap-4 {
+  gap: 16px;
+}
+
 .gap-6 {
   gap: 24px;
 }
@@ -945,14 +949,6 @@ video {
 
 .gap-9 {
   gap: 36px;
-}
-
-.gap-5 {
-  gap: 20px;
-}
-
-.gap-4 {
-  gap: 16px;
 }
 
 .gap-x-1 {
@@ -1287,6 +1283,10 @@ video {
   padding-bottom: 32px;
 }
 
+.pb-16 {
+  padding-bottom: 64px;
+}
+
 .pb-2 {
   padding-bottom: 8px;
 }
@@ -1333,10 +1333,6 @@ video {
 
 .pt-4 {
   padding-top: 16px;
-}
-
-.pb-16 {
-  padding-bottom: 64px;
 }
 
 .text-left {
@@ -2029,6 +2025,14 @@ label:has(.color-blob){
   display: none;
 }
 
+.newsletter-form__field-wrapper .field__button{
+  width: 5rem;
+}
+
+body .product--thumbnail_slider.grid--2-col-tablet .product__media-wrapper media-gallery{
+  justify-content: center !important;
+}
+
 .even\:bg-\[\#F2F2F2\]:nth-child(even) {
   --tw-bg-opacity: 1;
   background-color: rgb(242 242 242 / var(--tw-bg-opacity));
@@ -2236,16 +2240,12 @@ label:has(.color-blob){
     padding-bottom: 32px;
   }
 
-  .lg\:pb-16 {
-    padding-bottom: 64px;
+  .lg\:pb-24 {
+    padding-bottom: 96px;
   }
 
   .lg\:pb-8 {
     padding-bottom: 32px;
-  }
-
-  .lg\:pb-24 {
-    padding-bottom: 96px;
   }
 
   .lg\:text-start {

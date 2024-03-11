@@ -448,3 +448,11 @@ label:has(.color-blob){
 .newsletter-form__field-wrapper .field__input:focus ~ .field__label, .newsletter-form__field-wrapper  .field__input:not(:placeholder-shown) ~ .field__label{
   display: none;
 }
+
+.newsletter-form__field-wrapper .field__button{
+  width: 5rem;
+}
+
+body .product--thumbnail_slider.grid--2-col-tablet .product__media-wrapper media-gallery{
+  justify-content: center !important;
+}
