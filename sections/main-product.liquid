@@ -66,7 +66,34 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-  <div class="page-width">
+  <div class="page-width bg-white lg:bg-transparent pt-4 rounded-[12px_12px_0_0] relative">
+    <div class="product__title lg:hidden" {{ block.shopify_attributes }}>
+      <h1 class="!max-w-[250px] !text-xl">{{ product.title | escape }}</h1>
+      <a href="{{ product.url }}" class="product__title">
+        <h2 class="h1">
+          {{ product.title | escape }}
+        </h2>
+      </a>
+    </div>
+    <div class="sale-badge-thing">
+      <div class="flex flex-col items-center max-w-[120px]">
+        <div class="bg-[#FA0100] text-white text-center px-4 py-0.5 rounded-t-lg w-full">
+          <span class="text-xs font-semibold">
+            {% assign percentage_off = 100 | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round %}
+            {{ percentage_off | times: -1 }}% Sale
+          </span>
+        </div>
+        <div class="bg-white px-4 py-2 rounded-b-lg text-center flex flex-col border w-full border-[#D7D7D7] border-solid">
+          <span class="text-base font-bold text-gray-800">
+            {{ product.selected_or_first_available_variant.price | money }}
+          </span>
+          <span class="text-xs text-gray-500 line-through">
+            {% assign compare_price = product.selected_or_first_available_variant.compare_at_price | money %}
+            {{ compare_price }}
+          </span>
+        </div>
+      </div>
+    </div>
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid_dawn grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
         {% render 'product-media-gallery', variant_images: variant_images %}
@@ -81,20 +108,20 @@
           data-url="{{ product.url }}"
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
-          <div class="sale-badge-thing">
+          <div class="sale-badge-thing hidden lg:block">
             <div class="flex flex-col items-center max-w-[120px]">
               <div class="bg-[#FA0100] text-white text-center px-4 py-1 rounded-t-lg w-full">
                 <span class="text-sm font-semibold">
-                  {% assign percentage_off = 100 | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round %}
+                  {% assign percentage_off = 100 | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round %}
                   {{ percentage_off | times: -1 }}% Sale
                 </span>
               </div>
               <div class="bg-white px-4 py-2 rounded-b-lg text-center flex flex-col border w-full border-[#D7D7D7] border-solid">
                 <span class="text-xl font-bold text-gray-800">
-                  {{ product.price | money }}
+                  {{ product.selected_or_first_available_variant.price | money }}
                 </span>
                 <span class="text-sm text-gray-500 line-through">
-                  {% assign compare_price = product.compare_at_price | money %}
+                  {% assign compare_price = product.selected_or_first_available_variant.compare_at_price | money %}
                   {{ compare_price }}
                 </span>
               </div>
@@ -114,8 +141,8 @@
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
-                <div class="product__title" {{ block.shopify_attributes }}>
-                  <h1>{{ product.title | escape }}</h1>
+                <div class="product__title hidden lg:block" {{ block.shopify_attributes }}>
+                  <h2>{{ product.title | escape }}</h2>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
@@ -477,25 +504,25 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                <div class="bg-white sm:block hidden lg:!block ">
+                <div class="bg-white sm:block hidden lg:!block !mr-[0.5rem] !mt-8">
                   <div class="rounded-t-md  bg-white sm:block cursor-pointer">
-                    <div id="specifications-trigger" class="rounded-t-md justify-between flex border border-gray-200 bg-white py-4 px-7">
-                      <p class="justify-start text-xs font-bold text-[#000] xxs:mt-0 sm:text-sm">Specifications</p>
-                      <div class="relative flex items-center justify-end px-3">
-                        <div class="mt-2 h-[9px] w-[6px] xxs:mt-0">
-                          <img alt="expand" src="https://cdn.shopify.com/s/files/1/0505/7167/3763/files/chevronRight.svg?v=1706099414" width="6" height="9" decoding="async" data-nimg="future" class="h-full w-full" loading="lazy" style="color: transparent;">
-                        </div>
+                    <div id="specifications-trigger" class="rounded-t-md justify-between items-center flex border border-[#cfcfcf] bg-white py-2 px-7">
+                      <p class="justify-start text-base font-medium text-[#000]">Specifications</p>
+                      <div class="relative flex items-center justify-center px-3 pr-0"> 
+                        <svg width="26" height="32" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2028 20.93C9.93241 20.6462 9.93241 20.1861 10.2028 19.9023L14.3286 15.5714L10.2028 11.2405C9.93241 10.9567 9.93241 10.4966 10.2028 10.2128C10.4731 9.92902 10.9115 9.92902 11.1818 10.2128L15.7972 15.0575C15.9271 15.1938 16 15.3787 16 15.5714C16 15.7641 15.9271 15.949 15.7972 16.0853L11.1818 20.93C10.9115 21.2138 10.4731 21.2138 10.2028 20.93Z" fill="black"/>
+                        </svg>  
                       </div>
                     </div>
                     <div style="position: absolute; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px; display: none;"></div>
                   </div>
-                  <div id="certifications-trigger" class="cursor-pointer rounded-b-md bg-white sm:mt-0 sm:block sm:cursor-pointer sm:bg-white">
-                    <div class="flex justify-between rounded-b-md border border-gray-200 bg-white px-3 py-4 pt-2 xxs:px-4 xxs:py-5 sm:border sm:border-gray-200 sm:bg-white sm:px-7 sm:py-4">
-                      <p class="justify-start text-xs font-bold text-[#000] xxs:mt-0 sm:text-sm">Certified Quality &amp; Packaging</p>
-                      <div class="relative flex items-center justify-end px-3">
-                        <div class="mt-2 h-[9px] w-[6px] xxs:mt-0">
-                          <img alt="expand" src="https://cdn.shopify.com/s/files/1/0505/7167/3763/files/chevronRight.svg?v=1706099414" width="6" height="9" decoding="async" data-nimg="future" class="h-full w-full" loading="lazy" style="color: transparent;">
-                        </div>
+                  <div id="certifications-trigger" class="cursor-pointer rounded-b-md bg-white sm:mt-0">
+                    <div class="flex justify-between rounded-b-md border border-[#cfcfcf] items-center bg-white py-2 px-7 pt-2 border-t-0">
+                      <p class="justify-start text-base font-medium text-[#000]">Certified Quality &amp; Packaging</p>
+                      <div class="relative flex items-center justify-center px-3 pr-0">
+                        <svg width="26" height="32" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2028 20.93C9.93241 20.6462 9.93241 20.1861 10.2028 19.9023L14.3286 15.5714L10.2028 11.2405C9.93241 10.9567 9.93241 10.4966 10.2028 10.2128C10.4731 9.92902 10.9115 9.92902 11.1818 10.2128L15.7972 15.0575C15.9271 15.1938 16 15.3787 16 15.5714C16 15.7641 15.9271 15.949 15.7972 16.0853L11.1818 20.93C10.9115 21.2138 10.4731 21.2138 10.2028 20.93Z" fill="black"/>
+                        </svg> 
                       </div>
                     </div>
                     <div style="position: absolute; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px; display: none;"></div>

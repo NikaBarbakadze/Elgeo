@@ -165,7 +165,7 @@
   flex: 0 0 100%;
   padding: 0;
   margin: 0 0 1.2rem 0;
-  max-width: 44rem;
+  /* max-width: 44rem; */
   min-width: fit-content;
   border: none;
 }
@@ -978,10 +978,24 @@ a.product__text {
     padding: 0.5rem;
     flex: 1;
     scroll-padding-left: 0.5rem;
+    justify-content: center;
   }
 
   .thumbnail-list__item.slider__slide {
-    width: calc(33% - 0.6rem);
+    width: 10px;
+    height: 10px;
+  }
+  
+  .thumbnail{
+    background-color: #CFCFCF !important;
+  }
+
+  .thumbnail[aria-current]{
+    background-color: #000 !important;
+  }
+
+  .thumbnail.global-media-settings img{
+    display: none;
   }
 }
 

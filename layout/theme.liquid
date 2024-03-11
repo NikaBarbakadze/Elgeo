@@ -426,9 +426,9 @@
 
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js" defer></script>
 
-    <script src="{{ 'emblaHelpers.js' | asset_url }}"></script>
+    <script src="{{ 'emblaHelpers.js' | asset_url }}" defer></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js" defer></script>
 
     <link href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css" rel="stylesheet">
   </head>
@@ -471,7 +471,7 @@
       };
 
       window.variantStrings = {
-        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+        addToCart: `{{ 'products.product.add_to_cart' | t }} |`,
         soldOut: `{{ 'products.product.sold_out' | t }}`,
         unavailable: `{{ 'products.product.unavailable' | t }}`,
         unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,

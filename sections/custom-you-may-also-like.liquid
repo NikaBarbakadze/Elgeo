@@ -1,0 +1,211 @@
+<style>
+  {%  if section.settings.color_bg != blank%}
+  #shopify-section-{{ section.id }}{
+    background-color: {{ section.settings.color_bg }};
+  }
+  {% endif %}
+
+  .product-slider-embla .embla__slide{
+    flex: 0 0 calc(22.5% - 20px); /* Slide covers 30% of the viewport */
+    margin-right: 20px;
+    min-width: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .product-slider-embla .embla__slide{
+      flex: 0 0 calc(75% - 20px); /* Slide covers 30% of the viewport */
+      min-width: 0;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .product-slider-embla{
+      position: relative;
+    }
+    .product-slider-embla::after{
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 90%;
+      background: linear-gradient(89.43deg, rgba(245, 245, 245, 0) 3.349%,rgb(245, 245, 245) 97.514%);
+      width: 80px;
+    }
+  }
+
+  .custom-product-card{
+    background-color: #fff;
+    padding: 12px 10px;
+    border-radius: 12px;
+  }
+
+  .embla__button__svg{
+    width: 8px;
+    height: 14px;
+    fill: white !important;
+  }
+
+  .embla__button{
+    width: 36px;
+    height: 36px;
+    background: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .embla__progress{
+    width: 100%;
+    height: 5px;
+    background: black;
+    border-radius: 5px;
+  }
+</style>
+
+<div class="overflow-hidden px-0 mt-4 pb-8 pr-0 md:py-10 lg:mt-0 page-width lg:px-[5rem]">
+  <h2 class="text-3xl lg:text-4xl text-black text-center mb-6 lg:mb-12 font-bold">{{ section.settings.section_title }}</h2>
+  <div class="product-slider-embla embla">
+    <div class="embla__container">
+      {% for product in product.collections[0].products limit: 8 %}
+        <div data-variant-id="{{ product.selected_or_first_available_variant.id }}" class="embla__slide custom-product-card flex flex-col justify-between relative {% unless forloop.last %} mr-4 lg:mr-0 {% else %} pr-4 md:pr-0 {% endunless %} {% if forloop.first %} ml-[15px] lg:ml-0 {%  endif %}">
+          <a
+            href="{{ product.url }}"
+            class="flex flex-col md:w-full"
+          >
+            <div class="relative h-fit w-full bg-[#f4f4f4] py-6 rounded-[10px] pt-12">
+              <img loading="lazy"
+                class="w-full w-full rounded-[15px] object-contain max-h-[180px] mix-blend-darken"
+                src="{{ product.featured_image | img_url: 'master' }}"
+              >
+              {% assign remainder = forloop.index | modulo: 2 %}
+              {% if remainder == 1 %}
+              <div class="top-0 bg-white rounded-[0px_0px_6px_6px] text-black text-xs font-bold text-center left-1/2 -translate-x-1/2 absolute w-full max-w-[130px] py-1">
+                🚀 Selling fast
+              </div>
+              {% endif %}
+            </div>
+            <div>
+              {% liquid
+              
+                if product.compare_at_price != blank and product.compare_at_price != 0 and product.compare_at_price != product.price
+                  assign sale = true
+                else
+                  assign sale = false
+                endif
+
+              %}
+
+              <svg class="mt-3" width="195" height="15" viewBox="0 0 195 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.71468 1.37811C6.80449 1.10172 7.19551 1.10172 7.28532 1.37812L8.50424 5.12959C8.54441 5.25319 8.65959 5.33688 8.78956 5.33688H12.7341C13.0247 5.33688 13.1455 5.70877 12.9104 5.87959L9.71923 8.19812C9.61409 8.27452 9.57009 8.40993 9.61025 8.53353L10.8292 12.285C10.919 12.5614 10.6026 12.7912 10.3675 12.6204L7.17634 10.3019C7.07119 10.2255 6.92881 10.2255 6.82366 10.3019L3.63247 12.6204C3.39736 12.7912 3.08101 12.5614 3.17082 12.285L4.38975 8.53353C4.42991 8.40993 4.38591 8.27452 4.28077 8.19812L1.08957 5.87959C0.854459 5.70877 0.975292 5.33688 1.26591 5.33688H5.21044C5.34041 5.33688 5.45559 5.25319 5.49576 5.12959L6.71468 1.37811Z" fill="#FFC632"/>
+                <path d="M24.7147 1.37811C24.8045 1.10172 25.1955 1.10172 25.2853 1.37812L26.5042 5.12959C26.5444 5.25319 26.6596 5.33688 26.7896 5.33688H30.7341C31.0247 5.33688 31.1455 5.70877 30.9104 5.87959L27.7192 8.19812C27.6141 8.27452 27.5701 8.40993 27.6103 8.53353L28.8292 12.285C28.919 12.5614 28.6026 12.7912 28.3675 12.6204L25.1763 10.3019C25.0712 10.2255 24.9288 10.2255 24.8237 10.3019L21.6325 12.6204C21.3974 12.7912 21.081 12.5614 21.1708 12.285L22.3897 8.53353C22.4299 8.40993 22.3859 8.27452 22.2808 8.19812L19.0896 5.87959C18.8545 5.70877 18.9753 5.33688 19.2659 5.33688H23.2104C23.3404 5.33688 23.4556 5.25319 23.4958 5.12959L24.7147 1.37811Z" fill="#FFC632"/>
+                <path d="M42.7147 1.37811C42.8045 1.10172 43.1955 1.10172 43.2853 1.37812L44.5042 5.12959C44.5444 5.25319 44.6596 5.33688 44.7896 5.33688H48.7341C49.0247 5.33688 49.1455 5.70877 48.9104 5.87959L45.7192 8.19812C45.6141 8.27452 45.5701 8.40993 45.6103 8.53353L46.8292 12.285C46.919 12.5614 46.6026 12.7912 46.3675 12.6204L43.1763 10.3019C43.0712 10.2255 42.9288 10.2255 42.8237 10.3019L39.6325 12.6204C39.3974 12.7912 39.081 12.5614 39.1708 12.285L40.3897 8.53353C40.4299 8.40993 40.3859 8.27452 40.2808 8.19812L37.0896 5.87959C36.8545 5.70877 36.9753 5.33688 37.2659 5.33688H41.2104C41.3404 5.33688 41.4556 5.25319 41.4958 5.12959L42.7147 1.37811Z" fill="#FFC632"/>
+                <path d="M60.7147 1.37811C60.8045 1.10172 61.1955 1.10172 61.2853 1.37812L62.5042 5.12959C62.5444 5.25319 62.6596 5.33688 62.7896 5.33688H66.7341C67.0247 5.33688 67.1455 5.70877 66.9104 5.87959L63.7192 8.19812C63.6141 8.27452 63.5701 8.40993 63.6103 8.53353L64.8292 12.285C64.919 12.5614 64.6026 12.7912 64.3675 12.6204L61.1763 10.3019C61.0712 10.2255 60.9288 10.2255 60.8237 10.3019L57.6325 12.6204C57.3974 12.7912 57.081 12.5614 57.1708 12.285L58.3897 8.53353C58.4299 8.40993 58.3859 8.27452 58.2808 8.19812L55.0896 5.87959C54.8545 5.70877 54.9753 5.33688 55.2659 5.33688H59.2104C59.3404 5.33688 59.4556 5.25319 59.4958 5.12959L60.7147 1.37811Z" fill="#FFC632"/>
+                <path d="M78.7147 1.37811C78.8045 1.10172 79.1955 1.10172 79.2853 1.37812L80.5042 5.12959C80.5444 5.25319 80.6596 5.33688 80.7896 5.33688H84.7341C85.0247 5.33688 85.1455 5.70877 84.9104 5.87959L81.7192 8.19812C81.6141 8.27452 81.5701 8.40993 81.6103 8.53353L82.8292 12.285C82.919 12.5614 82.6026 12.7912 82.3675 12.6204L79.1763 10.3019C79.0712 10.2255 78.9288 10.2255 78.8237 10.3019L75.6325 12.6204C75.3974 12.7912 75.081 12.5614 75.1708 12.285L76.3897 8.53353C76.4299 8.40993 76.3859 8.27452 76.2808 8.19812L73.0896 5.87959C72.8545 5.70877 72.9753 5.33688 73.2659 5.33688H77.2104C77.3404 5.33688 77.4556 5.25319 77.4958 5.12959L78.7147 1.37811Z" fill="#FFC632"/>
+                <path d="M97.696 14.792H96.532C95.332 13.424 94.54 11.276 94.54 8.972C94.54 6.872 95.212 4.664 96.532 3.164H97.696C96.7 4.52 96.016 6.644 96.016 8.972C96.016 11.096 96.604 13.304 97.696 14.792ZM104.327 12.488L98.2434 12.5V11.348L101.111 8.924C102.299 7.916 102.695 7.34 102.695 6.5C102.695 5.504 102.155 4.94 101.231 4.94C100.271 4.94 99.6714 5.612 99.6594 6.74H98.1354C98.1474 4.82 99.3714 3.572 101.231 3.572C103.103 3.572 104.267 4.64 104.267 6.416C104.267 7.64 103.595 8.564 102.263 9.704L100.679 11.06H104.327V12.488ZM107.168 5.108H105.248V3.728H108.644V12.5H107.168V5.108ZM116.257 12.488L110.173 12.5V11.348L113.041 8.924C114.229 7.916 114.625 7.34 114.625 6.5C114.625 5.504 114.085 4.94 113.161 4.94C112.201 4.94 111.601 5.612 111.589 6.74H110.065C110.077 4.82 111.301 3.572 113.161 3.572C115.033 3.572 116.197 4.64 116.197 6.416C116.197 7.64 115.525 8.564 114.193 9.704L112.609 11.06H116.257V12.488ZM117.852 14.792H116.688C117.792 13.304 118.368 11.096 118.368 8.972C118.368 6.644 117.684 4.52 116.688 3.164H117.852C119.172 4.664 119.855 6.872 119.855 8.972C119.855 11.276 119.052 13.424 117.852 14.792Z" fill="#787878"/>
+              </svg>  
+              <h3 class="my-1 text-base font-bold">{{ product.title | truncate: 60 }}</h3>
+
+              <div class="border-t border-solid border-[#d5d5d5] pt-2">
+                <span class="text-xs text-[#7c7c7c]">Price</span>
+                <div class="flex items-end gap-2">
+                  <div class="text-lg font-bold {% if sale %} text-black {% else %} text-black {% endif %}">
+                    {{ product.price | money_without_currency }}₾
+                  </div>
+                  {% if sale %}
+                  <div class="text-base text-[#8f8f8f] font-medium">
+                    {{ product.compare_at_price | money_without_currency }}₾
+                  </div>
+                  {% endif %}
+                </div>
+
+                {% if product.compare_at_price > product.price %}
+                  {% assign difference = product.compare_at_price | minus: product.price %}
+                  {% assign percentage = difference | times: 100 | divided_by: product.compare_at_price %}
+                  <div class="custom-sale-badge absolute right-0 bottom-0 bg-[#fa0001] text-xs text-white px-2.5 py-0.5 rounded-[12px_0px_12px_0px]">
+                    Save {{ percentage | round }}%
+                  </div>
+                {% endif %}    
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="flex items-center justify-center gap-x-10 mt-5">
+      <div class="embla__progress hidden lg:!block">
+        <div
+          class="embla__progress__bar w-full"
+          style="transform:translate3d(0%,0px,0px)"
+        ></div>
+      </div>
+      <div class="flex items-center gap-3">
+        <button
+          class="embla__button embla__button--prev embla__prev"
+          type="button"
+        >
+          <svg
+            class="embla__button__svg"
+            viewBox="137.718 -1.001 366.563 643.999"
+          >
+            <path
+              d="M428.36 12.5c16.67-16.67 43.76-16.67 60.42 0 16.67 16.67 16.67 43.76 0 60.42L241.7 320c148.25 148.24 230.61 230.6 247.08 247.08 16.67 16.66 16.67 43.75 0 60.42-16.67 16.66-43.76 16.67-60.42 0-27.72-27.71-249.45-249.37-277.16-277.08a42.308 42.308 0 0 1-12.48-30.34c0-11.1 4.1-22.05 12.48-30.42C206.63 234.23 400.64 40.21 428.36 12.5z"
+            ></path>
+          </svg>
+        </button>
+        <button
+          class="embla__button embla__button--next embla__next"
+          type="button"
+        >
+          <svg
+            class="embla__button__svg rotate-180"
+            viewBox="137.718 -1.001 366.563 643.999"
+          >
+            <path
+              d="M428.36 12.5c16.67-16.67 43.76-16.67 60.42 0 16.67 16.67 16.67 43.76 0 60.42L241.7 320c148.25 148.24 230.61 230.6 247.08 247.08 16.67 16.66 16.67 43.75 0 60.42-16.67 16.66-43.76 16.67-60.42 0-27.72-27.71-249.45-249.37-277.16-277.08a42.308 42.308 0 0 1-12.48-30.34c0-11.1 4.1-22.05 12.48-30.42C206.63 234.23 400.64 40.21 428.36 12.5z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const emblaNode = document.querySelector("#shopify-section-{{ section.id }} .product-slider-embla.embla");
+
+    const embla = EmblaCarousel(emblaNode, {
+      loop: false,
+      align: "start"
+    });
+
+    const prevButtonNode = document.querySelector('#shopify-section-{{ section.id }} .embla__prev');
+    const nextButtonNode = document.querySelector('#shopify-section-{{ section.id }} .embla__next');
+
+    prevButtonNode.addEventListener('click', embla.scrollPrev, false)
+    nextButtonNode.addEventListener('click', embla.scrollNext, false)
+  })
+</script>
+
+{% schema %}
+{
+  "name": "You May Also Like",
+  "tag": "section",
+  "class": "custom-you-may-also-like",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "default": "You may also like",
+      "label": "Title"
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Background color",
+      "default": "#f5f5f5"
+    }
+  ]
+}
+{% endschema %}

@@ -79,7 +79,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button capitalize font-bold button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            class="product-form__submit min-h-[56px] button font-bold button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
@@ -91,7 +91,7 @@
                 {{ 'products.product.add_to_cart' | t }}
               {%- endif -%}
 
-              | <span class="text-sm">{{ product.price | money }}</span>
+              | <span class="text-sm custom-variant-price">{{ product.selected_or_first_available_variant.price | money }}</span>
             </span>
             {%- render 'loading-spinner' -%}
           </button>
