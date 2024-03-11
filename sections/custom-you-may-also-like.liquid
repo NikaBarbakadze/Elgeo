@@ -54,13 +54,6 @@
     align-items: center;
     justify-content: center;
   }
-
-  .embla__progress{
-    width: 100%;
-    height: 5px;
-    background: black;
-    border-radius: 5px;
-  }
 </style>
 
 <div class="overflow-hidden px-0 mt-4 pb-8 pr-0 md:py-10 lg:mt-0 page-width lg:px-[5rem]">
@@ -135,11 +128,11 @@
     <div class="flex items-center justify-center gap-x-10 mt-5">
       <div class="embla__progress hidden lg:!block">
         <div
-          class="embla__progress__bar w-full"
+          class="embla__progress__bar"
           style="transform:translate3d(0%,0px,0px)"
         ></div>
       </div>
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-4 lg:gap-3">
         <button
           class="embla__button embla__button--prev embla__prev"
           type="button"
@@ -175,13 +168,43 @@
   document.addEventListener('DOMContentLoaded', ()=>{
     const emblaNode = document.querySelector("#shopify-section-{{ section.id }} .product-slider-embla.embla");
 
-    const embla = EmblaCarousel(emblaNode, {
-      loop: false,
-      align: "start"
-    });
+    const progressNode = emblaNode.querySelector('.embla__progress__bar');
+
+    const applyProgress = () => {
+      const progress = Math.max(0.18, Math.min(1, embla.scrollProgress()))
+      progressNode.style.transform = `translate3d(${progress * 100}%,0px,0px)`
+    }
 
     const prevButtonNode = document.querySelector('#shopify-section-{{ section.id }} .embla__prev');
     const nextButtonNode = document.querySelector('#shopify-section-{{ section.id }} .embla__next');
+
+    const removeProgress = () => {
+      progressNode.removeAttribute('style')
+    }
+
+    const togglePrevNextBtnsState = () => {
+      if (embla.canScrollPrev()) prevButtonNode.removeAttribute('disabled')
+      else prevButtonNode.setAttribute('disabled', 'disabled')
+  
+      if (embla.canScrollNext()) nextButtonNode.removeAttribute('disabled')
+      else nextButtonNode.setAttribute('disabled', 'disabled')
+    }
+
+    const embla = EmblaCarousel(emblaNode, {
+      loop: false,
+      align: "center",
+      breakpoints: {
+        '(min-width: 768px)': { align: "start" }
+      }
+    });
+
+    embla.on('init', applyProgress)
+    .on('reInit', applyProgress)
+    .on('scroll', applyProgress)
+    .on('destroy', removeProgress)
+    .on('select', togglePrevNextBtnsState)
+    .on('init', togglePrevNextBtnsState)
+    .on('reInit', togglePrevNextBtnsState);
 
     prevButtonNode.addEventListener('click', embla.scrollPrev, false)
     nextButtonNode.addEventListener('click', embla.scrollNext, false)

@@ -497,7 +497,7 @@
       };
     </script>
 
-    {% if template.name == "product" %}
+    {% comment %} {% if template.name == "product" %}
       <div class="lg:bg-[#fcfcfa] fixed bottom-[0px] w-full z-10 fixed-sidebar collapsed lg:border-t border-solid border-[#cfcfce]" id="fixedSidebar">
         <div class="page-width flex items-center justify-between py-3">
           <div class="items-center gap-3 hidden lg:!flex">
@@ -549,7 +549,7 @@
           });
         });        
       </script>
-    {% endif %}
+    {% endif %} {% endcomment %}
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
