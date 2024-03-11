@@ -359,3 +359,92 @@ label:has(.color-blob){
   padding: 12px 10px;
   border-radius: 12px;
 }
+
+.header__submenu {
+  left: -30%;
+}
+
+.header__submenu svg{
+  position: absolute;
+  top: -6%;
+  left: 10%;
+}
+
+.header__submenu ul{
+  display: flex;
+  justify-content: space-between;
+  gap: 11px;
+}
+
+.megamenu-item{
+  height: 167px;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
+.header__submenu ul li:nth-child(3n+1) .megamenu-item{
+  background-image: linear-gradient(180.00deg, rgb(244, 244, 244),rgb(235, 229, 255) 100%);
+}
+.header__submenu ul li:nth-child(3n+2) .megamenu-item{
+  background-image: linear-gradient(180.00deg, rgb(245, 245, 245),rgb(248, 212, 223) 100%);
+}
+.header__submenu ul li:nth-child(3n+3) .megamenu-item{
+  background-image: linear-gradient(180.00deg, rgb(246, 245, 245),rgb(252, 236, 221) 100%);
+}
+
+.megamenu-item{
+  position: relative;
+}
+
+.megamenu-item::after{
+  content: '';
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: contain;
+  width: 110px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.megamenu-item[data-title="galaxy-phones"]::after, .megamenu-item[data-title="iphone"]::after{
+  background-image: url("https://cdn.shopify.com/s/files/1/0505/7167/3763/files/image_22_1.png?v=1710165669") !important;
+}
+
+.megamenu-item[data-title="galaxy-tabs"]::after, .megamenu-item[data-title="ipad"]::after{
+  background-image: url("https://cdn.shopify.com/s/files/1/0505/7167/3763/files/image_32_1.png?v=1710165668") !important;
+}
+
+.megamenu-item[data-title="galaxy-watch"]::after, .megamenu-item[data-title="apple-watch"]::after{
+  background-image: url("https://cdn.shopify.com/s/files/1/0505/7167/3763/files/image_33_1.png?v=1710165669") !important;
+}
+
+.newsletter-form__button{
+  height: 100%;
+  border-radius: 0 6px 6px 0;
+  background-color: #FA0100;
+}
+
+.newsletter-form__button svg{
+  color: white;
+}
+
+.newsletter-form__field-wrapper input{
+  border-radius: 6px;
+}
+
+.newsletter-form__field-wrapper .field__label{
+  top: calc(1rem + var(--inputs-border-width));
+}
+
+.newsletter-form__field-wrapper .field__input:focus, .newsletter-form__field-wrapper .field__input:not(:placeholder-shown){
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem !important;
+}
+
+.newsletter-form__field-wrapper .field__input:focus ~ .field__label, .newsletter-form__field-wrapper  .field__input:not(:placeholder-shown) ~ .field__label{
+  display: none;
+}

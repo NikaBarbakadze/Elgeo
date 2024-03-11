@@ -78,6 +78,10 @@
   }
 
   @media screen and (min-width: 750px) {
+    .header__menu-item:hover .header__submenu {
+      display: block !important;
+      box-shadow: 0px 0px 64px 0px rgba(0, 0, 0, 0.12);
+    }
     .list-menu__item--link {
       padding-bottom: 0.5rem;
       padding-top: 0.5rem;
@@ -399,11 +403,28 @@
       </a>
     </div>
   </header>
-  <div class="flex justify-center lg:border-t border-[#ececec] border-solid gap-5 py-1 lg:py-2">
+  <div class="flex lg:justify-center lg:border-t border-[#ececec] border-solid lg:gap-5 justify-between px-[0.8rem]">
     {% for item in linklists.megamenu.links %}
-      <a href="{{ item.url }}" class="header__menu-item list-menu__item link link--text focus-inset">
-        <span class="header__active-menu-item">{{ item.title }}</span>
-      </a>
+      <div class="header__menu-item relative">
+        <a href="{{ item.url }}" class="list-menu__item link link--text focus-inset no-underline">
+          <span class="header__active-menu-item">{{ item.title }}</span>
+        </a>
+        {% if item.links.size > 0 %}
+        <div class="header__submenu absolute top-full bg-white shadow-lg hidden px-[22px] py-5 w-[500px] rounded-[16px]">
+          <svg class="absolute top-[100%]" width="29.291260" height="25.327759" viewBox="0 0 29.2913 25.3278" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs/>
+            <path id="Polygon 1" d="M12.925 0.980103L0.282715 22.3079C-0.507568 23.6411 0.453125 25.3278 2.00317 25.3278L27.2881 25.3278C28.8379 25.3278 29.7988 23.6411 29.0085 22.3079L16.366 0.980103C15.5913 -0.326782 13.7 -0.326782 12.925 0.980103Z" fill="#ffffff" fill-opacity="1.000000" fill-rule="evenodd"/>
+          </svg>
+          <ul>
+            {% for subitem in item.links %}
+            <li class="flex-1">
+                <a href="{{ subitem.url }}" data-title="{{ subitem.title | handleize }}" class="block py-2 megamenu-item">{{ subitem.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
     {% endfor %}
   </div>
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>

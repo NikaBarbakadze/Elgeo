@@ -608,8 +608,16 @@ video {
   top: 0px;
 }
 
+.top-\[100\%\] {
+  top: 100%;
+}
+
 .top-\[50\%\] {
   top: 50%;
+}
+
+.top-full {
+  top: 100%;
 }
 
 .isolate {
@@ -653,11 +661,6 @@ video {
 .my-1 {
   margin-top: 4px;
   margin-bottom: 4px;
-}
-
-.my-5 {
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .mb-2 {
@@ -787,6 +790,10 @@ video {
 
 .w-3\/4 {
   width: 75%;
+}
+
+.w-\[500px\] {
+  width: 500px;
 }
 
 .w-\[6px\] {
@@ -924,10 +931,6 @@ video {
   gap: 12px;
 }
 
-.gap-5 {
-  gap: 20px;
-}
-
 .gap-6 {
   gap: 24px;
 }
@@ -942,6 +945,14 @@ video {
 
 .gap-9 {
   gap: 36px;
+}
+
+.gap-5 {
+  gap: 20px;
+}
+
+.gap-4 {
+  gap: 16px;
 }
 
 .gap-x-1 {
@@ -986,6 +997,10 @@ video {
 
 .rounded-\[15px\] {
   border-radius: 15px;
+}
+
+.rounded-\[16px\] {
+  border-radius: 16px;
 }
 
 .rounded-\[6px\] {
@@ -1202,6 +1217,16 @@ video {
   padding-right: 32px;
 }
 
+.px-\[0\.8rem\] {
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.px-\[22px\] {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
 .py-0 {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -1245,6 +1270,11 @@ video {
 .py-4 {
   padding-top: 16px;
   padding-bottom: 16px;
+}
+
+.py-5 {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .py-6 {
@@ -1303,6 +1333,10 @@ video {
 
 .pt-4 {
   padding-top: 16px;
+}
+
+.pb-16 {
+  padding-bottom: 64px;
 }
 
 .text-left {
@@ -1449,6 +1483,10 @@ video {
   text-decoration-line: line-through;
 }
 
+.no-underline {
+  text-decoration-line: none;
+}
+
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1475,6 +1513,12 @@ video {
 .shadow-\[0_-4px_9px_rgba\(0\2c 0\2c 0\2c 0\.05\)\] {
   --tw-shadow: 0 -4px 9px rgba(0,0,0,0.05);
   --tw-shadow-colored: 0 -4px 9px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -1886,6 +1930,105 @@ label:has(.color-blob){
   border-radius: 12px;
 }
 
+.header__submenu {
+  left: -30%;
+}
+
+.header__submenu svg{
+  position: absolute;
+  top: -6%;
+  left: 10%;
+}
+
+.header__submenu ul{
+  display: flex;
+  justify-content: space-between;
+  gap: 11px;
+}
+
+.megamenu-item{
+  height: 167px;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
+.header__submenu ul li:nth-child(3n+1) .megamenu-item{
+  background-image: linear-gradient(180.00deg, rgb(244, 244, 244),rgb(235, 229, 255) 100%);
+}
+
+.header__submenu ul li:nth-child(3n+2) .megamenu-item{
+  background-image: linear-gradient(180.00deg, rgb(245, 245, 245),rgb(248, 212, 223) 100%);
+}
+
+.header__submenu ul li:nth-child(3n+3) .megamenu-item{
+  background-image: linear-gradient(180.00deg, rgb(246, 245, 245),rgb(252, 236, 221) 100%);
+}
+
+.megamenu-item{
+  position: relative;
+}
+
+.megamenu-item::after{
+  content: '';
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: contain;
+  width: 110px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.megamenu-item[data-title="galaxy-phones"]::after, .megamenu-item[data-title="iphone"]::after{
+  background-image: url("https://cdn.shopify.com/s/files/1/0505/7167/3763/files/image_22_1.png?v=1710165669") !important;
+}
+
+.megamenu-item[data-title="galaxy-tabs"]::after, .megamenu-item[data-title="ipad"]::after{
+  background-image: url("https://cdn.shopify.com/s/files/1/0505/7167/3763/files/image_32_1.png?v=1710165668") !important;
+}
+
+.megamenu-item[data-title="galaxy-watch"]::after, .megamenu-item[data-title="apple-watch"]::after{
+  background-image: url("https://cdn.shopify.com/s/files/1/0505/7167/3763/files/image_33_1.png?v=1710165669") !important;
+}
+
+.newsletter-form__button{
+  height: 100%;
+  border-radius: 0 6px 6px 0;
+  background-color: #FA0100;
+}
+
+.newsletter-form__button svg{
+  color: white;
+}
+
+.newsletter-form__field-wrapper input{
+  border-radius: 6px;
+}
+
+.newsletter-form__field-wrapper .field__label{
+  top: calc(1rem + var(--inputs-border-width));
+}
+
+.newsletter-form__field-wrapper .field__input:not(:-moz-placeholder-shown){
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem !important;
+}
+
+.newsletter-form__field-wrapper .field__input:focus, .newsletter-form__field-wrapper .field__input:not(:placeholder-shown){
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem !important;
+}
+
+.newsletter-form__field-wrapper  .field__input:not(:-moz-placeholder-shown) ~ .field__label{
+  display: none;
+}
+
+.newsletter-form__field-wrapper .field__input:focus ~ .field__label, .newsletter-form__field-wrapper  .field__input:not(:placeholder-shown) ~ .field__label{
+  display: none;
+}
+
 .even\:bg-\[\#F2F2F2\]:nth-child(even) {
   --tw-bg-opacity: 1;
   background-color: rgb(242 242 242 / var(--tw-bg-opacity));
@@ -2024,12 +2167,20 @@ label:has(.color-blob){
     grid-template-columns: 1fr 1.5fr 1fr;
   }
 
+  .lg\:justify-center {
+    justify-content: center;
+  }
+
   .lg\:gap-0 {
     gap: 0px;
   }
 
   .lg\:gap-20 {
     gap: 80px;
+  }
+
+  .lg\:gap-5 {
+    gap: 20px;
   }
 
   .lg\:border {
@@ -2070,11 +2221,6 @@ label:has(.color-blob){
     padding-right: 5rem;
   }
 
-  .lg\:py-2 {
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
-
   .lg\:py-3 {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -2096,6 +2242,10 @@ label:has(.color-blob){
 
   .lg\:pb-8 {
     padding-bottom: 32px;
+  }
+
+  .lg\:pb-24 {
+    padding-bottom: 96px;
   }
 
   .lg\:text-start {

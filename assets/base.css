@@ -442,6 +442,9 @@ table:not([class]) th {
   .small-hide {
     display: none !important;
   }
+  .header__menu-item {
+    padding: 1.6rem 1.2rem;
+  }
 }
 
 @media screen and (min-width: 750px) and (max-width: 989px) {
@@ -1787,14 +1790,14 @@ details[open] > .share-button__fallback {
   color: currentColor;
   cursor: pointer;
   display: flex;
-  height: 4.4rem;
+  height: 5rem;
   justify-content: center;
   overflow: hidden;
   padding: 0;
   position: absolute;
   right: 0;
   top: 0;
-  width: 4.4rem;
+  width: 5rem;
 }
 
 .field__button > svg {
@@ -2814,7 +2817,7 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item {
-  padding: 1.2rem;
+  padding: 2rem 1.2rem;
   text-decoration: none;
   color: rgba(var(--color-foreground), 0.75);
 }
@@ -2827,10 +2830,10 @@ details[open] > .header__submenu {
   transition: text-decoration var(--duration-short) ease;
 }
 
-.header__menu-item:hover span {
+/* .header__menu-item:hover span {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
-}
+} */
 
 details[open] > .header__menu-item {
   text-decoration: underline;
