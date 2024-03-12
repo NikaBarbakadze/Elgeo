@@ -50,7 +50,14 @@
         </fieldset>
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill {{ option.name }}-fieldset">
-          <legend class="form__label">{{ option.name }}</legend>
+          <legend class="form__label flex justify-between items-center w-full">
+            
+            <span>{{ option.name }}</span>
+
+            {% if option.name == 'Condition' %}
+            <span class="text-sm font-medium text-black underline mr-2 condition-learn-more cursor-pointer">Learn more</span>
+            {% endif %}
+          </legend>
           {% render 'product-variant-options',
             product: product,
             option: option,

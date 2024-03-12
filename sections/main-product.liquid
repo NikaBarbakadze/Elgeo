@@ -776,9 +776,34 @@
       {% render "custom-certifications-content" %}
     </template>
 
+    <template id="conditions">
+      {% render "custom-conditions-content" %}
+    </template>
+
     <script defer>
       let specificationPopup;
       let certificationsPopup;
+      let conditionsPopup;
+      
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks, tabimg;
+        tabcontent = document.getElementsByClassName("custom-tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        tabimg = document.querySelectorAll(".tab-container img");
+        for (i = 0; i < tabimg.length; i++) {
+            tabimg[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName + "-img").style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
       document.addEventListener('DOMContentLoaded', function () {
         specificationPopup = basicLightbox.create(
           document.querySelector('template#specifications')
@@ -786,10 +811,19 @@
         certificationsPopup = basicLightbox.create(
           document.querySelector('template#certifications')
         )
+        conditionsPopup = basicLightbox.create(
+          document.querySelector('template#conditions')
+        )
         document.querySelector('#specifications-trigger').addEventListener('click', function () {
           specificationPopup.show();
           document.querySelector(".btn-close").addEventListener("click", function () {
             specificationPopup.close();
+          });
+        })  
+        document.querySelector('.condition-learn-more').addEventListener('click', function () {
+          conditionsPopup.show();
+          document.querySelector(".btn-close").addEventListener("click", function () {
+            conditionsPopup.close();
           });
         })  
         document.querySelector('#certifications-trigger').addEventListener('click', function () {

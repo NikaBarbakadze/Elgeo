@@ -63,6 +63,9 @@ svg.icon-cart-empty.icon, svg.icon-cart.icon{
     padding: 5px !important;
     background-color: white !important;
   }
+  .product-form__input--pill input[type='radio'] + label{
+    width: 31%;
+  }
 }
 
 .header__menu-item{
@@ -857,4 +860,42 @@ cart-remove-button .button{
   top: 10px;
   position: absolute;
   border-radius: 50%;
+}
+
+.tab-container {
+  width: 100%;
+  }
+  
+.tab-buttons {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.tab {
+  background-color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  flex-basis: 100%;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+}
+
+.tab:hover {
+  background-color: #ddd;
+}
+
+.tab.active {
+  background-color: #f4f4f4;
+  border: 1px solid #000;
+}
+
+.custom-tabcontent {
+  padding: 6px 12px;
+  margin-top: 15px;
 }

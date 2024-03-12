@@ -679,16 +679,6 @@ video {
   margin-bottom: 28px;
 }
 
-.mx-0 {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
-.\!mx-0 {
-  margin-left: 0px !important;
-  margin-right: 0px !important;
-}
-
 .\!mr-\[0\.5rem\] {
   margin-right: 0.5rem !important;
 }
@@ -727,6 +717,10 @@ video {
 
 .ml-\[15px\] {
   margin-left: 15px;
+}
+
+.mr-2 {
+  margin-right: 8px;
 }
 
 .mr-4 {
@@ -854,6 +848,10 @@ video {
   max-height: 180px;
 }
 
+.max-h-\[250px\] {
+  max-height: 250px;
+}
+
 .min-h-\[56px\] {
   min-height: 56px;
 }
@@ -876,10 +874,6 @@ video {
 
 .min-w-\[30px\] {
   min-width: 30px;
-}
-
-.min-w-\[480px\] {
-  min-width: 480px;
 }
 
 .\!max-w-\[250px\] {
@@ -1346,11 +1340,6 @@ video {
   padding-right: 24px;
 }
 
-.px-7 {
-  padding-left: 28px;
-  padding-right: 28px;
-}
-
 .px-8 {
   padding-left: 32px;
   padding-right: 32px;
@@ -1632,6 +1621,10 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.underline {
+  text-decoration-line: underline;
+}
+
 .line-through {
   text-decoration-line: line-through;
 }
@@ -1770,6 +1763,10 @@ svg.icon-cart-empty.icon, svg.icon-cart.icon{
     border-radius: 6px;
     padding: 5px !important;
     background-color: white !important;
+  }
+
+  .product-form__input--pill input[type='radio'] + label{
+    width: 31%;
   }
 }
 
@@ -2611,6 +2608,44 @@ cart-remove-button .button{
   border-radius: 50%;
 }
 
+.tab-container {
+  width: 100%;
+}
+
+.tab-buttons {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.tab {
+  background-color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  flex-basis: 100%;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+}
+
+.tab:hover {
+  background-color: #ddd;
+}
+
+.tab.active {
+  background-color: #f4f4f4;
+  border: 1px solid #000;
+}
+
+.custom-tabcontent {
+  padding: 6px 12px;
+  margin-top: 15px;
+}
+
 @media (min-width: 640px) {
   .sm\:mt-0 {
     margin-top: 0px;
@@ -2666,11 +2701,6 @@ cart-remove-button .button{
   .lg\:my-8 {
     margin-top: 32px;
     margin-bottom: 32px;
-  }
-
-  .lg\:\!mx-4 {
-    margin-left: 16px !important;
-    margin-right: 16px !important;
   }
 
   .lg\:mb-0 {
@@ -2729,12 +2759,12 @@ cart-remove-button .button{
     width: auto;
   }
 
-  .lg\:min-w-\[500px\] {
-    min-width: 500px;
-  }
-
   .lg\:min-w-\[480px\] {
     min-width: 480px;
+  }
+
+  .lg\:min-w-\[500px\] {
+    min-width: 500px;
   }
 
   .lg\:max-w-\[300px\] {
@@ -2856,6 +2886,16 @@ cart-remove-button .button{
     padding-right: 20px;
   }
 
+  .lg\:px-6 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .lg\:px-7 {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
   .lg\:px-\[5rem\] {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -2904,16 +2944,6 @@ cart-remove-button .button{
   .lg\:py-9 {
     padding-top: 36px;
     padding-bottom: 36px;
-  }
-
-  .lg\:px-6 {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .lg\:px-7 {
-    padding-left: 28px;
-    padding-right: 28px;
   }
 
   .lg\:pb-24 {
