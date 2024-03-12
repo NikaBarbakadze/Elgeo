@@ -1424,6 +1424,10 @@ class VariantSelects extends HTMLElement {
         document.querySelector(".sale-badge-thing-mobile").innerHTML =
           html.querySelector(".sale-badge-thing-mobile").innerHTML;
 
+        document.querySelector("#fixedSidebar").innerHTML = html.querySelector(
+          "#fixedSidebarHidden"
+        ).innerHTML;
+
         console.log(html.querySelector(".sale-badge-thing").innerHTML);
 
         const productForm = document.getElementById(

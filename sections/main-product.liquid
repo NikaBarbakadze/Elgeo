@@ -874,6 +874,75 @@
       }
     </script>
   </div>
+
+  <div class="!hidden">
+    <div class="lg:bg-[#fcfcfa] fixed bottom-[0px] w-full z-10 fixed-sidebar collapsed lg:border-t border-solid border-[#cfcfce]" id="fixedSidebarHidden">
+      <div class="page-width hidden lg:!flex items-center justify-between py-5 relative">
+        <div class="items-center gap-3 hidden lg:!flex">
+          <figure>
+            <img class="max-w-[50px] rounded-[8px] aspect-square object-cover object-center" src="{{ product.featured_image | img_url: "400x" }}" alt="{{ product.title }}">
+          </figure>
+          <h3 class="text-base text-black font-bold max-w-[180px]">{{ product.title }}</h3>
+        </div>
+        <div>
+          <ul class="flex gap-3">
+            {% for option in product.selected_or_first_available_variant.options %}
+                <li class="flex flex-col gap-[5px] border border-[#cfcfcf] border-solid rounded-[12px] px-4 py-2">
+                  {% assign index = forloop.index | minus: 1 %}
+                  <span class="text-xs text-[#787878]">{{ product.options[index] }}</span>
+                  <p class="text-base font-bold text-black">{{ option }}</p>
+                </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="flex gap-10 items-center">
+          <div class="sale-badge-thing-scroll">
+            <div class="flex flex-col items-center">
+              <div class="bg-[#FA0100] max-w-[100px] text-white text-center px-4 py-1 rounded-b-lg top-0 w-full absolute flex items-center justify-center">
+                <span class="text-xs font-semibold">
+                  {% assign percentage_off = 100 | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round %}
+                  Save {{ percentage_off | times: -1 }}%
+                </span>
+              </div>
+              <div class="bg-white px-4 py-2 rounded-b-lg gap-2 text-center items-center flex w-full">
+                <span class="text-2xl font-bold text-gray-800">
+                  {{ product.selected_or_first_available_variant.price | money }}
+                </span>
+                <span class="text-base text-gray-500 line-through">
+                  {% assign compare_price = product.selected_or_first_available_variant.compare_at_price | money %}
+                  {{ compare_price }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-6 items-center w-full lg:w-auto">
+            <button onClick="document.querySelector('.product-form__submit').click();" class="bg-black font-bold px-8 py-4 rounded-[12px] min-w-[235px] lg:py-3 min-h-[56px] text-white text-base w-full lg:w-auto custom-fixed-atc"><span>Add to cart</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="flex lg:hidden bg-[#ffffff] py-2 lg:py-4 page-width justify-between items-center border-t border-solid border-[#cfcfcf]">
+        <div class="flex flex-col flex-1">
+          <ul class="flex flex-wrap gap-1">
+            {% for option in product.selected_or_first_available_variant.options %}
+                  <span class="text-xs font-medium text-black">{{ option }} {% unless forloop.last %}|{% endunless %}</span>
+            {% endfor %}
+          </ul>
+          <div class="bg-white rounded-b-lg gap-2 text-center items-center flex w-full mt-1.5">
+            <span class="text-sm font-bold text-gray-800">
+              {{ product.selected_or_first_available_variant.price | money }}
+            </span>
+            <span class="text-sm text-gray-500 line-through font-bold">
+              {% assign compare_price = product.selected_or_first_available_variant.compare_at_price | money %}
+              {{ compare_price }}
+            </span>
+          </div>
+        </div>
+        <div class="flex gap-6 items-center justify-end w-full lg:w-auto max-w-[125px]">
+          <button onClick="document.querySelector('.product-form__submit').click();" class="bg-black font-bold py-4 rounded-[12px] lg:py-3 min-h-[56px] text-white text-base w-full lg:w-auto custom-fixed-atc"><span>Add to cart</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 {% schema %}

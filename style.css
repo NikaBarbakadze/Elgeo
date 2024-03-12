@@ -55,9 +55,6 @@ svg.icon-cart-empty.icon, svg.icon-cart.icon{
   .header__icon--menu{
     background-color: transparent;
   }
-  .sale-badge-thing{
-    
-  }
   .media > img{
     object-fit: contain;
   }
@@ -491,7 +488,7 @@ body .product--thumbnail_slider.product--no-media .product__media-wrapper media-
     padding: 20px 12px 0px 12px !important;
   }
   .cart-drawer .cart-item{
-    grid-template: repeat(2, auto) / 70px 1fr 1fr 70px;
+    grid-template: repeat(2, auto) / 70px 1fr 1fr 50px;
   }
   .cart-item__media{
     margin-right: 1rem !important;
@@ -627,4 +624,8 @@ cart-remove-button .button{
 
 .embla__button:disabled{
   opacity: 0.2;
+}
+
+.sale-badge-thing-scroll{
+
 }
