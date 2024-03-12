@@ -679,6 +679,16 @@ video {
   margin-bottom: 28px;
 }
 
+.mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.\!mx-0 {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
 .\!mr-\[0\.5rem\] {
   margin-right: 0.5rem !important;
 }
@@ -866,6 +876,10 @@ video {
 
 .min-w-\[30px\] {
   min-width: 30px;
+}
+
+.min-w-\[480px\] {
+  min-width: 480px;
 }
 
 .\!max-w-\[250px\] {
@@ -2654,6 +2668,11 @@ cart-remove-button .button{
     margin-bottom: 32px;
   }
 
+  .lg\:\!mx-4 {
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
@@ -2712,6 +2731,10 @@ cart-remove-button .button{
 
   .lg\:min-w-\[500px\] {
     min-width: 500px;
+  }
+
+  .lg\:min-w-\[480px\] {
+    min-width: 480px;
   }
 
   .lg\:max-w-\[300px\] {
@@ -2881,6 +2904,16 @@ cart-remove-button .button{
   .lg\:py-9 {
     padding-top: 36px;
     padding-bottom: 36px;
+  }
+
+  .lg\:px-6 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .lg\:px-7 {
+    padding-left: 28px;
+    padding-right: 28px;
   }
 
   .lg\:pb-24 {
