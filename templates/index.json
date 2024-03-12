@@ -1,6 +1,247 @@
 {
   "sections":{
+    "hero": {
+      "type": "custom-hero-slider",
+      "blocks": {
+        "f4a4831c-f6eb-4811-add1-123e57ca2481": {
+          "type": "slide",
+          "settings": {
+            "paragraph": "Pick up where you left off",
+            "background_image": "shopify:\/\/shop_images\/Group_48096014_1.png?v=1710215199.jpg",
+            "button_url": "shopify:\/\/collections\/all-products",
+            "button_text": "Shop Now",
+            "button_svg": "",
+            "sale_text": ""
+          }
+        },
+        "3fc1dd3c-33c5-4c0a-aeec-1421952a8185": {
+          "type": "slide",
+          "settings": {
+            "paragraph": "Pick up where you left off",
+            "background_image": "shopify:\/\/shop_images\/Group_48096014_1.png?v=1710215199.jpg",
+            "button_url": "shopify:\/\/collections\/all-products",
+            "button_text": "Shop Now",
+            "button_svg": "",
+            "sale_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "f4a4831c-f6eb-4811-add1-123e57ca2481",
+        "3fc1dd3c-33c5-4c0a-aeec-1421952a8185"
+      ],
+      "settings": {
+      }
+    },
+    "product-slider": {
+      "type": "custom-product-slider",
+      "blocks": {
+        "card_pRYnHn1": {
+          "type": "card",
+          "settings": {
+            "product": "apple-watch-s1-unlocked"
+          }
+        },
+        "card_cpnqcK2": {
+          "type": "card",
+          "settings": {
+            "product": "apple-watch-s2-unlocked"
+          }
+        },
+        "card_CQLUVE3": {
+          "type": "card",
+          "settings": {
+            "product": "galaxy-fold-unlocked"
+          }
+        },
+        "card_jeUe4L4": {
+          "type": "card",
+          "settings": {
+            "product": "apple-watch-ultra-unlocked"
+          }
+        },
+        "card_r3zPJx3": {
+          "type": "card",
+          "settings": {
+            "product": "apple-watch-s4-unlocked-1"
+          }
+        },
+        "card_R4GHR83": {
+          "type": "card",
+          "settings": {
+            "product": "galaxy-tab-s6-unlocked"
+          }
+        },
+        "card_Raa6y61": {
+          "type": "card",
+          "settings": {
+            "product": "ipad-10th-generation-unlocked"
+          }
+        },
+        "card_T7KhJ69": {
+          "type": "card",
+          "settings": {
+            "product": "apple-watch-s5-unlocked"
+          }
+        }
+      },
+      "block_order": [
+        "card_pRYnHn1",
+        "card_cpnqcK2",
+        "card_CQLUVE3",
+        "card_jeUe4L4",
+        "card_r3zPJx3",
+        "card_R4GHR83",
+        "card_Raa6y61",
+        "card_T7KhJ69"
+      ],
+      "settings": {
+        "section_title": "You may also like",
+        "color_bg": "#f5f5f5"
+      }
+    },
+    "reviews-slider": {
+      "type": "custom-reviews-slider",
+      "blocks": {
+        "card_AeErMy": {
+          "type": "card",
+          "settings": {
+            "name": "ANDREW. B",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1.png?v=1710200533",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 5.0
+          }
+        },
+        "card_Y4RDKb": {
+          "type": "card",
+          "settings": {
+            "name": "MARTHA.G",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_1.png?v=1710200534",
+            "review": "This was an excellent purchase. I was worried about buying refurbished but have been pleasantly surprised. I got the pink iphone 13 for my daughter for her bday and you would barely know that it was used.",
+            "score": 4.9
+          }
+        },
+        "card_apdLcK": {
+          "type": "card",
+          "settings": {
+            "name": "GEORGE.K",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_2.png?v=1710200533",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 4.9
+          }
+        },
+        "card_fhHYnr": {
+          "type": "card",
+          "settings": {
+            "name": "ANDREW. B",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1.png?v=1710200533",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 5.0
+          }
+        },
+        "card_YAiVtT": {
+          "type": "card",
+          "settings": {
+            "name": "MARTHA.G",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_1.png?v=1710200534",
+            "review": "This was an excellent purchase. I was worried about buying refurbished but have been pleasantly surprised. I got the pink iphone 13 for my daughter for her bday and you would barely know that it was used.",
+            "score": 4.9
+          }
+        },
+        "card_Ai7aRc": {
+          "type": "card",
+          "settings": {
+            "name": "GEORGE.K",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_2.png?v=1710200533",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 4.9
+          }
+        }
+      },
+      "block_order": [
+        "card_AeErMy",
+        "card_Y4RDKb",
+        "card_apdLcK",
+        "card_fhHYnr",
+        "card_YAiVtT",
+        "card_Ai7aRc"
+      ],
+      "settings": {
+        "color_bg": "#eeeeee"
+      }
+    },
+    "product-slider-2": {
+      "type": "custom-product-slider",
+      "blocks": {
+        "card_pRYnHn1": {
+          "type": "card",
+          "settings": {
+            "product": "apple-watch-s1-unlocked"
+          }
+        },
+        "card_cpnqcK2": {
+          "type": "card",
+          "settings": {
+            "product": "apple-watch-s2-unlocked"
+          }
+        },
+        "card_CQLUVE3": {
+          "type": "card",
+          "settings": {
+            "product": "galaxy-fold-unlocked"
+          }
+        },
+        "card_jeUe4L4": {
+          "type": "card",
+          "settings": {
+            "product": "apple-watch-ultra-unlocked"
+          }
+        },
+        "card_r3zPJx3": {
+          "type": "card",
+          "settings": {
+            "product": "apple-watch-s4-unlocked-1"
+          }
+        },
+        "card_R4GHR83": {
+          "type": "card",
+          "settings": {
+            "product": "galaxy-tab-s6-unlocked"
+          }
+        },
+        "card_Raa6y61": {
+          "type": "card",
+          "settings": {
+            "product": "ipad-10th-generation-unlocked"
+          }
+        },
+        "card_T7KhJ69": {
+          "type": "card",
+          "settings": {
+            "product": "apple-watch-s5-unlocked"
+          }
+        }
+      },
+      "block_order": [
+        "card_pRYnHn1",
+        "card_cpnqcK2",
+        "card_CQLUVE3",
+        "card_jeUe4L4",
+        "card_r3zPJx3",
+        "card_R4GHR83",
+        "card_Raa6y61",
+        "card_T7KhJ69"
+      ],
+      "settings": {
+        "section_title": "You may also like",
+        "color_bg": "#f5f5f5"
+      }
+    }
   },
   "order":[
+    "hero",
+    "product-slider",
+    "reviews-slider",
+    "product-slider-2"
   ]
 }

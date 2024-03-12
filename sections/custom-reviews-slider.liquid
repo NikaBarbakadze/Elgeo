@@ -62,9 +62,9 @@
 
 <div class="overflow-hidden px-0 mt-4 py-5 pb-10 pr-0 lg:py-10 md:py-20 lg:mt-0 page-width lg:px-[5rem]">
   <div class="grid grid-cols-1 lg:grid-cols-[0.4fr,1fr]">
-    <div class="flex flex-col justify-between items-start">
-      <h2 class="text-2xl lg:text-4xl text-black text-center lg:text-start mb-6 lg:mb-12 font-bold lg:max-w-[300px]">{{ product.title }}
-      customer reviews</h2>
+    <div class="flex flex-col justify-between items-center lg:items-start">
+      <h2 class="text-2xl lg:text-4xl text-black text-center lg:text-start mb-6 lg:mb-12 font-bold lg:max-w-[300px] {% if template == "index" %} capitalize{% endif %}">
+      {% if template == "index" %} Our Customer Reviews {% else %} {{ product.title }} customer reviews {% endif %}</h2>
       <div class="items-center justify-center gap-x-10 mt-5 hidden lg:!flex">
         <div class="flex items-center gap-3">
           <!-- Buttons -->
