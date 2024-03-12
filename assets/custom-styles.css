@@ -1015,6 +1015,10 @@ video {
   gap: 8px;
 }
 
+.gap-2\.5 {
+  gap: 10px;
+}
+
 .gap-3 {
   gap: 12px;
 }
@@ -1039,20 +1043,12 @@ video {
   gap: 32px;
 }
 
-.gap-9 {
-  gap: 36px;
-}
-
 .gap-\[18px\] {
   gap: 18px;
 }
 
 .gap-\[5px\] {
   gap: 5px;
-}
-
-.gap-2\.5 {
-  gap: 10px;
 }
 
 .gap-x-1 {
@@ -2212,7 +2208,7 @@ label:has(.color-blob){
   width: 5rem;
 }
 
-body .product--thumbnail_slider.product--no-media .product__media-wrapper media-gallery{
+body .custom-only-image .product__media-wrapper media-gallery{
   justify-content: center !important;
 }
 

@@ -473,7 +473,7 @@ label:has(.color-blob){
   width: 5rem;
 }
 
-body .product--thumbnail_slider.product--no-media .product__media-wrapper media-gallery{
+body .custom-only-image .product__media-wrapper media-gallery{
   justify-content: center !important;
 }
 
