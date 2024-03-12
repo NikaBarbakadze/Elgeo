@@ -518,7 +518,7 @@
                   </div>
                   <div id="certifications-trigger" class="cursor-pointer rounded-b-md bg-white sm:mt-0">
                     <div class="flex justify-between rounded-b-md border border-[#cfcfcf] items-center bg-white py-2 px-7 pt-2 border-t-0">
-                      <p class="justify-start text-base font-medium text-[#000]">Certified Quality &amp; Packaging</p>
+                      <p class="justify-start text-base font-medium text-[#000]">Frequently asked questions</p>
                       <div class="relative flex items-center justify-center px-3 pr-0">
                         <svg width="26" height="32" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2028 20.93C9.93241 20.6462 9.93241 20.1861 10.2028 19.9023L14.3286 15.5714L10.2028 11.2405C9.93241 10.9567 9.93241 10.4966 10.2028 10.2128C10.4731 9.92902 10.9115 9.92902 11.1818 10.2128L15.7972 15.0575C15.9271 15.1938 16 15.3787 16 15.5714C16 15.7641 15.9271 15.949 15.7972 16.0853L11.1818 20.93C10.9115 21.2138 10.4731 21.2138 10.2028 20.93Z" fill="black"/>
@@ -776,12 +776,14 @@
       {% render "custom-certifications-content" %}
     </template>
 
-    <script>
+    <script defer>
+      let specificationPopup;
+      let certificationsPopup;
       document.addEventListener('DOMContentLoaded', function () {
-        const specificationPopup = basicLightbox.create(
+        specificationPopup = basicLightbox.create(
           document.querySelector('template#specifications')
         )
-        const certificationsPopup = basicLightbox.create(
+        certificationsPopup = basicLightbox.create(
           document.querySelector('template#certifications')
         )
         document.querySelector('#specifications-trigger').addEventListener('click', function () {

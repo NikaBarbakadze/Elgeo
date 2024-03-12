@@ -680,3 +680,29 @@ cart-remove-button .button{
     max-width: calc(23% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
   }
 }
+
+.custom-sidepopup {
+  color: black;
+}
+
+.custom-sidepopup h3{
+  font-weight: bold;
+  padding: 15px 0;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  margin: 16px 0;
+  text-align: center;
+}
+
+.custom-sidepopup li{
+  margin: 10px 0;
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.popup-close{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}

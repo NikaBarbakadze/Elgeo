@@ -430,7 +430,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js" defer></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css" rel="stylesheet">
+    <link href="{{ 'basicLightbox.css' | asset_url }}" rel="stylesheet">
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -564,6 +564,7 @@
           </div>
         </div>
       </div>
+
       <script defer>
         document.addEventListener('DOMContentLoaded', () => {
           const mainAddToCartBtn = document.querySelector('.product-form__submit');

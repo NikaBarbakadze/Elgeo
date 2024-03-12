@@ -585,6 +585,11 @@
 </style>
 
 <script defer>
+  function closePopup(){
+    specificationPopup.close();
+    certificationsPopup.close();
+  }
+
   async function addItems(object, svg) {
       fetch("/cart/add.js", {
               body: JSON.stringify(object),

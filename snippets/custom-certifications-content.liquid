@@ -1,21 +1,16 @@
-<div class="h-[100lvh] max-w-[480px] right-0 inline-block w-full overflow-auto bg-white text-left align-middle shadow-xl transition-all">
-  <div class="sticky top-0 justify-between bg-white py-2 px-4 shadow">
-    <h3 class=" mr-6 block justify-start py-3 pr-2 text-[18px] font-bold leading-6 text-gray-700" id="headlessui-dialog-title-:r3i:">Certified Quality &amp; Packaging</h3>
-    <button type="button" class="btn-close absolute right-6 top-[50%] -translate-y-1/2 justify-end opacity-100 md:h-3 md:w-3" aria-label="Close" tabindex="0"></button>
-  </div>
-  <div class="flex flex-col bg-white p-4 pb-[5rem] pt-4 text-[14px]">
-    <div class="w-full px-2 pt-4 font-semibold">Refurbished Tech That is Certified &amp; Affordable</div>
-    <div class="w-full px-2 pt-2">At Reebelo, you will always find high-quality, certified refurbished electronics tested by our expert refurbishing partners. These pre-owned products are professionally cleaned and inspected. Refurbished with Reebelo guarantees buyer satisfaction, battery health, and reduced negative impact on the environment.</div>
-    <div class="w-full px-2 pt-4 font-semibold">What's included in the box?</div>
-    <div class="w-full px-2 pt-2">
-      <ul class="ml-4 list-disc">
-        <li>Professionally refurbished smartphone</li>
-        <li>Certified charging cable</li>
-      </ul>
-    </div>
-    <div class="w-full px-2 pt-4 font-semibold ">What to look for in a pre-owned smartphone?</div>
-    <div class="w-full px-2 pt-2">Originality &amp; Quality. All pre-owned smartphones at Reebelo are guaranteed original. They’re 100% functional and undergo rigorous 70+ quality checks before shipping.</div>
-    <div class="w-full px-2 pt-4 font-semibold ">What are the carbon footprint savings of a used smartphone?</div>
-    <div class="w-full px-2 pt-2">You save 70% of the carbon footprint of a new device by buying used and certified preowned. And we give back to the environment by planting a tree for every purchase made.</div>
+<div class="max-h-[100lvh] max-w-[480px] right-0 inline-block h-[100lvh] w-full overflow-auto custom-sidepopup bg-[#f4f4f4] text-left align-middle shadow-xl transition-all px-6">
+  <svg onClick="closePopup();" class="popup-close cursor-pointer" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14.3029 12.7993L9.0391 7.53553L14.3029 2.27171C14.714 1.86063 14.714 1.17884 14.3029 0.767765C13.8918 0.356686 13.2101 0.356686 12.799 0.767765L7.53516 6.03158L2.27134 0.767765C1.86026 0.356686 1.17847 0.356686 0.767391 0.767765C0.356312 1.17884 0.356313 1.86063 0.767392 2.27171L6.03121 7.53553L0.767391 12.7993C0.356312 13.2104 0.356312 13.8922 0.767391 14.3033C1.17847 14.7144 1.86026 14.7144 2.27134 14.3033L7.53516 9.03948L12.799 14.3033C13.2101 14.7144 13.8918 14.7144 14.3029 14.3033C14.714 13.8922 14.714 13.2104 14.3029 12.7993Z" fill="#292D32"/>
+  </svg>  
+  <h2 class="text-black text-xl font-bold my-4 mt-8 text-center">Frequently asked quesitons</h2>
+  <div class="bg-white rounded-[12px] p-2">
+    <ul>
+      {% for object in product.metafields.custom.faqs.value %}
+      <li class="!list-none !mx-4">
+        <p class="text-base py-3 px-1 border-b border-solid border-[#cfcfcf]">{{ object.question }}</p>
+        <div class="bg-[#f4f4f4] py-3 px-2">{{ object.answer | metafield_tag }}</div>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
