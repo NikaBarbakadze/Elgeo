@@ -679,6 +679,9 @@ cart-remove-button .button{
     width: calc(23% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
     max-width: calc(23% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
   }
+  .hero-thing{
+    padding-left: 19vw !important;
+  }
 }
 
 .custom-sidepopup {
@@ -718,3 +721,4 @@ cart-remove-button .button{
   border-radius: 8px;
   box-shadow: 0 0 0 1px #CFCFCF;
 }
+
