@@ -706,3 +706,15 @@ cart-remove-button .button{
   right: 20px;
   top: 20px;
 }
+
+.contact form{
+  margin: 2rem 0;
+}
+.contact form .field__label{
+  top: calc(1.1rem + var(--inputs-border-width));
+}
+
+.contact form .field::after{
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px #CFCFCF;
+}
