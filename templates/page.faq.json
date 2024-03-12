@@ -1,0 +1,64 @@
+{
+  "sections": {
+    "main": {
+      "type": "custom-faq-page",
+      "blocks": {
+        "faq_fx3pfc": {
+          "type": "faq",
+          "settings": {
+            "question": "What does the 12 months warranty cover?",
+            "answer": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print.<\/p>"
+          }
+        },
+        "faq_cVC4f3": {
+          "type": "faq",
+          "settings": {
+            "question": "Which payment methods are available?",
+            "answer": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print.<\/p>"
+          }
+        },
+        "faq_GeLAMw": {
+          "type": "faq",
+          "settings": {
+            "question": "Some question goes here?",
+            "answer": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print.<\/p>"
+          }
+        },
+        "faq_xx6pMe": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>The answer goes here.<\/p>"
+          }
+        },
+        "faq_AkfEmc": {
+          "type": "faq",
+          "settings": {
+            "question": "What does the 12 months warranty cover?",
+            "answer": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print.<\/p>"
+          }
+        },
+        "faq_4QFJnd": {
+          "type": "faq",
+          "settings": {
+            "question": "Which payment methods are available?",
+            "answer": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_fx3pfc",
+        "faq_cVC4f3",
+        "faq_GeLAMw",
+        "faq_xx6pMe",
+        "faq_AkfEmc",
+        "faq_4QFJnd"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

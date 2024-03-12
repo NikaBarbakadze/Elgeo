@@ -1,0 +1,128 @@
+<style>
+  .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .faq-block.active .faq-content {
+    max-height: 1000px;
+  }
+
+  .faq-minus{
+    display: none;
+  }
+
+  .faq-block.active .faq-content{
+    border-top: 1px solid #cfcfcf;
+    background-color: white;
+  }
+
+  .faq-block.active .faq-minus{
+    display: block;
+  }
+
+  .faq-block.active .faq-plus{
+    display: none;
+  }
+</style>
+
+<div class="page-width py-4 lg:py-12">
+  <div class="text-2xl lg:text-4xl text-black font-bold text-center py-4 lg:py-6">
+    Frequently Asked Questions
+    <div class="text-base font-medium text-[#787878] my-4 mt-3 lg:my-8">You've got questions, we've got answers!</div>
+  </div>
+  
+  <div>
+    {% for block in section.blocks %}
+      <div class="faq-block border-t">
+        <h3 class="text-lg font-semibold flex justify-between items-center cursor-pointer gap-2 p-4 lg:p-10">
+          <div class="flex gap-3 lg:gap-7">
+            <span class="text-lg lg:text-2xl font-bold text-[#FA0100] min-w-[30px]">0{{ forloop.index }}</span>
+            <span class="text-lg lg:text-2xl font-medium">{{ block.settings.question }}</span>
+          </div>
+          <button class="faq-toggle" type="button" aria-expanded="false" aria-controls="faq-content-{{ forloop.index }}">
+            <svg class="faq-plus" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.0013 23.8333C18.9596 23.8333 23.8346 18.9583 23.8346 13C23.8346 7.04167 18.9596 2.16667 13.0013 2.16667C7.04297 2.16667 2.16797 7.04167 2.16797 13C2.16797 18.9583 7.04297 23.8333 13.0013 23.8333Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="vertical-line" d="M13 17.3333V8.66667" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="horizontal-line" d="M8.66797 13H17.3346" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>  
+            <svg class="faq-minus" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.0013 23.8333C18.9596 23.8333 23.8346 18.9583 23.8346 13C23.8346 7.04166 18.9596 2.16666 13.0013 2.16666C7.04297 2.16666 2.16797 7.04166 2.16797 13C2.16797 18.9583 7.04297 23.8333 13.0013 23.8333Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.66797 13H17.3346" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>              
+          </button>
+        </h3>
+        <div id="faq-content-{{ forloop.index }}" class="faq-content bg-white" aria-hidden="true">
+          <div class="text-gray-700 p-4 lg:p-10">
+            {{ block.settings.answer }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqBlocks = document.querySelectorAll('.faq-block');
+
+    faqBlocks.forEach(faqBlock => {
+      const faqHeading = faqBlock.querySelector('h3');
+      const faqToggle = faqBlock.querySelector('.faq-toggle');
+      const faqContent = faqBlock.querySelector('.faq-content');
+
+      const toggleFAQ = () => {
+        const isActive = faqBlock.classList.contains('active');
+
+        faqBlocks.forEach(block => {
+          if (block !== faqBlock) {
+            block.classList.remove('active');
+            block.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+            block.querySelector('.faq-content').setAttribute('aria-hidden', 'true');
+          }
+        });
+
+        faqBlock.classList.toggle('active');
+        faqToggle.setAttribute('aria-expanded', !isActive);
+        faqContent.setAttribute('aria-hidden', isActive);
+      };
+
+      faqHeading.addEventListener('click', toggleFAQ);
+      faqToggle.addEventListener('click', toggleFAQ);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Page",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is your question?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>The answer goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Page",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
