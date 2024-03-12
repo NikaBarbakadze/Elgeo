@@ -1,0 +1,180 @@
+<style>
+.custom-table-content > *{
+  list-style-type: disc;
+}
+.custom-table-content a{
+  color: #787878;
+}
+.custom-table-content a.active{
+  font-weight: bold;
+  color: #000;
+}
+</style>
+
+<div class="page-width pb-0 py-8 lg:py-12">
+  <h1 class="text-center text-4xl text-black font-bold">Data Protection Policy</h1>
+  <div class="article-body mb-8 lg:mb-0 lg:mt-16 flex flex-col lg:flex-row">
+    <div class="lg:basis-[400px] lg:px-10 my-4 mt-8 lg:mt-0">
+        <div class="lg:sticky lg:top-[16rem] bg-white rounded-[20px] p-8">
+          <div class="custom-table-content flex flex-col gap-4 text-[#000]">
+          </div>
+        </div>
+    </div>
+    <div class="flex-1 article-template__content">
+      {{ page.content }}
+    </div>
+  </div>
+</div>
+
+<script defer>
+
+  function blogAddToCart(variantId) {
+          const object = {
+            items: [
+              {
+                id: variantId, 
+                quantity: 1
+              }
+            ],
+            sections: ["cart-drawer"]
+          }
+    
+          fetch('/cart/add.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(object)
+          }).then((response)=>{
+            return response.json();
+          }).then((json)=>{
+            console.log(json);
+            const cartForm = new DOMParser().parseFromString(json.sections['cart-drawer'], 'text/html').querySelector('#CartDrawer .drawer__inner').innerHTML;
+    
+            document.querySelector('#CartDrawer .drawer__inner ').innerHTML = cartForm;
+    
+            if(document.querySelector('cart-drawer').classList.contains('is-empty')){
+                document.querySelector('cart-drawer').classList.remove('is-empty');
+                document.querySelector('cart-drawer-items').classList.remove('is-empty');
+                document.querySelector('#CartDrawer-Checkout').disabled = false;
+            }
+    
+            document.querySelector('cart-drawer').open()
+          });
+        }
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+      if(document.querySelector('em span strong') && document.querySelector('em span strong').textContent == 'product_tag'){
+          // select <template> content and replace em element with content of template
+          const template = document.querySelector('template');
+          const content = template.content;
+          document.querySelector('em span strong').parentNode.parentNode.replaceWith(content);
+      }
+
+      // Step 1: Generate the table of content
+      const titles = document.querySelectorAll(".article-template__content h2");
+    
+      const tableContent = document.querySelector('.custom-table-content');
+      const articleContent = document.querySelector('.article-template__content');
+    
+      // Adding "Introduction" at the top
+      const introAnchor = document.createElement('a');
+      introAnchor.textContent = 'Introduction';
+      introAnchor.href = '#';
+      introAnchor.classList.add('link-intro');
+      introAnchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: articleContent.offsetTop - 30,  // 30 pixels margin from the top
+          behavior: "smooth"
+        });
+      });
+      tableContent.appendChild(introAnchor);
+    
+      // Adding remaining sections
+      titles.forEach((title, index) => {
+        const anchor = document.createElement('a');
+        anchor.textContent = title.textContent;
+    
+        // Ensure each title element has a unique ID
+        const id = `section-${index + 1}`;
+        title.id = id;
+    
+        // Set the href attribute
+        anchor.href = `#${id}`;
+        anchor.classList.add(`link-${index}`);
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: title.offsetTop - 30,  // 30 pixels margin from the top
+            behavior: "smooth"
+          });
+        });
+    
+        tableContent.appendChild(anchor);
+      });
+    
+      // Step 3: Highlight the active section
+      const setActiveClass = () => {
+          let minDistance = Infinity;
+          let closest;
+          titles.forEach((title, index) => {
+            const distance = Math.abs(title.getBoundingClientRect().top);
+            if (distance < minDistance) {
+              minDistance = distance;
+              closest = index;
+            }
+          });
+        
+          // If user scrolls to the top, make 'Introduction' active
+          if (articleContent.getBoundingClientRect().top >= -30) { // Allowing a buffer of 30 pixels
+            document.querySelector('.link-intro').classList.add('active');
+            
+            // Remove active class from all other links
+            titles.forEach((_, index) => {
+              const link = document.querySelector(`.link-${index}`);
+              link.classList.remove('active');
+            });
+          } else {
+            document.querySelector('.link-intro').classList.remove('active');
+        
+            titles.forEach((_, index) => {
+              const link = document.querySelector(`.link-${index}`);
+              if (index === closest) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        };
+        
+    
+      window.addEventListener('scroll', setActiveClass);
+    });        
+
+  function Copy() {
+      let url = document.location.href
+
+      navigator.clipboard.writeText(url).then(function() {
+          console.log('Copied!');
+      }, function() {
+          console.log('Copy error')
+      });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Custom Policy Page",
+  "class": "custom-policy-page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Custom Policy Page",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

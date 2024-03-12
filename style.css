@@ -722,3 +722,139 @@ cart-remove-button .button{
   box-shadow: 0 0 0 1px #CFCFCF;
 }
 
+
+.custom-policy-page .article-template__content h1{
+  color: #000;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%; /* 52.8px */
+  letter-spacing: -0.96px;
+  margin-bottom: 16px;
+}
+
+.custom-policy-page .article-template__content h2{
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 43.2px */
+  letter-spacing: -0.72px;
+  margin-bottom: 10px;
+}
+
+.custom-policy-page .article-template__content h2:not(:first-child){
+  margin-top: 60px;
+}
+
+
+.custom-policy-page .article-template__content p{
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 27px */
+}
+
+.custom-policy-page .article-template__content a{
+  color: #C33635;
+  /* Desktop/Body/M-regular-150 */
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 27px */
+}
+
+.custom-policy-page .article-template__content ul li{
+  list-style-type: disc;
+  color: #000;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  margin-left: 30px;
+}
+
+.custom-policy-page .article-template__content ul {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .custom-policy-page .article-template__content ul li{
+    margin-left: 20px;
+    font-size: 16px;
+  }
+  .custom-policy-page .article-template__content h1{
+    color: #000; 
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%; /* 36.4px */
+    letter-spacing: -0.56px;
+    margin-bottom: 8px;
+  }
+
+
+  .custom-policy-page .article-template__content h2:not(:first-child){
+    margin-top: 30px;
+  }
+  
+  .custom-policy-page .article-template__content h2{
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 28.8px */
+    letter-spacing: -0.48px;
+    margin-bottom: 16px;
+  }
+
+  .article-template__content{
+    padding-top: 2rem;
+  }
+  
+  .custom-policy-page .article-template__content p{
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+  }
+  
+  .custom-policy-page .article-template__content a{
+    color: #C33635;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+  }
+
+  .product-page .customer-feedback__container{
+    margin-top: 20px
+  }
+}
+.custom-table-content a{
+  position: relative;
+  padding-left: 8px;
+}
+.custom-table-content a::before{
+  content: '';
+  width: 5px;
+  height: 5px;
+  background-color: #787878;
+  left: -10px;
+  top: 10px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.custom-table-content a.active::before{
+  content: '';
+  width: 5px;
+  height: 5px;
+  background-color: #000;
+  left: -10px;
+  top: 10px;
+  position: absolute;
+  border-radius: 50%;
+}
