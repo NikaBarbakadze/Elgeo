@@ -668,6 +668,11 @@ video {
   margin-bottom: 4px;
 }
 
+.my-4 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
 .\!mr-\[0\.5rem\] {
   margin-right: 0.5rem !important;
 }
@@ -881,6 +886,14 @@ video {
   max-width: 50px;
 }
 
+.max-w-\[300px\] {
+  max-width: 300px;
+}
+
+.max-w-\[75px\] {
+  max-width: 75px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1008,6 +1021,10 @@ video {
 
 .gap-9 {
   gap: 36px;
+}
+
+.gap-\[18px\] {
+  gap: 18px;
 }
 
 .gap-x-1 {
@@ -1251,6 +1268,10 @@ video {
   padding: 16px;
 }
 
+.p-5 {
+  padding: 20px;
+}
+
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -1439,6 +1460,18 @@ video {
 
 .pt-4 {
   padding-top: 16px;
+}
+
+.pt-6 {
+  padding-top: 24px;
+}
+
+.pb-12 {
+  padding-bottom: 48px;
+}
+
+.pb-5 {
+  padding-bottom: 20px;
 }
 
 .text-left {
@@ -2439,6 +2472,10 @@ cart-remove-button .button{
     width: auto;
   }
 
+  .lg\:max-w-\[300px\] {
+    max-width: 300px;
+  }
+
   .lg\:grid-cols-\[0\.4fr\2c 1fr\] {
     grid-template-columns: 0.4fr 1fr;
   }
@@ -2526,6 +2563,11 @@ cart-remove-button .button{
   .lg\:py-8 {
     padding-top: 32px;
     padding-bottom: 32px;
+  }
+
+  .lg\:py-10 {
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   .lg\:pb-24 {

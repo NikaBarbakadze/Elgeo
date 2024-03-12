@@ -1,19 +1,19 @@
 <style>
-  {% comment %} {%  if section.settings.color_bg != blank%}
-  .custom-product-slider{
-    background-color: {{ section.settings.color_bg }};
-  }
-  {% endif %} {% endcomment %}
+  {%  if section.settings.color_bg != blank%}
+    #shopify-section-{{ section.id }}{
+      background-color: {{ section.settings.color_bg }};
+    }
+  {% endif %}
 
   .product-slider-embla .embla__slide{
-    flex: 0 0 calc(22.5% - 20px); /* Slide covers 30% of the viewport */
+    flex: 0 0 calc(22.5% - 20px);
     margin-right: 20px;
     min-width: 0;
   }
 
   @media screen and (max-width: 768px) {
     .product-slider-embla .embla__slide{
-      flex: 0 0 calc(75% - 20px); /* Slide covers 30% of the viewport */
+      flex: 0 0 calc(75% - 20px);
       min-width: 0;
     }
   }
@@ -56,11 +56,12 @@
   }
 </style>
 
-<div class="overflow-hidden px-0 mt-4 pb-8 pr-0 md:py-10 lg:mt-0 page-width lg:px-[5rem]">
+<div class="overflow-hidden px-0 my-4 py-4 pr-0 md:py-10 lg:mt-0 page-width lg:px-[5rem]">
   <h2 class="text-3xl lg:text-4xl text-black text-center mb-6 lg:mb-12 font-bold">{{ section.settings.section_title }}</h2>
   <div class="product-slider-embla embla">
     <div class="embla__container">
-      {% for product in collections['test2'].products %}
+      {% for block in section.blocks %}
+        {% assign product = block.settings.product %}
         <div data-variant-id="{{ product.selected_or_first_available_variant.id }}" class="embla__slide custom-product-card flex flex-col justify-between relative {% unless forloop.last %} mr-4 lg:mr-0 {% else %} pr-4 md:pr-0 {% endunless %} {% if forloop.first %} ml-[15px] lg:ml-0 {%  endif %}">
           <a
             href="{{ product.url }}"
@@ -68,15 +69,14 @@
           >
             <div class="relative h-fit w-full bg-[#f4f4f4] py-6 rounded-[10px] pt-12">
               <img loading="lazy"
-                class="w-full w-full rounded-[15px] object-contain max-h-[180px] mix-blend-darken"
+                class="w-full rounded-[15px] object-contain max-h-[180px] mix-blend-darken"
                 src="{{ product.featured_image | img_url: 'master' }}"
               >
-              {% assign remainder = forloop.index | modulo: 2 %}
-              {% if remainder == 1 %}
-              <div class="top-0 bg-white rounded-[0px_0px_6px_6px] text-black text-xs font-bold text-center left-1/2 -translate-x-1/2 absolute w-full max-w-[130px] py-1">
-                🚀 Selling fast
-              </div>
-              {% endif %}
+              {% if product.metafields.custom.product_badge != blank %}
+                <div class="top-0 bg-white rounded-[0px_0px_6px_6px] text-black text-xs font-bold text-center left-1/2 -translate-x-1/2 absolute w-full max-w-[130px] py-1">
+                  {{ product.metafields.custom.product_badge }}
+                </div>
+                {% endif %}
             </div>
             <div>
               {% liquid
@@ -133,7 +133,6 @@
         ></div>
       </div>
       <div class="flex items-center gap-3">
-        <!-- Buttons -->
         <button
           class="embla__button embla__button--prev embla__prev"
           type="button"
@@ -160,7 +159,6 @@
             ></path>
           </svg>
         </button>
-        </div>
       </div>
     </div>
   </div>
@@ -170,14 +168,43 @@
   document.addEventListener('DOMContentLoaded', ()=>{
     const emblaNode = document.querySelector("#shopify-section-{{ section.id }} .product-slider-embla.embla");
 
-    const embla = EmblaCarousel(emblaNode, {
-      loop: false,
-      align: "start"
-    });
+    const progressNode = emblaNode.querySelector('.embla__progress__bar');
 
-    // Grab button nodes
+    const applyProgress = () => {
+      const progress = Math.max(0.18, Math.min(1, embla.scrollProgress()))
+      progressNode.style.transform = `translate3d(${progress * 100}%,0px,0px)`
+    }
+
     const prevButtonNode = document.querySelector('#shopify-section-{{ section.id }} .embla__prev');
     const nextButtonNode = document.querySelector('#shopify-section-{{ section.id }} .embla__next');
+
+    const removeProgress = () => {
+      progressNode.removeAttribute('style')
+    }
+
+    const togglePrevNextBtnsState = () => {
+      if (embla.canScrollPrev()) prevButtonNode.removeAttribute('disabled')
+      else prevButtonNode.setAttribute('disabled', 'disabled')
+  
+      if (embla.canScrollNext()) nextButtonNode.removeAttribute('disabled')
+      else nextButtonNode.setAttribute('disabled', 'disabled')
+    }
+
+    const embla = EmblaCarousel(emblaNode, {
+      loop: false,
+      align: "center",
+      breakpoints: {
+        '(min-width: 768px)': { align: "start" }
+      }
+    });
+
+    embla.on('init', applyProgress)
+    .on('reInit', applyProgress)
+    .on('scroll', applyProgress)
+    .on('destroy', removeProgress)
+    .on('select', togglePrevNextBtnsState)
+    .on('init', togglePrevNextBtnsState)
+    .on('reInit', togglePrevNextBtnsState);
 
     prevButtonNode.addEventListener('click', embla.scrollPrev, false)
     nextButtonNode.addEventListener('click', embla.scrollNext, false)
@@ -193,25 +220,8 @@
     {
       "type": "text",
       "id": "section_title",
-      "default": "ავტომობილისთვის",
+      "default": "Pairs well with",
       "label": "Title"
-    },
-    {
-      "type": "text",
-      "id": "section_subtitle",
-      "default": "ყველაფერი, რაც თქვენს ავტომობილს სჭირდება.",
-      "label": "Subtitle"
-    },
-    {
-      "type": "text",
-      "id": "section_button_text",
-      "label": "Button text",
-      "default": "ყველას ნახვა"
-    },
-    {
-      "type": "text",
-      "id": "section_button_url",
-      "label": "Button URL"
     },
     {
       "type": "color",

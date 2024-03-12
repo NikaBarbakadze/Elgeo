@@ -6,14 +6,14 @@
   {% endif %}
 
   .product-slider-embla .embla__slide{
-    flex: 0 0 calc(22.5% - 20px); /* Slide covers 30% of the viewport */
+    flex: 0 0 calc(22.5% - 20px);
     margin-right: 20px;
     min-width: 0;
   }
 
   @media screen and (max-width: 768px) {
     .product-slider-embla .embla__slide{
-      flex: 0 0 calc(75% - 20px); /* Slide covers 30% of the viewport */
+      flex: 0 0 calc(75% - 20px);
       min-width: 0;
     }
   }
@@ -56,7 +56,7 @@
   }
 </style>
 
-<div class="overflow-hidden px-0 mt-4 pb-8 pr-0 md:py-10 lg:mt-0 page-width lg:px-[5rem]">
+<div class="overflow-hidden px-0 my-4 py-4 pr-0 md:py-10 lg:mt-0 page-width lg:px-[5rem]">
   <h2 class="text-3xl lg:text-4xl text-black text-center mb-6 lg:mb-12 font-bold">{{ section.settings.section_title }}</h2>
   <div class="product-slider-embla embla">
     <div class="embla__container">
@@ -71,10 +71,9 @@
                 class="w-full w-full rounded-[15px] object-contain max-h-[180px] mix-blend-darken"
                 src="{{ product.featured_image | img_url: 'master' }}"
               >
-              {% assign remainder = forloop.index | modulo: 2 %}
-              {% if remainder == 1 %}
+              {% if product.metafields.custom.product_badge != blank %}
               <div class="top-0 bg-white rounded-[0px_0px_6px_6px] text-black text-xs font-bold text-center left-1/2 -translate-x-1/2 absolute w-full max-w-[130px] py-1">
-                🚀 Selling fast
+                {{ product.metafields.custom.product_badge }}
               </div>
               {% endif %}
             </div>
