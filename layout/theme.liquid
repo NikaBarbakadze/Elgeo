@@ -370,15 +370,16 @@
         width: fit-content;
       }
       .embla__dots .embla__dot {
-        width: 6px;
-        height: 6px;
+        width: 57px;
+        height: 5px;
         border-radius: 20px;
         transition: width 0.3s ease-in-out;
+        background-color: rgba(0,0,0,0.25) !important;
       }
       .embla__dots .embla__dot.is-selected {
-        width: 16px;
-        height: 6px;
-        background-color: #000000 !important;
+        width: 57px;
+        height: 5px;
+        background-color: #ffffff !important;
       }
 
       body{
@@ -428,7 +429,7 @@
 
     <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" defer></script>
 
-    <script src="{{ 'emblaHelpers.js' | asset_url }}" defer></script>
+    <script src="{{ 'embla-helpers.js' | asset_url }}" defer></script>
 
     <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js" defer></script>
 

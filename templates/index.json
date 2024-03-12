@@ -6,23 +6,21 @@
         "f4a4831c-f6eb-4811-add1-123e57ca2481": {
           "type": "slide",
           "settings": {
-            "paragraph": "Pick up where you left off",
+            "title": "Pick up where you left off",
+            "paragraph": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
             "background_image": "shopify:\/\/shop_images\/Group_48096014_1.png?v=1710215199.jpg",
-            "button_url": "shopify:\/\/collections\/all-products",
-            "button_text": "Shop Now",
-            "button_svg": "",
-            "sale_text": ""
+            "button_url": "shopify:\/\/collections\/all",
+            "button_text": "Shop Now"
           }
         },
         "3fc1dd3c-33c5-4c0a-aeec-1421952a8185": {
           "type": "slide",
           "settings": {
-            "paragraph": "Pick up where you left off",
+            "title": "Pick up where you left off",
+            "paragraph": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
             "background_image": "shopify:\/\/shop_images\/Group_48096014_1.png?v=1710215199.jpg",
-            "button_url": "shopify:\/\/collections\/all-products",
-            "button_text": "Shop Now",
-            "button_svg": "",
-            "sale_text": ""
+            "button_url": "shopify:\/\/collections\/all",
+            "button_text": "Shop Now"
           }
         }
       },

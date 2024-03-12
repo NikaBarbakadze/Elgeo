@@ -40,17 +40,18 @@
         {% for slide in slides %}
           <div class="embla__slide embla__slide_bg">
             <img class="embla__slide__img" src="{{ slide.settings.background_image | img_url: "master" }}">
-            <div class="relative z-[2] max-w-[80%] pl-[1.6rem] pb-[7rem] lg:max-w-[50%] lg:pl-[11.5rem] lg:pb-[8rem] 3xl:pl-[32rem] hero-thing">
+            <div class="relative z-[2] max-w-[100%] pl-[1.6rem] pb-[7rem] lg:max-w-[50%] lg:pl-[11.5rem] lg:pb-[8rem] 3xl:pl-[32rem] hero-thing">
               {% if slide.settings.sale_text != blank %}
                 <strong class="mb-4 inline-block rounded-full bg-[#DC2020] py-1 px-2 font-['Gibson'] text-xs font-medium text-white lg:mb-10 lg:py-1 lg:px-4 lg:text-[30px]">
                   {{- slide.settings.sale_text | default: "Nectar Flash Sale" -}}
                 </strong>
               {% endif %}
               <p class="font-heading text-[32px] font-medium text-white lg:text-[36px] lg:font-semibold">
-                {{ slide.settings.paragraph }}
+                {{ slide.settings.title }}
               </p>
               <p class="font-heading font-medium my-7 text-white text-base lg:font-semibold">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an</p>
+                {{ slide.settings.paragraph }}
+              </p>
               <div class="mt-4 lg:mt-8">
                 <a class="inline-flex items-center gap-3 rounded-full bg-white py-4 px-8" href="{{ slide.settings.button_url }}">
                   <span class="text-base font-medium text-[#051122] md:font-bold">
@@ -73,25 +74,23 @@
 
 <script defer>
   window.addEventListener('DOMContentLoaded', ()=>{
-  (() => {
-                const emblaNode = document.querySelector(".hero-embla.embla");
-                const viewportNode = emblaNode.querySelector('.embla__viewport')
-                const dotsNode = emblaNode.querySelector(".embla__dots");
+    const emblaNode = document.querySelector(".hero-embla.embla");
+    const viewportNode = emblaNode.querySelector('.embla__viewport')
+    const dotsNode = emblaNode.querySelector(".embla__dots");
 
-                const embla = EmblaCarousel(viewportNode, {
-                loop: false,
-                skipSnaps: false
-                },[EmblaCarouselAutoplay( { delay: 5000 } )]);
+    const embla = EmblaCarousel(viewportNode, {
+    loop: false,
+    skipSnaps: false
+    },[EmblaCarouselAutoplay( { delay: 5000 } )]);
 
-                const dotsArray = generateDotBtns(dotsNode, embla, emblaNode);
-                const setSelectedDotBtn = selectDotBtn(dotsArray, embla);
+    const dotsArray = generateDotBtns(dotsNode, embla, emblaNode);
+    const setSelectedDotBtn = selectDotBtn(dotsArray, embla);
 
-                setupDotBtns(dotsArray, embla);
+    setupDotBtns(dotsArray, embla);
 
-                embla.on("select", setSelectedDotBtn);
-                embla.on("init", setSelectedDotBtn);
-            })();
-          })
+    embla.on("select", setSelectedDotBtn);
+    embla.on("init", setSelectedDotBtn);
+  })
 </script>
 
 {% schema %}
@@ -106,9 +105,15 @@
         "settings": [
           {
             "type": "html",
+            "id": "title",
+            "label": "Title",
+            "default": "Pick up where you left off"
+          },
+          {
+            "type": "html",
             "id": "paragraph",
             "label": "Paragraph",
-            "default": "<p>Start sleeping like a King as soon as tonight</p>"
+            "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an"
           },
           {
             "type": "image_picker",
@@ -125,64 +130,14 @@
             "id": "button_text",
             "label": "Button Text",
             "default": "Shop mattress"
-          }, {
-            "type": "textarea",
-            "id": "button_svg",
-            "label": "Button SVG",
-            "default": "<svg>...</svg>"
-          }, {
-            "type": "inline_richtext",
-            "id": "sale_text",
-            "label": "Sale Text",
-            "info": "Fill if you want sale badge to show"
-          }
-        ]
-      }, {
-        "type": "slide_html",
-        "name": "Slider Blocks HTML",
-        "settings": [
-          {
-            "type": "html",
-            "id": "paragraph",
-            "label": "Paragraph",
-            "default": "<p>Start sleeping like a King as soon as tonight</p>"
-          },
-          {
-            "type": "html",
-            "id": "html_content",
-            "label": "HTML Content"
-          },
-          {
-            "type": "image_picker",
-            "id": "background_image",
-            "label": "Background Image"
-          },
-          {
-            "type": "url",
-            "id": "button_url",
-            "label": "Button URL"
-          }, {
-            "type": "text",
-            "id": "button_text",
-            "label": "Button Text",
-            "default": "Shop mattress"
-          }, {
-            "type": "textarea",
-            "id": "button_svg",
-            "label": "Button SVG",
-            "default": "<svg>...</svg>"
-          }, {
-            "type": "inline_richtext",
-            "id": "sale_text",
-            "label": "Sale Text",
-            "info": "Fill if you want sale badge to show"
           }
         ]
       }
     ],
     "presets": [
       {
-        "name": "Custom Hero Slider"
+        "name": "Custom Hero Slider",
+        "category": "Custom Sections"
       }
     ]
   }
