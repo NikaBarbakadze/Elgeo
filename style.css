@@ -63,7 +63,7 @@ svg.icon-cart-empty.icon, svg.icon-cart.icon{
     padding: 5px !important;
     background-color: white !important;
   }
-  .product-form__input--pill input[type='radio'] + label{
+  .Condition-fieldset .product-form__input--pill input[type='radio'] + label{
     width: 31%;
   }
 }
