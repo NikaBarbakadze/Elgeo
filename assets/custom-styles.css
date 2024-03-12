@@ -1051,6 +1051,10 @@ video {
   gap: 5px;
 }
 
+.gap-2\.5 {
+  gap: 10px;
+}
+
 .gap-x-1 {
   -moz-column-gap: 4px;
        column-gap: 4px;
@@ -1845,6 +1849,19 @@ form.search div::after{
 }
 
 @media only screen and (min-width: 770px){
+  .facets-vertical .active-facets{
+    padding: 20px;
+  }
+
+  .facets-vertical.page-width{
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .facets-vertical .facets-wrapper{
+    margin-top: -100px;
+  }
+
   .product--thumbnail_slider .product__media-wrapper media-gallery {
     display: flex !important;
     flex-direction: row-reverse !important;
@@ -2370,7 +2387,53 @@ cart-remove-button .button{
   opacity: 0.2;
 }
 
-.sale-badge-thing-scroll{
+#main-collection-filters .field__input{
+  border: none;
+  border-radius: 12px;
+  background-color: white;
+}
+
+#main-collection-filters .field::before{
+  display: none;
+}
+
+#main-collection-filters .field::after{
+  display: none;
+}
+
+#main-collection-filters .field__label{
+  top: calc(1.1rem + var(--inputs-border-width));
+}
+
+#main-collection-filters .field__input:not(:-moz-placeholder-shown) ~ .field__label{
+  display: none;
+}
+
+#main-collection-filters .field__input:not(:placeholder-shown) ~ .field__label, #main-collection-filters .field__input:focus ~ .field__label{
+  display: none;
+}
+
+.field__input:focus{
+  padding: 1.5rem;
+}
+
+.facets__disclosure-vertical[data-index="1"]{
+  border-top: 0;
+}
+
+.facets-vertical .active-facets{
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
+}
+
+.active-facets:has(.active-facets-vertical-filter:only-child > h2){
+  display: none;
+}
+
+@media only screen and (min-width: 1600px){
+  .grid--3-col-desktop .grid__item{
+    width: calc(23% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+    max-width: calc(23% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
 }
 
 .even\:bg-\[\#F2F2F2\]:nth-child(even) {
@@ -2436,6 +2499,11 @@ cart-remove-button .button{
 @media (min-width: 1024px) {
   .lg\:order-\[inherit\] {
     order: inherit;
+  }
+
+  .lg\:my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 
   .lg\:mb-12 {
@@ -2508,6 +2576,10 @@ cart-remove-button .button{
 
   .lg\:gap-5 {
     gap: 20px;
+  }
+
+  .lg\:gap-9 {
+    gap: 36px;
   }
 
   .lg\:border {
