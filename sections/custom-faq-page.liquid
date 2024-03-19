@@ -35,10 +35,10 @@
   
   <div>
     {% for block in section.blocks %}
-      <div class="faq-block border-t">
+      <div class="faq-block border-t border-[#cfcfcf] border-solid">
         <h3 class="text-lg font-semibold flex justify-between items-center cursor-pointer gap-2 p-4 lg:p-10">
-          <div class="flex gap-3 lg:gap-7">
-            <span class="text-lg lg:text-2xl font-bold text-[#FA0100] min-w-[30px]">0{{ forloop.index }}</span>
+          <div class="flex gap-3 lg:gap-7 items-center">
+            <span class="text-xl lg:text-2xl font-bold text-[#FA0100] min-w-[30px]">0{{ forloop.index }}</span>
             <span class="text-lg lg:text-2xl font-medium">{{ block.settings.question }}</span>
           </div>
           <button class="faq-toggle" type="button" aria-expanded="false" aria-controls="faq-content-{{ forloop.index }}">

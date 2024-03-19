@@ -12,10 +12,10 @@
 </style>
 
 <div class="page-width pb-0 py-8 lg:py-12">
-  <h1 class="text-center text-4xl text-black font-bold">Data Protection Policy</h1>
+  <h1 class="text-center text-2xl lg:text-4xl text-black font-bold">Data Protection Policy</h1>
   <div class="article-body mb-8 lg:mb-0 lg:mt-16 flex flex-col lg:flex-row">
     <div class="lg:basis-[400px] lg:px-10 my-4 mt-8 lg:mt-0">
-        <div class="lg:sticky lg:top-[16rem] bg-white rounded-[20px] p-8">
+        <div class="lg:sticky lg:top-[16rem] bg-white rounded-[20px] px-8 py-6 lg:p-8">
           <div class="custom-table-content flex flex-col gap-4 text-[#000]">
           </div>
         </div>
@@ -79,7 +79,7 @@
       const articleContent = document.querySelector('.article-template__content');
     
       // Adding "Introduction" at the top
-      const introAnchor = document.createElement('a');
+      {% comment %} const introAnchor = document.createElement('a');
       introAnchor.textContent = 'Introduction';
       introAnchor.href = '#';
       introAnchor.classList.add('link-intro');
@@ -90,7 +90,7 @@
           behavior: "smooth"
         });
       });
-      tableContent.appendChild(introAnchor);
+      tableContent.appendChild(introAnchor); {% endcomment %}
     
       // Adding remaining sections
       titles.forEach((title, index) => {
@@ -129,15 +129,15 @@
         
           // If user scrolls to the top, make 'Introduction' active
           if (articleContent.getBoundingClientRect().top >= -30) { // Allowing a buffer of 30 pixels
-            document.querySelector('.link-intro').classList.add('active');
+            {% comment %} document.querySelector('.link-intro').classList.add('active');
             
             // Remove active class from all other links
             titles.forEach((_, index) => {
               const link = document.querySelector(`.link-${index}`);
               link.classList.remove('active');
-            });
+            }); {% endcomment %}
           } else {
-            document.querySelector('.link-intro').classList.remove('active');
+            {% comment %} document.querySelector('.link-intro').classList.remove('active'); {% endcomment %}
         
             titles.forEach((_, index) => {
               const link = document.querySelector(`.link-${index}`);

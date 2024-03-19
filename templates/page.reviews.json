@@ -1,0 +1,77 @@
+{
+  "sections":{
+    "reviews-slider": {
+      "type": "custom-reviews-page",
+      "blocks": {
+        "card_AeErMy": {
+          "type": "card",
+          "settings": {
+            "name": "ANDREW. B",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1.png?v=1710200533",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 5.0
+          }
+        },
+        "card_Y4RDKb": {
+          "type": "card",
+          "settings": {
+            "name": "MARTHA.G",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_1.png?v=1710200534",
+            "review": "This was an excellent purchase. I was worried about buying refurbished but have been pleasantly surprised. I got the pink iphone 13 for my daughter for her bday and you would barely know that it was used.",
+            "score": 4.9
+          }
+        },
+        "card_apdLcK": {
+          "type": "card",
+          "settings": {
+            "name": "GEORGE.K",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_2.png?v=1710200533",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 4.9
+          }
+        },
+        "card_fhHYnr": {
+          "type": "card",
+          "settings": {
+            "name": "ANDREW. B",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1.png?v=1710200533",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 5.0
+          }
+        },
+        "card_YAiVtT": {
+          "type": "card",
+          "settings": {
+            "name": "MARTHA.G",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_1.png?v=1710200534",
+            "review": "This was an excellent purchase. I was worried about buying refurbished but have been pleasantly surprised. I got the pink iphone 13 for my daughter for her bday and you would barely know that it was used.",
+            "score": 4.9
+          }
+        },
+        "card_Ai7aRc": {
+          "type": "card",
+          "settings": {
+            "name": "GEORGE.K",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_2.png?v=1710200533",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 4.9
+          }
+        }
+      },
+      "block_order": [
+        "card_AeErMy",
+        "card_Y4RDKb",
+        "card_apdLcK",
+        "card_fhHYnr",
+        "card_YAiVtT",
+        "card_Ai7aRc"
+      ],
+      "settings": {
+        "color_bg": "#f5f5f5"
+      }
+    }
+  },
+  "order":[
+     "reviews-slider"
+  ]
+}

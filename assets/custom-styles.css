@@ -679,6 +679,21 @@ video {
   margin-bottom: 28px;
 }
 
+.my-2 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.my-2\.5 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.mx-4 {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
 .\!mr-\[0\.5rem\] {
   margin-right: 0.5rem !important;
 }
@@ -765,6 +780,22 @@ video {
 
 .mt-\[5px\] {
   margin-top: 5px;
+}
+
+.mt-2\.5 {
+  margin-top: 10px;
+}
+
+.mb-7 {
+  margin-bottom: 28px;
+}
+
+.ml-\[10px\] {
+  margin-left: 10px;
+}
+
+.mr-3 {
+  margin-right: 12px;
 }
 
 .\!block {
@@ -1540,6 +1571,10 @@ video {
   font-weight: 600;
 }
 
+.font-normal {
+  font-weight: 400;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -1619,6 +1654,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#000000\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -2671,6 +2711,11 @@ cart-remove-button .button{
     padding-bottom: 80px;
   }
 
+  .md\:py-12 {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
   .md\:pr-0 {
     padding-right: 0px;
   }
@@ -2701,6 +2746,11 @@ cart-remove-button .button{
   .lg\:my-8 {
     margin-top: 32px;
     margin-bottom: 32px;
+  }
+
+  .lg\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .lg\:mb-0 {
@@ -2741,6 +2791,10 @@ cart-remove-button .button{
 
   .lg\:mt-8 {
     margin-top: 32px;
+  }
+
+  .lg\:mt-4 {
+    margin-top: 16px;
   }
 
   .lg\:\!block {
@@ -2799,8 +2853,16 @@ cart-remove-button .button{
     align-items: flex-start;
   }
 
+  .lg\:justify-start {
+    justify-content: flex-start;
+  }
+
   .lg\:justify-center {
     justify-content: center;
+  }
+
+  .lg\:justify-between {
+    justify-content: space-between;
   }
 
   .lg\:gap-0 {
@@ -2864,6 +2926,10 @@ cart-remove-button .button{
 
   .lg\:p-10 {
     padding: 40px;
+  }
+
+  .lg\:p-8 {
+    padding: 32px;
   }
 
   .lg\:px-10 {
@@ -2964,6 +3030,10 @@ cart-remove-button .button{
 
   .lg\:pt-0 {
     padding-top: 0px;
+  }
+
+  .lg\:text-left {
+    text-align: left;
   }
 
   .lg\:text-start {
