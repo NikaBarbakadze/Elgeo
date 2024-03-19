@@ -1,0 +1,314 @@
+<style>
+  .article-template__content p{
+      margin-bottom: 25px;
+      color: #1C1C1C;
+  }
+  .article-template__content img{
+      margin: 40px 0;
+  }
+  .article-template__content p > b:only-child{
+      font-size: 28px;
+  }
+  .custom-table-content .active{
+      color: #C33635;
+  }
+  .section-banner-product input {
+      color: #FFFFFF !important;
+      border-color: #ffffff !important;
+  }
+
+  .section-banner-product input::placeholder {
+      color: #FFFFFF !important;
+  }
+
+  .section-banner-product .input-new__button path {
+      stroke: #FFFFFF !important;
+  }
+  @media screen and (max-width: 768px) {
+    .testnap_embla  .embla__slide {
+      flex: 0 0 85%;
+      margin-right: 24px;
+    }
+  }
+</style>
+<div class="page-width mt-6">
+  <ul class="hidden gap-1 text-base lg:flex">
+    <li>
+      <a class="text-[#8D929A]" href="/">Home</a>
+    </li>
+    <span class="text-[#8D929A]">/</span>
+    <li>
+      <a class="text-[#051122]" href="/blogs/all">Blog</a>
+    </li>
+  </ul>
+</div>
+<div class="page-width my-6 lg:my-12">
+  <div class="article-header text-center">
+    <div class="my-2 flex items-center justify-center gap-2.5 text-center text-sm font-normal text-[#777777] lg:text-base">
+      {% if article.tags.size > 0 %}
+        <div class="hidden gap-2.5 lg:flex">
+          {% for tag in article.tags %}
+            <span class="font-medium capitalize text-[#2951B8]">
+              {{ tag }}
+            </span>
+          {% endfor %}
+        </div>
+
+        <div class="flex gap-2.5 lg:hidden">
+          {% for tag in article.tags limit: 1 %}
+            <span class="font-medium capitalize text-[#2951B8]">
+              {{ tag }}
+            </span>
+          {% endfor %}
+        </div>
+
+        <svg width="3" height="20" viewBox="0 0 3 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="Frame">
+          <rect id="Rectangle 1761" y="9" width="3" height="3" rx="1.5" fill="#1C1C1C" fill-opacity="0.4"/>
+          </g>
+        </svg>
+      {% endif %}
+
+      <span>
+        {{ article.published_at | date: "%B %d, %Y" }}
+      </span>
+
+      <svg width="3" height="20" viewBox="0 0 3 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Frame">
+        <rect id="Rectangle 1761" y="9" width="3" height="3" rx="1.5" fill="#1C1C1C" fill-opacity="0.4"/>
+        </g>
+      </svg>
+
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="icn">
+        <path id="Vector" d="M7.79604 5.10038V8.45932L10.4364 10.0691M5.51318 1.99639C8.82878 0.622769 12.6297 2.19788 14.0033 5.51348C15.3769 8.82908 13.8018 12.63 10.4862 14.0036C7.17062 15.3772 3.3697 13.8021 1.99608 10.4865C0.623188 7.17092 2.19758 3.37 5.51318 1.99639Z" stroke="#1C1C1C" stroke-opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </svg>
+
+      <span>
+        {% assign reading_time = article.content | strip_html | split: ' ' | size | times: 1.0 | divided_by: 250 | ceil %}
+        {{ reading_time }} min read
+      </span>
+    </div>
+    <h1 class="mt-3 text-[28px] text-[#1C1C1C] lg:mt-8 lg:text-5xl">{{ article.title }}</h1>
+    <div class="mx-auto mt-5 lg:mt-12 lg:w-[75%]">
+      <img class="rounded-[24px]" src="{{ article.image | img_url: "master" }}" alt="">
+    </div>
+  </div>
+  <div class="article-body relative mt-6 flex flex-col-reverse justify-center lg:mt-16 lg:flex-row">
+    <div class="article-template__content max-w-[700px] flex-1">
+      {{ article.content }}
+      <div>
+        {% if article.metafields.custom.author != blank %}
+          <div class="mt-10 lg:mt-20 py-4 flex lg:items-center justify-between flex-col lg:flex-row  mb-1 border-t border-solid border-[#e1e1df] ">
+            <div class=" flex items-center gap-3 mb-4 lg:mb-0 ">
+              <figure class="max-w-[48px]">
+                <img
+                  class="my-0 lg:my-5 aspect-square rounded-[50%] object-cover object-center"
+                  src="{{ article.metafields.custom.author.value.image | img_url: "master" }}"
+                  alt=""
+                >
+              </figure>
+              <div class="flex flex-col gap-0.5">
+                <span class="text-base text-[#1C1C1C]"
+                  >Written by <strong>{{ article.metafields.custom.author.value.name }}</strong></span
+                >
+                <span class="text-base text-[#1C1C1C]">{{ article.metafields.custom.author.value.position }}</span>
+              </div>
+            </div>
+            <div class="flex items-center lg:justify-center gap-5">
+                <div class="font-heading text-base font-semibold text-[#051122]">Share</div>
+                <div class="flex gap-3">
+                  <a
+                    href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url }}{{ page.url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M24.5 16.0515C24.5 11.3277 20.6954 7.50018 16 7.50018C11.3046 7.50018 7.5 11.3277 7.5 16.0515C7.5 20.3194 10.6093 23.858 14.6706 24.5002V18.522H12.5091V16.0515H14.6706V14.1668C14.6706 12.023 15.9397 10.8403 17.8811 10.8403C18.811 10.8403 19.785 11.0079 19.785 11.0079V13.1098H18.7123C17.6583 13.1098 17.326 13.7674 17.326 14.4438V16.0481H19.6831L19.3057 18.5177H17.326V24.4925C21.3907 23.8537 24.5 20.3194 24.5 16.0515Z" fill="#1C1C1C" fill-opacity="0.8"/>
+                      <rect x="0.6" y="0.6" width="30.8" height="30.8" rx="15.4" stroke="#1C1C1C" stroke-opacity="0.2" stroke-width="1.2"/>
+                    </svg>
+                  </a>
+                  <a
+                    href="https://twitter.com/share?url={{ shop.url }}{{ page.url }}&text={{ page.title }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M24.8335 12.2606L22.6221 14.4646C22.1828 19.583 17.8626 23.559 12.7003 23.559C11.6385 23.559 10.7599 23.3906 10.0935 23.0611C9.55898 22.7902 9.33931 22.5046 9.28073 22.4167C9.23227 22.3431 9.20104 22.2595 9.18937 22.1722C9.1777 22.0848 9.1859 21.9959 9.21334 21.9122C9.24079 21.8284 9.28679 21.752 9.3479 21.6884C9.40901 21.6249 9.48367 21.576 9.56631 21.5454C9.58095 21.5381 11.309 20.879 12.4294 19.6123C11.7346 19.1176 11.1239 18.5143 10.6207 17.8256C9.61756 16.4637 8.55582 14.0985 9.19287 10.5691C9.21289 10.4642 9.26088 10.3666 9.33177 10.2867C9.40266 10.2068 9.49381 10.1475 9.5956 10.1151C9.69771 10.0817 9.80705 10.077 9.91166 10.1015C10.0163 10.1261 10.1121 10.1789 10.1887 10.2543C10.2107 10.2836 12.649 12.6853 15.6292 13.4615V13.0148C15.6321 12.5504 15.7264 12.091 15.9068 11.663C16.0872 11.235 16.3502 10.8468 16.6806 10.5204C17.0111 10.194 17.4026 9.93593 17.8328 9.76086C18.263 9.58579 18.7235 9.49717 19.1879 9.50007C19.7975 9.50876 20.3944 9.67521 20.9206 9.98318C21.4467 10.2912 21.8841 10.7302 22.1901 11.2574H24.4161C24.5317 11.2571 24.6449 11.291 24.7413 11.3548C24.8378 11.4187 24.9131 11.5096 24.958 11.6162C25.0002 11.7244 25.0109 11.8424 24.9888 11.9564C24.9668 12.0704 24.9129 12.1759 24.8335 12.2606Z" fill="#1C1C1C" fill-opacity="0.8"/>
+                      <rect x="0.6" y="0.6" width="30.8" height="30.8" rx="15.4" stroke="#1C1C1C" stroke-opacity="0.2" stroke-width="1.2"/>
+                    </svg>
+                  </a>
+                  <a href="http://pinterest.com/pin/create/button/?url={{ shop.url }}{{ page.url }}">
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M24.4979 16.2617C24.3589 20.7171 20.7538 24.3467 16.2985 24.4939C15.5119 24.5238 14.725 24.444 13.9604 24.2568C13.8767 24.2337 13.8052 24.1791 13.761 24.1044C13.7168 24.0297 13.7033 23.9407 13.7234 23.8562L14.4509 20.9623C15.1135 21.3636 15.8755 21.5704 16.65 21.5591C19.6747 21.5591 22.1027 18.8205 21.8656 15.5587C21.653 12.6239 19.2496 10.2777 16.3066 10.1224C15.5086 10.0802 14.7104 10.201 13.9606 10.4773C13.2108 10.7536 12.5251 11.1798 11.9453 11.7297C11.3655 12.2797 10.9038 12.9419 10.5883 13.6761C10.2728 14.4103 10.11 15.201 10.11 16.0001C10.1112 16.7561 10.2555 17.505 10.5351 18.2074C10.6002 18.3689 10.7267 18.498 10.8869 18.5662C11.0472 18.6344 11.2279 18.6362 11.3894 18.5712C11.5509 18.5061 11.68 18.3796 11.7482 18.2194C11.8165 18.0591 11.8183 17.8784 11.7532 17.7169C11.5404 17.1947 11.4267 16.6375 11.418 16.0737C11.4083 14.8596 11.8812 13.6913 12.7329 12.8258C13.5845 11.9604 14.7451 11.4687 15.9592 11.459C17.1734 11.4492 18.3416 11.9222 19.2071 12.7738C20.0725 13.6254 20.5642 14.786 20.5739 16.0001C20.5739 18.3463 18.8163 20.2511 16.65 20.2511C15.7916 20.2511 15.1948 19.9486 14.7861 19.5971L15.9796 14.8475C16 14.7637 16.0037 14.6768 15.9905 14.5916C15.9773 14.5065 15.9475 14.4247 15.9027 14.3511C15.8579 14.2775 15.7991 14.2134 15.7295 14.1625C15.66 14.1116 15.5811 14.0749 15.4973 14.0545C15.4136 14.0341 15.3267 14.0304 15.2415 14.0436C15.1563 14.0568 15.0746 14.0867 15.0009 14.1314C14.8522 14.2219 14.7455 14.3677 14.7044 14.5368L12.5135 23.3167C12.5016 23.3645 12.4791 23.409 12.4477 23.4469C12.4162 23.4847 12.3766 23.515 12.3318 23.5355C12.287 23.5559 12.2382 23.566 12.1889 23.5649C12.1397 23.5638 12.0914 23.5516 12.0475 23.5292C10.7036 22.8236 9.57318 21.771 8.77353 20.4809C7.97389 19.1907 7.53422 17.71 7.50018 16.1926C7.46615 14.6751 7.83899 13.1761 8.57999 11.8514C9.32098 10.5267 10.4031 9.42455 11.714 8.65936C13.0249 7.89418 14.5167 7.49389 16.0346 7.50007C17.5524 7.50625 19.0409 7.91867 20.3456 8.6945C21.6502 9.47033 22.7233 10.5813 23.4535 11.912C24.1837 13.2427 24.5443 14.7446 24.4979 16.2617Z" fill="#1C1C1C" fill-opacity="0.8"/>
+                      <rect x="0.6" y="0.6" width="30.8" height="30.8" rx="15.4" stroke="#1C1C1C" stroke-opacity="0.2" stroke-width="1.2"/>
+                    </svg>
+                  </a>
+                  <a href="javascript:void(0);" onclick="Copy();">
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.6299 16.5187L21.1852 14.9634C22.3306 13.8181 22.3306 11.9607 21.1852 10.8147C20.0399 9.66942 18.1826 9.66942 17.0366 10.8147L15.4812 12.3701M13.9266 18.0734L18.0732 13.9267M12.3699 15.4814L10.8146 17.0367C9.66923 18.1821 9.66923 20.0394 10.8146 21.1854C11.9599 22.3307 13.8172 22.3307 14.9632 21.1854L16.5186 19.6301" stroke="#1C1C1C" stroke-opacity="0.8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <rect x="0.6" y="0.6" width="30.8" height="30.8" rx="15.4" stroke="#1C1C1C" stroke-opacity="0.2" stroke-width="1.2"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      <div class="absolute -right-14 hidden h-full basis-[100px] lg:mt-0 lg:block lg:px-10 top-0">
+        <div class="lg:sticky lg:top-[3rem]">
+          <h5 class="mb-4 font-heading text-xl font-semibold text-[#051122]">Share</h5>
+          <div class="flex gap-3">
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url }}{{ page.url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.5 16.0515C24.5 11.3277 20.6954 7.50018 16 7.50018C11.3046 7.50018 7.5 11.3277 7.5 16.0515C7.5 20.3194 10.6093 23.858 14.6706 24.5002V18.522H12.5091V16.0515H14.6706V14.1668C14.6706 12.023 15.9397 10.8403 17.8811 10.8403C18.811 10.8403 19.785 11.0079 19.785 11.0079V13.1098H18.7123C17.6583 13.1098 17.326 13.7674 17.326 14.4438V16.0481H19.6831L19.3057 18.5177H17.326V24.4925C21.3907 23.8537 24.5 20.3194 24.5 16.0515Z" fill="#1C1C1C" fill-opacity="0.8"/>
+                <rect x="0.6" y="0.6" width="30.8" height="30.8" rx="15.4" stroke="#1C1C1C" stroke-opacity="0.2" stroke-width="1.2"/>
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com/share?url={{ shop.url }}{{ page.url }}&text={{ page.title }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.8335 12.2606L22.6221 14.4646C22.1828 19.583 17.8626 23.559 12.7003 23.559C11.6385 23.559 10.7599 23.3906 10.0935 23.0611C9.55898 22.7902 9.33931 22.5046 9.28073 22.4167C9.23227 22.3431 9.20104 22.2595 9.18937 22.1722C9.1777 22.0848 9.1859 21.9959 9.21334 21.9122C9.24079 21.8284 9.28679 21.752 9.3479 21.6884C9.40901 21.6249 9.48367 21.576 9.56631 21.5454C9.58095 21.5381 11.309 20.879 12.4294 19.6123C11.7346 19.1176 11.1239 18.5143 10.6207 17.8256C9.61756 16.4637 8.55582 14.0985 9.19287 10.5691C9.21289 10.4642 9.26088 10.3666 9.33177 10.2867C9.40266 10.2068 9.49381 10.1475 9.5956 10.1151C9.69771 10.0817 9.80705 10.077 9.91166 10.1015C10.0163 10.1261 10.1121 10.1789 10.1887 10.2543C10.2107 10.2836 12.649 12.6853 15.6292 13.4615V13.0148C15.6321 12.5504 15.7264 12.091 15.9068 11.663C16.0872 11.235 16.3502 10.8468 16.6806 10.5204C17.0111 10.194 17.4026 9.93593 17.8328 9.76086C18.263 9.58579 18.7235 9.49717 19.1879 9.50007C19.7975 9.50876 20.3944 9.67521 20.9206 9.98318C21.4467 10.2912 21.8841 10.7302 22.1901 11.2574H24.4161C24.5317 11.2571 24.6449 11.291 24.7413 11.3548C24.8378 11.4187 24.9131 11.5096 24.958 11.6162C25.0002 11.7244 25.0109 11.8424 24.9888 11.9564C24.9668 12.0704 24.9129 12.1759 24.8335 12.2606Z" fill="#1C1C1C" fill-opacity="0.8"/>
+                <rect x="0.6" y="0.6" width="30.8" height="30.8" rx="15.4" stroke="#1C1C1C" stroke-opacity="0.2" stroke-width="1.2"/>
+              </svg>
+            </a>
+            <a href="http://pinterest.com/pin/create/button/?url={{ shop.url }}{{ page.url }}">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.4979 16.2617C24.3589 20.7171 20.7538 24.3467 16.2985 24.4939C15.5119 24.5238 14.725 24.444 13.9604 24.2568C13.8767 24.2337 13.8052 24.1791 13.761 24.1044C13.7168 24.0297 13.7033 23.9407 13.7234 23.8562L14.4509 20.9623C15.1135 21.3636 15.8755 21.5704 16.65 21.5591C19.6747 21.5591 22.1027 18.8205 21.8656 15.5587C21.653 12.6239 19.2496 10.2777 16.3066 10.1224C15.5086 10.0802 14.7104 10.201 13.9606 10.4773C13.2108 10.7536 12.5251 11.1798 11.9453 11.7297C11.3655 12.2797 10.9038 12.9419 10.5883 13.6761C10.2728 14.4103 10.11 15.201 10.11 16.0001C10.1112 16.7561 10.2555 17.505 10.5351 18.2074C10.6002 18.3689 10.7267 18.498 10.8869 18.5662C11.0472 18.6344 11.2279 18.6362 11.3894 18.5712C11.5509 18.5061 11.68 18.3796 11.7482 18.2194C11.8165 18.0591 11.8183 17.8784 11.7532 17.7169C11.5404 17.1947 11.4267 16.6375 11.418 16.0737C11.4083 14.8596 11.8812 13.6913 12.7329 12.8258C13.5845 11.9604 14.7451 11.4687 15.9592 11.459C17.1734 11.4492 18.3416 11.9222 19.2071 12.7738C20.0725 13.6254 20.5642 14.786 20.5739 16.0001C20.5739 18.3463 18.8163 20.2511 16.65 20.2511C15.7916 20.2511 15.1948 19.9486 14.7861 19.5971L15.9796 14.8475C16 14.7637 16.0037 14.6768 15.9905 14.5916C15.9773 14.5065 15.9475 14.4247 15.9027 14.3511C15.8579 14.2775 15.7991 14.2134 15.7295 14.1625C15.66 14.1116 15.5811 14.0749 15.4973 14.0545C15.4136 14.0341 15.3267 14.0304 15.2415 14.0436C15.1563 14.0568 15.0746 14.0867 15.0009 14.1314C14.8522 14.2219 14.7455 14.3677 14.7044 14.5368L12.5135 23.3167C12.5016 23.3645 12.4791 23.409 12.4477 23.4469C12.4162 23.4847 12.3766 23.515 12.3318 23.5355C12.287 23.5559 12.2382 23.566 12.1889 23.5649C12.1397 23.5638 12.0914 23.5516 12.0475 23.5292C10.7036 22.8236 9.57318 21.771 8.77353 20.4809C7.97389 19.1907 7.53422 17.71 7.50018 16.1926C7.46615 14.6751 7.83899 13.1761 8.57999 11.8514C9.32098 10.5267 10.4031 9.42455 11.714 8.65936C13.0249 7.89418 14.5167 7.49389 16.0346 7.50007C17.5524 7.50625 19.0409 7.91867 20.3456 8.6945C21.6502 9.47033 22.7233 10.5813 23.4535 11.912C24.1837 13.2427 24.5443 14.7446 24.4979 16.2617Z" fill="#1C1C1C" fill-opacity="0.8"/>
+                <rect x="0.6" y="0.6" width="30.8" height="30.8" rx="15.4" stroke="#1C1C1C" stroke-opacity="0.2" stroke-width="1.2"/>
+              </svg>
+            </a>
+            <a href="javascript:void(0);" onclick="Copy();">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.6299 16.5187L21.1852 14.9634C22.3306 13.8181 22.3306 11.9607 21.1852 10.8147C20.0399 9.66942 18.1826 9.66942 17.0366 10.8147L15.4812 12.3701M13.9266 18.0734L18.0732 13.9267M12.3699 15.4814L10.8146 17.0367C9.66923 18.1821 9.66923 20.0394 10.8146 21.1854C11.9599 22.3307 13.8172 22.3307 14.9632 21.1854L16.5186 19.6301" stroke="#1C1C1C" stroke-opacity="0.8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="0.6" y="0.6" width="30.8" height="30.8" rx="15.4" stroke="#1C1C1C" stroke-opacity="0.2" stroke-width="1.2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {% assign blog = blogs['all'].articles %}
+  {% assign ogTag = article.tags[0] %}
+  {% assign ogHandle = article.handle %}
+
+  {% if blog != blank %}
+    <div class="py-10 lg:py-12 lg:mt-10 bg-[#F6F8F9] border-b border-solid border-[#E9EBED]">
+        <div id="must-reads" class="page-width pr-0 lg:pr-[5rem]">
+          <div class="pb-1 lg:pb-3">
+              <h2 class="text-[28px] lg:text-4xl font-medium text-[#1C1C1C]">Related Posts</h2>
+          </div>
+          <div class="testnap_embla embla">
+            <div class="mb-2 lg:grid lg:gap-6 lg:mb-10 lg:grid-cols-4 embla__container">
+                {% assign check = 1 %}
+                {% for article in blog %}
+                    {% if check <= 4 %}
+                        {% if article.tags[0] == ogTag and article.handle != ogHandle %}
+                          <a
+                            href="{{ article.url }}"
+                            class="flex w-full flex-col md:gap-x-2 md:rounded-[2.4rem] embla__slide"
+                          >
+                            <img
+                              class="h-full max-h-[20rem] w-full rounded-[2rem] object-cover lg:max-h-[18rem]"
+                              src="{{ article.image |img_url: 'master' }}"
+                              alt="{{ article.title }}"
+                            >
+                            <div class="mt-5 w-full flex-col md:flex">
+                              <div class="mr-auto mb-3 flex w-fit items-center gap-2">
+                                <div class="flex items-center justify-center gap-x-2 rounded-[0.8rem]">
+                                  <span class="text-xs font-medium uppercase leading-[2rem] text-[#2951B8]">{{ article.tags[0] }}</span>
+                                  <div class="block h-[0.5rem] w-[0.5rem] rounded-full bg-[#CBCED1]"></div>
+                                  <p class="text-xs font-medium font-medium uppercase leading-[1.6rem] text-[#555E69]">
+                                    read {{ article.metafields.custom.minute_read.value | default: "5" }} min
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <h3 class="mb-3 text-xl font-medium leading-base tracking-[0.02rem] text-[#051122]">{{ article.title }}</h3>
+                            <p class="text-left text-sm font-medium leading-[1.6rem] text-[#555E69]">
+                              {{ article.published_at | date: "%d %B, %Y" }}
+                            </p>
+                          </a>
+                          
+                            {% assign check = check | plus: 1 %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="flex items-center justify-center gap-x-4 mt-8 lg:hidden">
+              <div class="embla__button--prev custom-btn-shadow flex h-[3.2rem] w-[3.2rem] -scale-100 transform cursor-pointer items-center justify-center rounded-full p-2">
+                {% render 'custom-icon-chevron-slider' %}
+              </div>
+              <div class="embla__dots w-fit"></div>
+              <script type="text/template" class="embla-dot-template">
+                <button class="embla__dot bg-[#E9EBED]" type="button"></button>
+              </script>
+              <div class="embla__button--next custom-btn-shadow flex h-[3.2rem] w-[3.2rem] cursor-pointer items-center justify-center rounded-full p-2">
+                {% render 'custom-icon-chevron-slider' %}
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  {% endif %}
+
+  <script defer>
+      document.addEventListener('DOMContentLoaded', function () {
+
+      function Copy() {
+          let url = document.location.href
+
+          navigator.clipboard.writeText(url).then(function() {
+              console.log('Copied!');
+          }, function() {
+              console.log('Copy error')
+            });
+        }
+    });
+  </script>
+
+  <script>
+    (() => {
+      const emblaNode = document.querySelector(".testnap_embla.embla");
+      const prevBtn = emblaNode.querySelector(".embla__button--prev");
+      const nextBtn = emblaNode.querySelector(".embla__button--next");
+      const dotsNode = emblaNode.querySelector(".embla__dots");
+  
+      const embla = EmblaCarousel(emblaNode, {loop: false});
+  
+      const dotsArray = generateDotBtns(dotsNode, embla, emblaNode);
+      const disablePrevAndNextBtns = disablePrevNextBtns(prevBtn, nextBtn, embla);
+      const setSelectedDotBtn = selectDotBtn(dotsArray, embla);
+  
+      setupPrevNextBtns(prevBtn, nextBtn, embla);
+      setupDotBtns(dotsArray, embla);
+  
+      embla.on("select", setSelectedDotBtn);
+      embla.on("init", setSelectedDotBtn);
+      embla.on("select", disablePrevAndNextBtns);
+      embla.on("init", disablePrevAndNextBtns);
+    })();
+  </script>
+  
+
+  {% schema %}
+  {
+    "name": "Custom Main Article",
+    "class": "custom-main-article",
+    "tag": "section",
+    "settings": []
+  }
+  {% endschema %}
+</div>
