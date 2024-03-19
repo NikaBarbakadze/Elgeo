@@ -834,6 +834,10 @@ video {
   margin-right: 1rem;
 }
 
+.mt-14 {
+  margin-top: 56px;
+}
+
 .\!block {
   display: block !important;
 }
@@ -886,6 +890,10 @@ video {
   aspect-ratio: 1 / 1;
 }
 
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
 .h-4 {
   height: 16px;
 }
@@ -901,6 +909,10 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.h-\[165px\] {
+  height: 165px;
 }
 
 .max-h-3 {
@@ -923,12 +935,28 @@ video {
   max-height: 120px;
 }
 
+.max-h-\[165px\] {
+  max-height: 165px;
+}
+
+.max-h-\[400px\] {
+  max-height: 400px;
+}
+
 .min-h-\[56px\] {
   min-height: 56px;
 }
 
 .min-h-\[86px\] {
   min-height: 86px;
+}
+
+.min-h-\[104px\] {
+  min-height: 104px;
+}
+
+.min-h-\[165px\] {
+  min-height: 165px;
 }
 
 .w-4 {
@@ -1028,6 +1056,14 @@ video {
   flex-basis: 50%;
 }
 
+.basis-\[40\%\] {
+  flex-basis: 40%;
+}
+
+.basis-\[60\%\] {
+  flex-basis: 60%;
+}
+
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1070,6 +1106,10 @@ video {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -1251,6 +1291,10 @@ video {
   border-radius: 50%;
 }
 
+.rounded-\[12\[x\]\] {
+  border-radius: 12[x];
+}
+
 .rounded-b-lg {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -1329,6 +1373,16 @@ video {
 .border-\[\#ececec\] {
   --tw-border-opacity: 1;
   border-color: rgb(236 236 236 / var(--tw-border-opacity));
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.border-\[\#CFCFCF\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(207 207 207 / var(--tw-border-opacity));
 }
 
 .\!bg-transparent {
@@ -1432,6 +1486,10 @@ video {
 
 .p-8 {
   padding: 32px;
+}
+
+.p-3 {
+  padding: 12px;
 }
 
 .px-0 {
@@ -1589,6 +1647,11 @@ video {
   padding-bottom: 40px;
 }
 
+.py-12 {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -1651,6 +1714,10 @@ video {
 
 .pb-\[20rem\] {
   padding-bottom: 20rem;
+}
+
+.pt-5 {
+  padding-top: 20px;
 }
 
 .text-left {
@@ -2986,6 +3053,14 @@ cart-remove-button .button{
     margin-top: 8px;
   }
 
+  .lg\:mb-6 {
+    margin-bottom: 24px;
+  }
+
+  .lg\:mt-14 {
+    margin-top: 56px;
+  }
+
   .lg\:\!block {
     display: block !important;
   }
@@ -3112,6 +3187,10 @@ cart-remove-button .button{
 
   .lg\:gap-12 {
     gap: 48px;
+  }
+
+  .lg\:gap-8 {
+    gap: 32px;
   }
 
   .lg\:border {

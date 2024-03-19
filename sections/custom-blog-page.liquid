@@ -1,0 +1,53 @@
+<div class="page-width py-8 lg:py-12">
+  <h1 class="text-3xl lg:text-4xl text-black text-center mb-8 lg:mb-12 font-bold">Blog</h1>
+  <div class="flex flex-col lg:flex-row gap-4 lg:gap-8">
+    <div class="bg-white rounded-[12px] basis-[60%]">
+      <a class="block p-5" href="{{ blog.articles[0].url }}">
+        <div>
+          <img class="rounded-[12px] max-h-[400px]" src="{{ blog.articles[0].image | img_url: "master" }}" alt="">
+        </div>
+        <div class="mt-5">
+          <h3 class="text-base text-black font-bold mb-2">{{ blog.articles[0].title }}</h3>
+          <p class="text-black font-medium text-sm mb-2">{{ blog.articles[0].excerpt }}</p>
+          <p class="text-[#787878] text-xs">{{ blog.articles[0].published_at | date: "%d %B %Y" }}</p>
+        </div>
+      </a>
+    </div>
+    <div class="basis-[40%] bg-white rounded-[12px] p-5">
+      <h3 class="text-2xl text-black font-bold mb-2 lg:mb-4">Most Popular Blogs</h3>
+      <ul class="flex flex-col">
+        {% for article in blog.articles offset: 1 limit: 3 %}
+          <li>
+            <a class="flex py-5 gap-5 {% unless forloop.last %} border-b border-solid border-[#CFCFCF] {% endunless %}" href="{{ article.url }}">
+              <div class="basis-[30%]">
+                <img class="min-h-[104px] rounded-[10px] aspect-video object-cover" src="{{ article.image | img_url: "master" }}" alt="">
+              </div>
+              <div class="basis-[70%]">
+                <h3 class="text-base text-black font-bold mb-2">{{ article.title }}</h3>
+                <p class="text-black font-medium text-sm">{{ article.excerpt | strip_html | truncate: 120 }}</p>
+              </div>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="grid grid-cols-2 lg:grid-cols-4 mt-8 lg:mt-14 gap-3 lg:gap-7">
+    {% for article in blog.articles offset: 4 %}
+      <div>
+        <div class="bg-white rounded-[12px] basis-[60%]">
+          <a class="block p-3" href="{{ article.url }}">
+            <div>
+              <img class="rounded-[12px] h-[165px] w-full object-cover" src="{{ article.image | img_url: "master" }}" alt="">
+            </div>
+            <div class="mt-5">
+              <h3 class="text-base text-black font-bold mb-2">{{ article.title }}</h3>
+              <p class="text-black font-medium text-sm mb-4">{{ article.excerpt | strip_html | truncate: 120 }}</p>
+              <p class="text-[#787878] text-xs">{{ article.published_at | date: "%d %B %Y" }}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
