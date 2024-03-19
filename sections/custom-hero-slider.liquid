@@ -40,11 +40,11 @@
         {% for slide in slides %}
           <div class="embla__slide embla__slide_bg">
             <img class="embla__slide__img" src="{{ slide.settings.background_image | img_url: "master" }}">
-            <div class="relative z-[2] max-w-[100%] px-4 text-center pb-[20rem] lg:max-w-[50%] lg:pl-[11.5rem] lg:pb-[8rem] 3xl:pl-[32rem] hero-thing">
+            <div class="relative z-[2] max-w-[100%] px-4 text-center lg:text-start pb-[20rem] lg:max-w-[50%] lg:pl-[11.5rem] lg:pb-[8rem] 3xl:pl-[32rem] hero-thing">
               <p class="font-heading text-[24px] font-bold text-white lg:text-[36px]">
                 {{ slide.settings.title }}
               </p>
-              <p class="font-heading font-medium my-7 text-white text-base lg:font-semibold">
+              <p class="font-heading font-medium my-7 text-white text-base">
                 {{ slide.settings.paragraph }}
               </p>
               <div class="mt-4 lg:mt-8">
