@@ -1,0 +1,13 @@
+{
+  "sections":{
+    "about-page": {
+      "type": "custom-about-page",
+      "settings": {
+        "section_image": "shopify:\/\/shop_images\/Rectangle_7102.png"
+      }
+    }
+  },
+  "order":[
+     "about-page"
+  ]
+}

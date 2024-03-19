@@ -1,0 +1,93 @@
+<div class="page-width py-8 lg:py-20 mb-4">
+  <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+    <div class="flex-1">
+      <h1 class="text-2xl lg:text-4xl text-center text-black font-bold mb-6 lg:mb-9 lg:hidden">{{ section.settings.section_title }}</h1>
+      <img class="rounded-[12px]" src="{{ section.settings.section_image | img_url: 'master' }}" alt="{{ section.settings.section_title }}">
+      </div>
+      <div class="flex-1">
+      <p class="text-2xl lg:text-4xl text-center text-black font-bold mb-6 lg:mb-9 hidden lg:!block">{{ section.settings.section_title }}</p>
+      <div class="text-black font-normal text-base">{{ section.settings.section_description }}</div>
+    </div>
+    </div>
+    <div class="bg-white py-8 lg:py-14 px-7 lg:px-11 mt-10 lg:mt-20 rounded-[12px] flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
+      <div class="basis-[30%] text-center lg:text-start">
+      <h2 class="text-2xl lg:text-xl font-bold text-black mb-2.5">{{ section.settings.marketplace_title }}</h2>
+      <p class="text-base lg:text-xl font-medium text-[#787878]">{{ section.settings.marketplace_description }}</p>
+    </div>
+    <div class="basis-[70%]">
+      <ul class="grid gap-9 grid-cols-2 lg:grid-cols-4 items-center">
+        <li class="">
+          <a target="_blank" href="https://www.amazon.com/sp?_encoding=UTF8&asin=B01CL9AY9O&isAmazonFulfilled=0&isCBA=&marketplaceID=ATVPDKIKX0DER&orderID=&seller=A1242J5CN0KO3U&tab=&vasStoreID=">
+            <img src="https://cdn.shopify.com/s/files/1/0505/7167/3763/files/about-amazon.png?v=1639691786" alt="">
+          </a>
+        </li>
+        <li class="">
+          <a target="_blank" href="http://www.sears.com/seller/16742">
+            <img src="https://cdn.shopify.com/s/files/1/0505/7167/3763/files/about-sears.png?v=1639691786" alt="">
+          </a>
+        </li>
+        <li class="">
+          <a target="_blank" href="https://www.ebay.com/fdbk/feedback_profile/elgeocorp">
+            <img src="https://cdn.shopify.com/s/files/1/0505/7167/3763/files/about-ebay.png?v=1639691786" alt="">
+          </a>
+        </li>
+        <li class="">
+          <a target="_blank" href="https://www.newegg.com/Seller-Store/eLGeo/about">
+            <img src="https://cdn.shopify.com/s/files/1/0505/7167/3763/files/about-newegg.png?v=1639691786" alt="">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About eLgeo",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "About eLgeo"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_image",
+      "label": "Section Image"
+    },
+    {
+      "type": "textarea",
+      "id": "section_description",
+      "label": "Section Description",
+      "default": "Elgeo is a specialty e-commerce retailer, in operation since 2003. Originally founded to serve the electronics industry, we carry some of the world's biggest brands (Sony, Panasonic, Samsung, Canon, Nikon, Motorola, Apple), and have since expanded to include partnerships in beauty, household goods, toys, and baby products. Our customer service team is dedicated to providing an optimal online shopping experience: a wide selection of the best products at competitive prices, easy, pleasant transactions, and fast (mostly next day) shipping. By choosing us, you choose professionalism, honesty and clarity."
+    },
+    {
+      "type": "header",
+      "content": "Marketplace Settings"
+    },
+    {
+      "type": "text",
+      "id": "marketplace_title",
+      "label": "Marketplace Title",
+      "default": "We also sell all major marketplaces"
+    },
+    {
+      "type": "text",
+      "id": "marketplace_description",
+      "label": "Marketplace Description",
+      "default": "Please click image to see our feedback at"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Page",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
