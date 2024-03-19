@@ -1,5 +1,5 @@
 {
-  "sections":{
+  "sections": {
     "hero": {
       "type": "custom-hero-slider",
       "blocks": {
@@ -8,7 +8,7 @@
           "settings": {
             "title": "Pick up where you left off",
             "paragraph": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
-            "background_image": "shopify:\/\/shop_images\/Group_48096014_1.png?v=1710215199.jpg",
+            "background_image": "shopify:\/\/shop_images\/Group_48096014_1.png",
             "button_url": "shopify:\/\/collections\/all",
             "button_text": "Shop Now"
           }
@@ -18,7 +18,7 @@
           "settings": {
             "title": "Pick up where you left off",
             "paragraph": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
-            "background_image": "shopify:\/\/shop_images\/Group_48096014_1.png?v=1710215199.jpg",
+            "background_image": "shopify:\/\/shop_images\/Group_48096014_1.png",
             "button_url": "shopify:\/\/collections\/all",
             "button_text": "Shop Now"
           }
@@ -98,74 +98,73 @@
         "color_bg": "#f5f5f5"
       }
     },
-    "reviews-slider": {
-      "type": "custom-reviews-slider",
+    "categories-list": {
+      "type": "custom-popular-categories",
       "blocks": {
-        "card_AeErMy": {
-          "type": "card",
+        "product_category_UaKC9T": {
+          "type": "product_category",
           "settings": {
-            "name": "ANDREW. B",
-            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1.png?v=1710200533",
-            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
-            "score": 5.0
+            "image": "shopify:\/\/shop_images\/Group_48096032.png",
+            "title": "Iphones",
+            "subtitle": "",
+            "category_url": "shopify:\/\/collections\/test2"
           }
         },
-        "card_Y4RDKb": {
-          "type": "card",
+        "product_category_Brc4Vc": {
+          "type": "product_category",
           "settings": {
-            "name": "MARTHA.G",
-            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_1.png?v=1710200534",
-            "review": "This was an excellent purchase. I was worried about buying refurbished but have been pleasantly surprised. I got the pink iphone 13 for my daughter for her bday and you would barely know that it was used.",
-            "score": 4.9
+            "image": "shopify:\/\/shop_images\/Group_48096031.png",
+            "title": "Ipads",
+            "subtitle": "",
+            "category_url": "shopify:\/\/collections\/ipad"
           }
         },
-        "card_apdLcK": {
-          "type": "card",
+        "product_category_rM6q4U": {
+          "type": "product_category",
           "settings": {
-            "name": "GEORGE.K",
-            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_2.png?v=1710200533",
-            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
-            "score": 4.9
+            "image": "shopify:\/\/shop_images\/Group_48096030.png",
+            "title": "Apple Watch",
+            "subtitle": "",
+            "category_url": "shopify:\/\/collections\/apple-watch"
           }
         },
-        "card_fhHYnr": {
-          "type": "card",
+        "product_category_PtFt6e": {
+          "type": "product_category",
           "settings": {
-            "name": "ANDREW. B",
-            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1.png?v=1710200533",
-            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
-            "score": 5.0
+            "image": "shopify:\/\/shop_images\/Group_48096029.png",
+            "title": "Galaxy Phones",
+            "subtitle": "",
+            "category_url": "shopify:\/\/collections\/galaxy-phone"
           }
         },
-        "card_YAiVtT": {
-          "type": "card",
+        "product_category_d9ejJ9": {
+          "type": "product_category",
           "settings": {
-            "name": "MARTHA.G",
-            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_1.png?v=1710200534",
-            "review": "This was an excellent purchase. I was worried about buying refurbished but have been pleasantly surprised. I got the pink iphone 13 for my daughter for her bday and you would barely know that it was used.",
-            "score": 4.9
+            "image": "shopify:\/\/shop_images\/Group_48096028.png",
+            "title": "Galaxy Tabs",
+            "subtitle": "",
+            "category_url": "shopify:\/\/collections\/galaxy-tabs"
           }
         },
-        "card_Ai7aRc": {
-          "type": "card",
+        "product_category_WEaYGn": {
+          "type": "product_category",
           "settings": {
-            "name": "GEORGE.K",
-            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_2.png?v=1710200533",
-            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
-            "score": 4.9
+            "image": "shopify:\/\/shop_images\/Group_48096027.png",
+            "title": "Galaxy Watch",
+            "subtitle": "",
+            "category_url": "shopify:\/\/collections\/galaxy-watch"
           }
         }
       },
       "block_order": [
-        "card_AeErMy",
-        "card_Y4RDKb",
-        "card_apdLcK",
-        "card_fhHYnr",
-        "card_YAiVtT",
-        "card_Ai7aRc"
+        "product_category_UaKC9T",
+        "product_category_Brc4Vc",
+        "product_category_rM6q4U",
+        "product_category_PtFt6e",
+        "product_category_d9ejJ9",
+        "product_category_WEaYGn"
       ],
       "settings": {
-        "color_bg": "#eeeeee"
       }
     },
     "product-slider-2": {
@@ -234,12 +233,83 @@
         "section_title": "You may also like",
         "color_bg": "#f5f5f5"
       }
+    },
+    "reviews-slider": {
+      "type": "custom-homepage-reviews",
+      "blocks": {
+        "card_AeErMy": {
+          "type": "card",
+          "settings": {
+            "name": "ANDREW. B",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1.png",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 5
+          }
+        },
+        "card_Y4RDKb": {
+          "type": "card",
+          "settings": {
+            "name": "MARTHA.G",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_1.png",
+            "review": "This was an excellent purchase. I was worried about buying refurbished but have been pleasantly surprised. I got the pink iphone 13 for my daughter for her bday and you would barely know that it was used.",
+            "score": 4.9
+          }
+        },
+        "card_apdLcK": {
+          "type": "card",
+          "settings": {
+            "name": "GEORGE.K",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_2.png",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 4.9
+          }
+        },
+        "card_fhHYnr": {
+          "type": "card",
+          "settings": {
+            "name": "ANDREW. B",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1.png",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 5
+          }
+        },
+        "card_YAiVtT": {
+          "type": "card",
+          "settings": {
+            "name": "MARTHA.G",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_1.png",
+            "review": "This was an excellent purchase. I was worried about buying refurbished but have been pleasantly surprised. I got the pink iphone 13 for my daughter for her bday and you would barely know that it was used.",
+            "score": 4.9
+          }
+        },
+        "card_Ai7aRc": {
+          "type": "card",
+          "settings": {
+            "name": "GEORGE.K",
+            "customer_picture": "shopify:\/\/shop_images\/Ellipse_1_2.png",
+            "review": "Purchased two IPhone 13’s in “good” refurbished condition. They arrived as promised. Upon inspection there were no cosmetic marks or flaws and appeared brand new. We took them to the local cell provider and had everything transferred. That took some time but was easy.",
+            "score": 4.9
+          }
+        }
+      },
+      "block_order": [
+        "card_AeErMy",
+        "card_Y4RDKb",
+        "card_apdLcK",
+        "card_fhHYnr",
+        "card_YAiVtT",
+        "card_Ai7aRc"
+      ],
+      "settings": {
+        "color_bg": "#eeeeee"
+      }
     }
   },
-  "order":[
+  "order": [
     "hero",
     "product-slider",
-    "reviews-slider",
-    "product-slider-2"
+    "categories-list",
+    "product-slider-2",
+    "reviews-slider"
   ]
 }

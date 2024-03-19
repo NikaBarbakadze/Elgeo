@@ -18,7 +18,7 @@
 
   @media screen and (max-width: 768px) {
     .hero-embla .embla__slide {
-      min-height: 400px;
+      min-height: 500px;
     }
     .hero-embla img {
       height: 100%;
@@ -40,13 +40,8 @@
         {% for slide in slides %}
           <div class="embla__slide embla__slide_bg">
             <img class="embla__slide__img" src="{{ slide.settings.background_image | img_url: "master" }}">
-            <div class="relative z-[2] max-w-[100%] pl-[1.6rem] pb-[7rem] lg:max-w-[50%] lg:pl-[11.5rem] lg:pb-[8rem] 3xl:pl-[32rem] hero-thing">
-              {% if slide.settings.sale_text != blank %}
-                <strong class="mb-4 inline-block rounded-full bg-[#DC2020] py-1 px-2 font-['Gibson'] text-xs font-medium text-white lg:mb-10 lg:py-1 lg:px-4 lg:text-[30px]">
-                  {{- slide.settings.sale_text | default: "Nectar Flash Sale" -}}
-                </strong>
-              {% endif %}
-              <p class="font-heading text-[32px] font-medium text-white lg:text-[36px] lg:font-semibold">
+            <div class="relative z-[2] max-w-[100%] px-4 text-center pb-[20rem] lg:max-w-[50%] lg:pl-[11.5rem] lg:pb-[8rem] 3xl:pl-[32rem] hero-thing">
+              <p class="font-heading text-[24px] font-bold text-white lg:text-[36px]">
                 {{ slide.settings.title }}
               </p>
               <p class="font-heading font-medium my-7 text-white text-base lg:font-semibold">
@@ -54,7 +49,7 @@
               </p>
               <div class="mt-4 lg:mt-8">
                 <a class="inline-flex items-center gap-3 rounded-full bg-white py-4 px-8" href="{{ slide.settings.button_url }}">
-                  <span class="text-base font-medium text-[#051122] md:font-bold">
+                  <span class="text-base text-[#051122] font-bold">
                     {{- slide.settings.button_text -}}
                   </span>
                 </a>
