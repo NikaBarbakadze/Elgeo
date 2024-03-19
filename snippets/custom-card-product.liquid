@@ -40,11 +40,11 @@
         <span class="text-xs text-[#7c7c7c]">Price</span>
         <div class="flex items-end gap-2">
           <div class="text-lg font-bold {% if sale %} text-black {% else %} text-black {% endif %}">
-            {{ product.price | money_without_currency }}₾
+            {{ product.price | money }}
           </div>
           {% if sale %}
           <div class="text-base text-[#8f8f8f] font-medium">
-            {{ product.compare_at_price | money_without_currency }}₾
+            {{ product.compare_at_price | money }}
           </div>
           {% endif %}
         </div>
